@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: srm-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: PORT
+        value: "3000"
+
+  - type: static
+    name: srm-frontend
+    # Because it's a pure static site, we just "publish" the frontend folder
+    buildCommand: "echo Skipping build"
+    publishPath: "frontend"

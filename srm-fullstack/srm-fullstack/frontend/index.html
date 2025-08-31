@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRMsolutions - Empowering Businesses with Software, AI & Digital Growth</title>
+    <meta name="description" content="Transform your business with innovative software development, AI solutions, digital marketing, and content creation services. Your trusted technology partner.">
+    <meta name="keywords" content="software development, AI solutions, digital marketing, web development, mobile apps, SEO, content creation">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'srm-blue': '#1e40af',
+                        'srm-dark': '#0f172a',
+                        'srm-light': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        
+        /* Typing Animation */
+        .typing-text { border-right: 2px solid #3b82f6; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #3b82f6; } }
+        
+        /* Counter Animation */
+        .counter { font-variant-numeric: tabular-nums; }
+        
+        /* Modal Styles */
+        .modal-overlay { backdrop-filter: blur(10px); }
+        .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        
+        /* Testimonial Slider */
+        .testimonial-slider { scroll-behavior: smooth; }
+        
+        /* Back to Top Button */
+        .back-to-top { transition: all 0.3s ease; }
+        .back-to-top.hidden { opacity: 0; pointer-events: none; }
+        
+        /* Language Dropdown */
+        .language-dropdown { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .language-dropdown.open { max-height: 200px; }
+        
+        /* WhatsApp Chat Widget */
+        .whatsapp-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .whatsapp-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-content.open { max-height: 200px; }
+        
+        /* Process Steps */
+        .process-step { position: relative; }
+        .process-step::after { content: ''; position: absolute; top: 50%; right: -20px; width: 40px; height: 2px; background: #e5e7eb; }
+        .process-step:last-child::after { display: none; }
+        
+        /* Mobile Menu */
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.open { transform: translateX(0); }
+        
+        /* Newsletter Animation */
+        .newsletter-success { transform: translateY(20px); opacity: 0; transition: all 0.3s ease; }
+        .newsletter-success.show { transform: translateY(0); opacity: 1; }
+        
+        /* Greeting Animation */
+        .greeting-text { transition: opacity 0.25s ease-in-out; }
+        
+        /* Time Display */
+        #currentTime { font-family: 'Courier New', monospace; }
+        
+        /* Viral Animations */
+        .viral-glow { 
+            animation: viralGlow 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(255, 0, 150, 0.5);
+        }
+        
+        @keyframes viralGlow {
+            from { box-shadow: 0 0 20px rgba(255, 0, 150, 0.5); }
+            to { box-shadow: 0 0 30px rgba(255, 0, 150, 0.8), 0 0 40px rgba(255, 0, 150, 0.3); }
+        }
+        
+        .shake-animation {
+            animation: shake 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .fire-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fire-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,69,0,0.3) 0%, transparent 70%);
+            animation: fireFlicker 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fireFlicker {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            100% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Language & Accessibility Bar -->
+    <div class="bg-srm-dark text-white py-2 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span data-translate="accessibility">🌐 Accessible Website</span>
+                <span>|</span>
+                <span data-translate="support">📞 24/7 Support</span>
+            </div>
+            <div class="relative">
+                <button onclick="toggleLanguageDropdown()" class="flex items-center space-x-2 hover:text-blue-300 transition-colors">
+                    <i class="fas fa-globe"></i>
+                    <span id="currentLanguage">English</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="languageDropdown" class="language-dropdown absolute right-0 top-full mt-1 bg-white text-gray-800 rounded-lg shadow-lg min-w-40 border z-50">
+                    <button onclick="changeLanguage('en')" class="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg">🇺🇸 English</button>
+                    <button onclick="changeLanguage('hi')" class="block w-full text-left px-4 py-2 hover:bg-gray-100">🇮🇳 हिंदी</button>
+                    <button onclick="changeLanguage('te')" class="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-b-lg">🇮🇳 తెలుగు</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-srm-blue to-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">S</span>
+                    </div>
+                    <span class="ml-4 text-2xl font-bold text-srm-dark">SRMsolutions</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-home">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-about">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-services">Services</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-portfolio">Portfolio</a>
+                    <a href="#process" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-process">Process</a>
+                    <a href="#blog" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-blog">Blog</a>
+                    <a href="#contact" class="text-gray-700 hover:text-srm-blue transition-colors font-medium" data-translate="nav-contact">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-3">
+                    <button onclick="openEmployeeLogin()" class="hidden md:flex items-center space-x-1.5 text-gray-600 hover:text-srm-blue transition-colors group px-3 py-1.5 rounded-md hover:bg-gray-50">
+                        <i class="fas fa-user group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm font-medium" data-translate="employee">Employee</span>
+                    </button>
+                    <button onclick="scrollToContact()" class="bg-srm-blue text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold text-sm shadow-sm hover:shadow-md transform hover:-translate-y-0.5" data-translate="get-started">
+                        Get Started
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden text-gray-700 hover:text-srm-blue">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-bold text-srm-dark">Menu</span>
+                    <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a href="#home" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-home">Home</a>
+                    <a href="#about" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-about">About</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-services">Services</a>
+                    <a href="#portfolio" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-portfolio">Portfolio</a>
+                    <a href="#process" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-process">Process</a>
+                    <a href="#blog" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-blog">Blog</a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="block py-3 text-gray-700 hover:text-srm-blue transition-colors font-medium border-b border-gray-100" data-translate="nav-contact">Contact</a>
+                </nav>
+                <div class="mt-8 space-y-3">
+                    <button onclick="openEmployeeLogin(); toggleMobileMenu();" class="w-full flex items-center justify-center space-x-2 text-gray-600 hover:text-srm-blue transition-colors py-3 border border-gray-200 rounded-lg">
+                        <i class="fas fa-user"></i>
+                        <span data-translate="employee">Employee Portal</span>
+                    </button>
+                    <button onclick="scrollToContact(); toggleMobileMenu();" class="w-full bg-srm-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors" data-translate="get-started">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Employee Login Modal -->
+    <div id="employeeLoginModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-overlay absolute inset-0 bg-black/50" onclick="closeEmployeeLogin()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative z-10 w-full max-w-md">
+                <button onclick="closeEmployeeLogin()" class="absolute -top-3 -right-3 w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition-colors z-10">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+
+                <div class="gradient-bg rounded-3xl p-8 shadow-2xl">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-lg mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-srm-blue to-blue-600 rounded-xl flex items-center justify-center">
+                                <span class="text-white font-bold text-2xl">S</span>
+                            </div>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-2" data-translate="employee-portal">Employee Portal</h2>
+                        <p class="text-blue-100" data-translate="team-access">SRMsolutions Team Access Only</p>
+                        <div class="mt-2 inline-flex items-center px-3 py-1 bg-red-500/20 border border-red-400/30 rounded-full">
+                            <i class="fas fa-exclamation-triangle text-red-300 mr-2"></i>
+                            <span class="text-red-200 text-sm font-medium" data-translate="authorized-only">Authorized Personnel Only</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect rounded-2xl p-6 border border-white/20">
+                        <form id="employeeLoginForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2" data-translate="employee-id">Employee ID</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-blue-200"></i>
+                                    </div>
+                                    <input type="text" id="employeeId" class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm" placeholder="EMP001" required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2" data-translate="work-email">Work Email</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-blue-200"></i>
+                                    </div>
+                                    <input type="email" id="workEmail" class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm" placeholder="name@srmsolutions.com" required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2" data-translate="password">Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-blue-200"></i>
+                                    </div>
+                                    <input type="password" id="password" class="w-full pl-10 pr-12 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm" placeholder="Enter your password" required>
+                                    <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                        <i id="eyeIcon" class="fas fa-eye text-blue-200 hover:text-white transition-colors"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2" data-translate="department">Department</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-building text-blue-200"></i>
+                                    </div>
+                                    <select id="department" class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm appearance-none" required>
+                                        <option value="" class="bg-srm-dark text-white" data-translate="select-department">Select Department</option>
+                                        <option value="development" class="bg-srm-dark text-white" data-translate="software-dev">Software Development</option>
+                                        <option value="marketing" class="bg-srm-dark text-white" data-translate="digital-marketing">Digital Marketing</option>
+                                        <option value="content" class="bg-srm-dark text-white" data-translate="content-creation">Content Creation</option>
+                                        <option value="ai" class="bg-srm-dark text-white" data-translate="ai-solutions">AI Solutions</option>
+                                        <option value="management" class="bg-srm-dark text-white" data-translate="management">Management</option>
+                                        <option value="hr" class="bg-srm-dark text-white" data-translate="hr">Human Resources</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-chevron-down text-blue-200"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-white text-srm-blue py-4 px-6 rounded-xl font-bold text-lg hover:bg-blue-50 transform hover:scale-105 transition-all duration-200 shadow-lg mt-6 border border-blue-100" data-translate="access-portal">
+                                Access Employee Portal
+                            </button>
+
+                            <div class="text-center mt-4">
+                                <a href="#" onclick="contactIT()" class="text-sm text-blue-200 hover:text-white transition-colors" data-translate="need-help">Need help? Contact IT Support</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Hero Section with Typing Effect -->
+    <section id="home" class="gradient-bg text-white pt-20 pb-16 min-h-screen flex items-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full animate-pulse"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 rounded-full animate-pulse delay-1000"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="text-center lg:text-left mb-4">
+                        <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium mb-6 animate-pulse">
+                            <span>🔥 VIRAL: 500+ businesses transformed • Featured in Tech News</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-blue-100 text-sm font-medium mb-2">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span id="currentTime"></span>
+                        </div>
+                        <h1 class="title text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight transition-all duration-500">
+                            <span class="greeting-text">Good Morning!</span><br>
+                            <span data-translate="hero-title-2">💻 Software, 🤖 AI & 📈 Digital Growth</span>
+                        </h1>
+                    </div>
+                    <p class="text-xl text-blue-100 leading-relaxed" data-translate="hero-description">
+                        From innovative software solutions to AI-powered marketing strategies, SRMsolutions transforms your ideas into digital success stories.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <button onclick="scrollToContact()" class="group relative bg-gradient-to-r from-white to-blue-50 text-srm-blue px-10 py-5 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center space-x-3 border border-blue-100">
+                            <i class="fas fa-rocket group-hover:rotate-12 transition-transform duration-300"></i>
+                            <span data-translate="get-started-today">Get Started Today</span>
+                        </button>
+                        <button onclick="scrollToServices()" class="group relative bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-srm-blue transition-all duration-300 flex items-center justify-center space-x-2">
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                            <span data-translate="explore-services">Explore Services</span>
+                        </button>
+                    </div>
+                    
+                    <div class="text-center lg:text-left pt-4">
+                        <p class="text-blue-200 text-lg font-medium" data-translate="tagline">✅ Your Trusted Technology & Marketing Partner</p>
+                    </div>
+                </div>
+                
+                <div class="animate-float">
+                    <div class="relative">
+                        <div class="w-96 h-96 bg-blue-500/20 rounded-full absolute -top-10 -right-10"></div>
+                        <div class="w-80 h-80 bg-white/10 rounded-2xl backdrop-blur-sm p-8 relative">
+                            <svg viewBox="0 0 400 400" class="w-full h-full">
+                                <!-- Background circles -->
+                                <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.1)" />
+                                <circle cx="200" cy="200" r="120" fill="rgba(255,255,255,0.05)" />
+                                
+                                <!-- Tech icons with animations -->
+                                <g transform="translate(120, 120)" class="animate-pulse">
+                                    <!-- Laptop -->
+                                    <rect x="0" y="20" width="60" height="40" rx="4" fill="rgba(255,255,255,0.8)" />
+                                    <rect x="5" y="25" width="50" height="30" rx="2" fill="#1e40af" />
+                                    <rect x="25" y="60" width="10" height="8" fill="rgba(255,255,255,0.8)" />
+                                </g>
+                                
+                                <g transform="translate(220, 120)" class="animate-bounce">
+                                    <!-- Rocket -->
+                                    <path d="M30 0 L40 20 L35 25 L30 20 L25 25 L20 20 Z" fill="rgba(255,255,255,0.8)" />
+                                    <circle cx="30" cy="15" r="3" fill="#1e40af" />
+                                    <path d="M25 25 L20 35 L25 30 Z" fill="#f59e0b" />
+                                    <path d="M35 25 L40 35 L35 30 Z" fill="#f59e0b" />
+                                </g>
+                                
+                                <g transform="translate(120, 220)" class="animate-pulse delay-500">
+                                    <!-- AI Brain -->
+                                    <circle cx="30" cy="20" r="18" fill="rgba(255,255,255,0.8)" />
+                                    <path d="M20 15 Q30 10 40 15 Q35 20 30 20 Q25 20 20 15" fill="#1e40af" />
+                                    <circle cx="25" cy="18" r="2" fill="#1e40af" />
+                                    <circle cx="35" cy="18" r="2" fill="#1e40af" />
+                                </g>
+                                
+                                <g transform="translate(220, 220)" class="animate-bounce delay-1000">
+                                    <!-- Growth Chart -->
+                                    <rect x="10" y="30" width="40" height="20" rx="2" fill="rgba(255,255,255,0.8)" />
+                                    <path d="M15 45 L25 35 L35 40 L45 25" stroke="#1e40af" stroke-width="2" fill="none" />
+                                    <circle cx="15" cy="45" r="2" fill="#1e40af" />
+                                    <circle cx="25" cy="35" r="2" fill="#1e40af" />
+                                    <circle cx="35" cy="40" r="2" fill="#1e40af" />
+                                    <circle cx="45" cy="25" r="2" fill="#1e40af" />
+                                </g>
+                                
+                                <!-- Connecting lines -->
+                                <path d="M150 150 Q200 180 250 150" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+                                <path d="M150 250 Q200 220 250 250" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder & Leadership Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full animate-bounce"></div>
+            <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white/5 rounded-full animate-pulse"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-bold mb-6 animate-pulse">
+                    <span>👑 MEET OUR FOUNDER & LEADER</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">The Visionary Behind SRMsolutions</h2>
+                <p class="text-xl text-blue-100">Transforming businesses through innovation and expertise</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto text-center">
+                <!-- Founder Profile -->
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-48 h-48 mx-auto bg-gradient-to-br from-white/20 to-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border-4 border-white/30 shadow-2xl">
+                            <div class="w-40 h-40 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center">
+                                <span class="text-6xl font-bold text-white">NS</span>
+                            </div>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center animate-pulse">
+                            <span class="text-2xl">💻</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-3xl font-bold mb-2">Naga Sairam</h3>
+                    <div class="inline-flex items-center px-4 py-2 bg-white/20 rounded-full mb-4">
+                        <span class="text-lg font-semibold">⚡ CEO & Founder</span>
+                    </div>
+                    
+                    <p class="text-lg text-blue-100 mb-6 leading-relaxed max-w-xl mx-auto">
+                        The technical genius and visionary leader behind SRMsolutions. With expertise in AI, software development, and digital transformation, Naga Sairam has built SRMsolutions as a trusted name in the industry, providing complete end-to-end solutions for businesses worldwide.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-code text-green-400 text-2xl mb-2"></i>
+                            <div class="font-semibold">Full-Stack Development</div>
+                            <div class="text-sm text-blue-200">Expert in modern technologies</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-brain text-purple-300 text-2xl mb-2"></i>
+                            <div class="font-semibold">AI & Digital Solutions</div>
+                            <div class="text-sm text-blue-200">Cutting-edge innovations</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-rocket text-yellow-400 text-2xl mb-2"></i>
+                            <div class="font-semibold">Business Leadership</div>
+                            <div class="text-sm text-blue-200">Strategic vision & execution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <button onclick="scrollToContact()" class="group bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center space-x-3 mx-auto">
+                    <i class="fas fa-handshake group-hover:rotate-12 transition-transform duration-300"></i>
+                    <span>Partner With Our Leadership</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section with Mission & Team -->
+    <section id="about" class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="about-title">About SRMsolutions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-translate="about-description">
+                    We are your trusted technology and marketing partner, specializing in transforming businesses through innovative software development, strategic digital marketing, compelling content creation, and cutting-edge AI solutions.
+                </p>
+            </div>
+            
+            <!-- Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-srm-blue rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-translate="our-mission">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed" data-translate="mission-text">
+                        To empower businesses worldwide with innovative technology solutions that drive growth, efficiency, and digital transformation. We believe in turning complex challenges into simple, elegant solutions.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-translate="our-vision">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed" data-translate="vision-text">
+                        To be the leading global technology partner that businesses trust for their digital transformation journey. We envision a future where technology seamlessly integrates with human creativity.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Core Values -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-srm-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-translate="innovation-driven">⚡ Innovation-Driven</h3>
+                    <p class="text-gray-600" data-translate="innovation-text">Cutting-edge solutions that keep you ahead of the competition</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-srm-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-translate="client-focused">Client-Focused</h3>
+                    <p class="text-gray-600" data-translate="client-text">Your success is our priority, every step of the way</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-srm-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-translate="results-oriented">Results-Oriented</h3>
+                    <p class="text-gray-600" data-translate="results-text">Measurable outcomes that drive real business growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="services-title">Our Services</h2>
+                <p class="text-xl text-gray-600" data-translate="services-subtitle">Four pillars of digital transformation</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
+                    <div class="w-16 h-16 bg-blue-100 group-hover:bg-blue-500 rounded-xl flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-laptop-code text-blue-500 group-hover:text-white text-2xl transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-srm-dark" data-translate="custom-software">💻 Custom Software Development</h3>
+                    <p class="text-gray-600 mb-6" data-translate="software-description">Scalable, secure, and innovative applications tailored to your business needs.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li data-translate="web-apps">• Web Applications</li>
+                        <li data-translate="mobile-apps">• Mobile Apps</li>
+                        <li data-translate="enterprise-solutions">• Enterprise Solutions</li>
+                        <li data-translate="api-development">• API Development</li>
+                    </ul>
+                    <button class="mt-6 text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="learn-more">Learn More →</button>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
+                    <div class="w-16 h-16 bg-green-100 group-hover:bg-green-500 rounded-xl flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-chart-line text-green-500 group-hover:text-white text-2xl transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-srm-dark" data-translate="digital-marketing">📈 Digital Marketing</h3>
+                    <p class="text-gray-600 mb-6" data-translate="marketing-description">SEO, social media, and paid campaigns to grow your brand and reach.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li data-translate="seo">• Search Engine Optimization</li>
+                        <li data-translate="social-media">• Social Media Marketing</li>
+                        <li data-translate="ppc-campaigns">• PPC Campaigns</li>
+                        <li data-translate="analytics">• Analytics & Reporting</li>
+                    </ul>
+                    <button class="mt-6 text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="learn-more">Learn More →</button>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
+                    <div class="w-16 h-16 bg-purple-100 group-hover:bg-purple-500 rounded-xl flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-pen-fancy text-purple-500 group-hover:text-white text-2xl transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-srm-dark" data-translate="content-creation">Content Creation</h3>
+                    <p class="text-gray-600 mb-6" data-translate="content-description">Engaging blogs, videos, and creative storytelling that resonates with your audience.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li data-translate="blog-writing">• Blog Writing</li>
+                        <li data-translate="video-production">• Video Production</li>
+                        <li data-translate="graphic-design">• Graphic Design</li>
+                        <li data-translate="brand-storytelling">• Brand Storytelling</li>
+                    </ul>
+                    <button class="mt-6 text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="learn-more">Learn More →</button>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
+                    <div class="w-16 h-16 bg-orange-100 group-hover:bg-orange-500 rounded-xl flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-robot text-orange-500 group-hover:text-white text-2xl transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-srm-dark" data-translate="ai-solutions">🤖 AI Solutions</h3>
+                    <p class="text-gray-600 mb-6" data-translate="ai-description">Smart automation and AI-driven strategies for business growth and efficiency.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li data-translate="process-automation">• Process Automation</li>
+                        <li data-translate="chatbots">• Chatbots & AI Assistants</li>
+                        <li data-translate="data-analytics">• Data Analytics</li>
+                        <li data-translate="machine-learning">• Machine Learning</li>
+                    </ul>
+                    <button class="mt-6 text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="learn-more">Learn More →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="portfolio-title">Portfolio & Case Studies</h2>
+                <p class="text-xl text-gray-600" data-translate="portfolio-subtitle">Successful projects that showcase our expertise</p>
+            </div>
+            
+            <!-- Portfolio Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterPortfolio('all')" class="portfolio-filter active px-6 py-2 rounded-full bg-srm-blue text-white font-medium transition-all duration-300" data-translate="all">All</button>
+                <button onclick="filterPortfolio('web')" class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-srm-blue hover:text-white transition-all duration-300" data-translate="web-apps">Web Apps</button>
+                <button onclick="filterPortfolio('mobile')" class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-srm-blue hover:text-white transition-all duration-300" data-translate="mobile-apps">Mobile Apps</button>
+                <button onclick="filterPortfolio('ai')" class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-srm-blue hover:text-white transition-all duration-300" data-translate="ai-solutions">AI Solutions</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg portfolio-item" data-category="web">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- Dashboard mockup -->
+                            <rect x="20" y="20" width="260" height="160" rx="8" fill="rgba(255,255,255,0.95)" />
+                            <rect x="30" y="30" width="240" height="30" rx="4" fill="#1e40af" />
+                            <rect x="40" y="35" width="60" height="20" rx="2" fill="rgba(255,255,255,0.8)" />
+                            
+                            <!-- Charts and data -->
+                            <rect x="40" y="80" width="80" height="60" rx="4" fill="#f3f4f6" />
+                            <rect x="140" y="80" width="80" height="60" rx="4" fill="#f3f4f6" />
+                            <rect x="240" y="80" width="20" height="60" rx="4" fill="#10b981" />
+                            
+                            <!-- Chart lines -->
+                            <path d="M50 120 L70 100 L90 110 L110 90" stroke="#1e40af" stroke-width="2" fill="none" />
+                            <circle cx="50" cy="120" r="3" fill="#1e40af" />
+                            <circle cx="70" cy="100" r="3" fill="#1e40af" />
+                            <circle cx="90" cy="110" r="3" fill="#1e40af" />
+                            <circle cx="110" cy="90" r="3" fill="#1e40af" />
+                            
+                            <!-- Pie chart -->
+                            <circle cx="180" cy="110" r="25" fill="#e5e7eb" />
+                            <path d="M180 85 A25 25 0 0 1 205 110 L180 110 Z" fill="#1e40af" />
+                            <path d="M205 110 A25 25 0 0 1 180 135 L180 110 Z" fill="#10b981" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-translate="enterprise-crm">Enterprise CRM System</h3>
+                        <p class="text-gray-600 mb-4" data-translate="crm-description">Custom CRM solution that increased client management efficiency by 300%</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <button onclick="openCaseStudy('crm')" class="text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="view-case-study">View Case Study →</button>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg portfolio-item" data-category="mobile">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- Phone mockup -->
+                            <rect x="110" y="20" width="80" height="160" rx="12" fill="rgba(255,255,255,0.95)" />
+                            <rect x="115" y="35" width="70" height="130" rx="4" fill="#000" />
+                            
+                            <!-- App interface -->
+                            <rect x="120" y="40" width="60" height="20" rx="2" fill="#10b981" />
+                            <rect x="125" y="43" width="20" height="14" rx="1" fill="white" />
+                            
+                            <!-- Product cards -->
+                            <rect x="125" y="70" width="25" height="25" rx="2" fill="#f3f4f6" />
+                            <rect x="155" y="70" width="25" height="25" rx="2" fill="#f3f4f6" />
+                            <rect x="125" y="100" width="25" height="25" rx="2" fill="#f3f4f6" />
+                            <rect x="155" y="100" width="25" height="25" rx="2" fill="#f3f4f6" />
+                            
+                            <!-- Shopping cart -->
+                            <circle cx="165" cy="140" r="8" fill="#10b981" />
+                            <path d="M160 140 L162 138 L168 144" stroke="white" stroke-width="2" fill="none" />
+                            
+                            <!-- Phone shadow -->
+                            <ellipse cx="150" cy="185" rx="25" ry="5" fill="rgba(0,0,0,0.2)" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-translate="ecommerce-app">E-commerce Mobile App</h3>
+                        <p class="text-gray-600 mb-4" data-translate="ecommerce-description">Mobile app that generated $2M+ in sales within the first year</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React Native</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Stripe</span>
+                        </div>
+                        <button onclick="openCaseStudy('ecommerce')" class="text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="view-case-study">View Case Study →</button>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg portfolio-item" data-category="ai">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- Chat interface -->
+                            <rect x="30" y="30" width="240" height="140" rx="8" fill="rgba(255,255,255,0.95)" />
+                            
+                            <!-- Header -->
+                            <rect x="40" y="40" width="220" height="25" rx="4" fill="#8b5cf6" />
+                            <circle cx="55" cy="52" r="6" fill="white" />
+                            <rect x="70" y="47" width="60" height="10" rx="2" fill="rgba(255,255,255,0.8)" />
+                            
+                            <!-- Chat bubbles -->
+                            <rect x="50" y="80" width="80" height="20" rx="10" fill="#e5e7eb" />
+                            <rect x="170" y="110" width="80" height="20" rx="10" fill="#8b5cf6" />
+                            <rect x="50" y="140" width="100" height="20" rx="10" fill="#e5e7eb" />
+                            
+                            <!-- AI robot icon -->
+                            <circle cx="220" cy="90" r="15" fill="#8b5cf6" />
+                            <circle cx="215" cy="87" r="2" fill="white" />
+                            <circle cx="225" cy="87" r="2" fill="white" />
+                            <path d="M215 95 Q220 98 225 95" stroke="white" stroke-width="1.5" fill="none" />
+                            
+                            <!-- Typing indicator -->
+                            <circle cx="200" cy="150" r="2" fill="#8b5cf6" opacity="0.8" />
+                            <circle cx="210" cy="150" r="2" fill="#8b5cf6" opacity="0.6" />
+                            <circle cx="220" cy="150" r="2" fill="#8b5cf6" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-translate="ai-chatbot">AI Chatbot Platform</h3>
+                        <p class="text-gray-600 mb-4" data-translate="chatbot-description">AI-powered customer service solution reducing response time by 80%</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">NLP</span>
+                        </div>
+                        <button onclick="openCaseStudy('chatbot')" class="text-srm-blue font-semibold hover:text-blue-700 transition-colors" data-translate="view-case-study">View Case Study →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Process Section -->
+    <section id="process" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="process-title">How We Work</h2>
+                <p class="text-xl text-gray-600" data-translate="process-subtitle">Our proven methodology for delivering exceptional results</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="process-step text-center">
+                    <div class="w-20 h-20 bg-srm-blue rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                        <i class="fas fa-comments text-white text-2xl"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
+                            <span class="text-srm-blue font-bold text-sm">1</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="discovery">Discovery</h3>
+                    <p class="text-gray-600" data-translate="discovery-text">We understand your business goals, challenges, and requirements through detailed consultation.</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                        <i class="fas fa-drafting-compass text-white text-2xl"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-200 rounded-full flex items-center justify-center">
+                            <span class="text-green-700 font-bold text-sm">2</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="planning">Planning</h3>
+                    <p class="text-gray-600" data-translate="planning-text">We create a comprehensive strategy and roadmap tailored to your specific needs and timeline.</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
+                            <span class="text-purple-700 font-bold text-sm">3</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="development">Development</h3>
+                    <p class="text-gray-600" data-translate="development-text">Our expert team brings your vision to life using cutting-edge technologies and best practices.</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center">
+                            <span class="text-orange-700 font-bold text-sm">4</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="launch">Launch & Support</h3>
+                    <p class="text-gray-600" data-translate="launch-text">We deploy your solution and provide ongoing support to ensure continued success and growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="why-choose-title">Why Choose SRMsolutions?</h2>
+                <p class="text-xl text-gray-600" data-translate="why-choose-subtitle">What sets us apart from the competition</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="proven-expertise">Proven Expertise</h3>
+                    <p class="text-gray-600" data-translate="expertise-text">5+ years of experience delivering successful projects across various industries</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="timely-delivery">Timely Delivery</h3>
+                    <p class="text-gray-600" data-translate="delivery-text">We respect deadlines and deliver projects on time, every time</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-dollar-sign text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="competitive-pricing">Competitive Pricing</h3>
+                    <p class="text-gray-600" data-translate="pricing-text">High-quality solutions at affordable prices that fit your budget</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="support">24/7 Support</h3>
+                    <p class="text-gray-600" data-translate="support-text">Round-the-clock technical support and maintenance services</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="security">Security First</h3>
+                    <p class="text-gray-600" data-translate="security-text">Enterprise-grade security measures to protect your data and applications</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-sync-alt text-indigo-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-translate="scalability">Scalable Solutions</h3>
+                    <p class="text-gray-600" data-translate="scalability-text">Future-proof solutions that grow with your business needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Slider -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="testimonials-title">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600" data-translate="testimonials-subtitle">Trusted by businesses worldwide</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonialSlider" class="testimonial-slider flex overflow-x-auto space-x-8 pb-4 snap-x snap-mandatory">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 min-w-80 snap-start border-2 border-blue-200 relative overflow-hidden">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                            🚀 NEW
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">SR</span>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">SRMsolutions Team</h4>
+                                <p class="text-gray-600 text-sm">Ready to Serve</p>
+                                <div class="flex items-center mt-1">
+                                    <i class="fas fa-star text-blue-500 text-xs mr-1"></i>
+                                    <span class="text-xs text-blue-600 font-medium">Fresh Start</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4" data-translate="testimonial-1">"🎯 We're launching with 5+ years of experience and fresh energy! Every client will get our complete attention and dedication. Let's build something amazing together from day one!"</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
+                            <div class="flex items-center text-blue-600 text-sm font-bold">
+                                <i class="fas fa-rocket mr-1"></i>
+                                <span>Ready to Launch</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <div class="bg-srm-light rounded-2xl p-8 min-w-80 snap-start">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-srm-blue rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">NS</span>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Naga Sairam</h4>
+                                <p class="text-gray-600 text-sm">CTO & Founder</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4" data-translate="testimonial-3">"With 5+ years of experience in AI and software development, I'm excited to bring cutting-edge solutions to businesses. Every line of code will be crafted with passion and precision."</p>
+                        <div class="flex">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-srm-light rounded-2xl p-8 min-w-80 snap-start">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-srm-blue rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">🎯</span>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Our Promise</h4>
+                                <p class="text-gray-600 text-sm">To Future Clients</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4" data-translate="testimonial-4">"We promise to give you our complete attention, competitive pricing, and the latest technologies. Your success will be our first success story. Let's grow together!"</p>
+                        <div class="flex">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Navigation -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button onclick="slideTestimonial(-1)" class="w-10 h-10 bg-srm-blue text-white rounded-full hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button onclick="slideTestimonial(1)" class="w-10 h-10 bg-srm-blue text-white rounded-full hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startup Launch Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-ping"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-bold mb-6 animate-pulse">
+                    <span>🚀 JUST LAUNCHED • ACCEPTING NEW PROJECTS</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresh Start, Proven Expertise</h2>
+                <p class="text-xl text-blue-100">New company with experienced leadership ready to transform your business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <div class="text-3xl font-bold mb-2">100%</div>
+                    <div class="text-blue-200">Focus on Quality</div>
+                    <div class="text-sm text-blue-300 mt-2">Every project matters</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <div class="text-3xl font-bold mb-2">5+</div>
+                    <div class="text-blue-200">Years Experience</div>
+                    <div class="text-sm text-blue-300 mt-2">Proven track record</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-center">
+                    <div class="text-4xl mb-4">🎉</div>
+                    <div class="text-3xl font-bold mb-2">NEW</div>
+                    <div class="text-blue-200">Startup Energy</div>
+                    <div class="text-sm text-blue-300 mt-2">Fresh & innovative</div>
+                </div>
+            </div>
+            
+            <!-- Startup Vision -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold">Our Mission</div>
+                            <div class="text-sm text-blue-200">Starting Strong</div>
+                        </div>
+                        <div class="ml-auto bg-green-500 px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                            NEW
+                        </div>
+                    </div>
+                    <p class="italic">"We're launching SRMsolutions with 5+ years of combined experience and a fresh perspective. Every project will be treated as our first and most important client. Quality over quantity! 🚀✨ #StartupLife"</p>
+                    <div class="flex items-center mt-4 text-sm">
+                        <i class="fas fa-heart mr-2"></i>
+                        <span>Ready to serve</span>
+                        <i class="fas fa-star ml-4 mr-2"></i>
+                        <span>100% dedication</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold">Why Choose Us</div>
+                            <div class="text-sm text-blue-200">Fresh Energy</div>
+                        </div>
+                        <div class="ml-auto bg-blue-500 px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                            LAUNCH
+                        </div>
+                    </div>
+                    <p class="italic">"As a new company, we're hungry for success and committed to proving ourselves. You get our full attention, competitive pricing, and the latest technologies. Be part of our growth story! 💪🎯 #Partnership"</p>
+                    <div class="flex items-center mt-4 text-sm">
+                        <i class="fas fa-handshake mr-2"></i>
+                        <span>Personal attention</span>
+                        <i class="fas fa-trophy ml-4 mr-2"></i>
+                        <span>Competitive rates</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center">
+                <div class="mb-6">
+                    <div class="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-bold mb-4">
+                        <span>⚡ BE OUR FIRST SUCCESS STORY</span>
+                    </div>
+                </div>
+                <button onclick="scrollToContact()" class="group bg-white text-purple-600 px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center space-x-3 mx-auto">
+                    <i class="fas fa-handshake group-hover:rotate-12 transition-transform duration-300"></i>
+                    <span>Partner With Us From Day One</span>
+                </button>
+                <p class="text-sm text-blue-200 mt-4">🎯 Early bird pricing • Personal attention • Latest technologies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resource Section (Lead Magnet) -->
+    <section class="py-20 bg-gradient-to-r from-srm-blue to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6" data-translate="free-resource-title">Free Digital Transformation Guide 2025</h2>
+                <p class="text-xl text-blue-100 mb-8" data-translate="free-resource-description">
+                    Download our comprehensive guide on how to digitally transform your business in 2025. Includes actionable strategies, case studies, and implementation roadmap.
+                </p>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-4" data-translate="guide-includes">What's Included:</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-left">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-300"></i>
+                            <span data-translate="guide-item-1">50+ page comprehensive guide</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-300"></i>
+                            <span data-translate="guide-item-2">Real-world case studies</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-300"></i>
+                            <span data-translate="guide-item-3">Implementation checklist</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-300"></i>
+                            <span data-translate="guide-item-4">ROI calculation templates</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="leadMagnetForm" action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto">
+                    <input type="hidden" name="access_key" value="d63c5f64-9167-4c51-8e49-32380ed88279">
+                    <input type="hidden" name="subject" value="New Digital Transformation Guide Download">
+                    <input type="hidden" name="from_name" value="SRMsolutions Website">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" name="email" id="leadEmail" class="flex-1 px-6 py-4 rounded-xl text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-white/50 focus:outline-none" placeholder="Enter your email address" required>
+                        <button type="submit" class="bg-white text-srm-blue px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-translate="download-free">
+                            Download Free
+                        </button>
+                    </div>
+                    <p class="text-sm text-blue-200 mt-4" data-translate="no-spam">No spam, unsubscribe anytime. We respect your privacy.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-12 shadow-xl text-center">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-3xl font-bold text-srm-dark mb-4" data-translate="newsletter-title">Stay Updated with Tech Trends</h2>
+                    <p class="text-gray-600 mb-8" data-translate="newsletter-description">
+                        Get weekly insights on AI, software development, digital marketing, and business growth strategies delivered to your inbox.
+                    </p>
+                    
+                    <form id="newsletterForm" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                        <input type="hidden" name="access_key" value="d63c5f64-9167-4c51-8e49-32380ed88279">
+                        <input type="hidden" name="subject" value="New Newsletter Subscription">
+                        <input type="hidden" name="from_name" value="SRMsolutions Website">
+                        <input type="email" name="email" id="newsletterEmail" class="flex-1 px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-srm-blue focus:border-transparent" placeholder="Your email address" required>
+                        <button type="submit" class="bg-srm-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1" data-translate="subscribe">
+                            Subscribe
+                        </button>
+                    </form>
+                    
+                    <div id="newsletterSuccess" class="newsletter-success mt-4 p-4 bg-green-100 text-green-700 rounded-xl hidden">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span data-translate="newsletter-success">Thank you for subscribing! Check your email for confirmation.</span>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 mt-4" data-translate="newsletter-privacy">Join 5,000+ professionals. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="faq-title">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600" data-translate="faq-subtitle">Everything you need to know about our services</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-srm-light rounded-2xl overflow-hidden">
+                    <button onclick="toggleFAQ(0)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <span class="font-semibold text-lg" data-translate="faq-q1">How long does it take to develop a custom software solution?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="faq-icon-0"></i>
+                    </button>
+                    <div id="faq-content-0" class="faq-content px-8 pb-6">
+                        <p class="text-gray-600" data-translate="faq-a1">The timeline varies depending on the complexity and scope of the project. Simple applications can take 4-8 weeks, while complex enterprise solutions may take 3-6 months. We provide detailed timelines during the planning phase.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-srm-light rounded-2xl overflow-hidden">
+                    <button onclick="toggleFAQ(1)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <span class="font-semibold text-lg" data-translate="faq-q2">Do you provide ongoing support and maintenance?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div id="faq-content-1" class="faq-content px-8 pb-6">
+                        <p class="text-gray-600" data-translate="faq-a2">Yes, we offer comprehensive support and maintenance packages. This includes bug fixes, security updates, performance optimization, and feature enhancements. We provide 24/7 technical support for critical issues.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-srm-light rounded-2xl overflow-hidden">
+                    <button onclick="toggleFAQ(2)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <span class="font-semibold text-lg" data-translate="faq-q3">What technologies do you specialize in?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div id="faq-content-2" class="faq-content px-8 pb-6">
+                        <p class="text-gray-600" data-translate="faq-a3">We work with modern technologies including React, Node.js, Python, React Native, Flutter, AWS, Google Cloud, MongoDB, PostgreSQL, and various AI/ML frameworks like TensorFlow and PyTorch.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-srm-light rounded-2xl overflow-hidden">
+                    <button onclick="toggleFAQ(3)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <span class="font-semibold text-lg" data-translate="faq-q4">Can you help with digital marketing for my existing business?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div id="faq-content-3" class="faq-content px-8 pb-6">
+                        <p class="text-gray-600" data-translate="faq-a4">Absolutely! We offer comprehensive digital marketing services including SEO, social media marketing, PPC campaigns, content marketing, and analytics. We can audit your current efforts and create a customized strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-srm-light rounded-2xl overflow-hidden">
+                    <button onclick="toggleFAQ(4)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <span class="font-semibold text-lg" data-translate="faq-q5">What is your pricing model?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="faq-icon-4"></i>
+                    </button>
+                    <div id="faq-content-4" class="faq-content px-8 pb-6">
+                        <p class="text-gray-600" data-translate="faq-a5">We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. Pricing depends on project scope, complexity, and timeline. We provide detailed quotes after understanding your requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Insights -->
+    <section id="blog" class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="blog-title">Latest Insights</h2>
+                <p class="text-xl text-gray-600" data-translate="blog-subtitle">Stay updated with AI, marketing, and software trends</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- AI Network -->
+                            <circle cx="150" cy="100" r="25" fill="rgba(255,255,255,0.9)" />
+                            <circle cx="100" cy="70" r="15" fill="rgba(255,255,255,0.7)" />
+                            <circle cx="200" cy="70" r="15" fill="rgba(255,255,255,0.7)" />
+                            <circle cx="80" cy="130" r="12" fill="rgba(255,255,255,0.6)" />
+                            <circle cx="220" cy="130" r="12" fill="rgba(255,255,255,0.6)" />
+                            
+                            <!-- Connections -->
+                            <line x1="150" y1="100" x2="100" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                            <line x1="150" y1="100" x2="200" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                            <line x1="150" y1="100" x2="80" y2="130" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                            <line x1="150" y1="100" x2="220" y2="130" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                            
+                            <!-- Brain icon in center -->
+                            <path d="M140 95 Q150 85 160 95 Q155 105 150 105 Q145 105 140 95" fill="#1e40af" />
+                            <circle cx="145" cy="98" r="2" fill="white" />
+                            <circle cx="155" cy="98" r="2" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-srm-blue mb-2">AI & Technology</div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="blog-post-1-title">The Future of AI in Business Automation</h3>
+                        <p class="text-gray-600 mb-4" data-translate="blog-post-1-excerpt">Discover how AI is revolutionizing business processes and creating new opportunities for growth...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Jan 15, 2025</span>
+                            <button class="text-srm-blue font-medium hover:text-blue-700 transition-colors text-sm" data-translate="read-more">Read More →</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- Search bar -->
+                            <rect x="50" y="40" width="200" height="30" rx="15" fill="rgba(255,255,255,0.9)" />
+                            <circle cx="70" cy="55" r="8" fill="#10b981" />
+                            <path d="M65 55 L68 58 L75 50" stroke="white" stroke-width="2" fill="none" />
+                            
+                            <!-- Growth chart -->
+                            <rect x="60" y="90" width="180" height="80" rx="4" fill="rgba(255,255,255,0.8)" />
+                            
+                            <!-- Chart bars -->
+                            <rect x="80" y="140" width="15" height="20" fill="#10b981" />
+                            <rect x="105" y="130" width="15" height="30" fill="#10b981" />
+                            <rect x="130" y="120" width="15" height="40" fill="#10b981" />
+                            <rect x="155" y="110" width="15" height="50" fill="#10b981" />
+                            <rect x="180" y="100" width="15" height="60" fill="#10b981" />
+                            <rect x="205" y="95" width="15" height="65" fill="#10b981" />
+                            
+                            <!-- Upward arrow -->
+                            <path d="M220 110 L230 100 L240 110" stroke="#10b981" stroke-width="3" fill="none" />
+                            <line x1="230" y1="100" x2="230" y2="120" stroke="#10b981" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-srm-blue mb-2">Digital Marketing</div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="blog-post-2-title">SEO Strategies That Actually Work in 2025</h3>
+                        <p class="text-gray-600 mb-4" data-translate="blog-post-2-excerpt">Learn the latest SEO techniques that are driving real results for businesses this year...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Jan 12, 2025</span>
+                            <button class="text-srm-blue font-medium hover:text-blue-700 transition-colors text-sm" data-translate="read-more">Read More →</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-violet-500 flex items-center justify-center relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full absolute inset-0">
+                            <!-- Laptop -->
+                            <rect x="80" y="80" width="140" height="90" rx="8" fill="rgba(255,255,255,0.9)" />
+                            <rect x="90" y="90" width="120" height="70" rx="4" fill="#1f2937" />
+                            <rect x="140" y="170" width="20" height="10" fill="rgba(255,255,255,0.8)" />
+                            
+                            <!-- Code editor -->
+                            <rect x="95" y="95" width="110" height="15" rx="2" fill="#8b5cf6" />
+                            <circle cx="102" cy="102" r="3" fill="white" />
+                            <circle cx="110" cy="102" r="3" fill="white" />
+                            <circle cx="118" cy="102" r="3" fill="white" />
+                            
+                            <!-- Code lines -->
+                            <rect x="100" y="115" width="60" height="3" rx="1" fill="#10b981" />
+                            <rect x="105" y="125" width="80" height="3" rx="1" fill="#f59e0b" />
+                            <rect x="100" y="135" width="50" height="3" rx="1" fill="#3b82f6" />
+                            <rect x="110" y="145" width="70" height="3" rx="1" fill="#ef4444" />
+                            
+                            <!-- Floating elements -->
+                            <rect x="40" y="50" width="30" height="20" rx="4" fill="rgba(255,255,255,0.7)" />
+                            <rect x="230" y="60" width="25" height="15" rx="3" fill="rgba(255,255,255,0.7)" />
+                            <circle cx="250" cy="120" r="12" fill="rgba(255,255,255,0.6)" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-srm-blue mb-2">Software Development</div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="blog-post-3-title">Building Scalable Web Applications</h3>
+                        <p class="text-gray-600 mb-4" data-translate="blog-post-3-excerpt">Best practices for creating web applications that can grow with your business needs...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Jan 10, 2025</span>
+                            <button class="text-srm-blue font-medium hover:text-blue-700 transition-colors text-sm" data-translate="read-more">Read More →</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="contact-title">Get in Touch with Us Today</h2>
+                <p class="text-xl text-gray-600" data-translate="contact-subtitle">Ready to transform your business? Let's start the conversation.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-srm-blue rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg" data-translate="email">Email</h3>
+                            <p class="text-gray-600">sairam0510@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-srm-blue rounded-lg flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">WhatsApp</h3>
+                            <p class="text-gray-600">+91 8096660643</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-srm-blue rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg" data-translate="office">Office</h3>
+                            <p class="text-gray-600">Miyapur, 500049</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="pt-6">
+                        <h3 class="font-semibold text-lg mb-4" data-translate="follow-us">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/srmsolutions-global/" target="_blank" class="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 pt-6">
+                        <a href="https://wa.me/918096660643?text=Hi%20SRMsolutions!%20I'm%20interested%20in%20your%20services.%20Can%20we%20discuss%20my%20project?" target="_blank" class="w-full bg-green-500 text-white px-5 py-3.5 rounded-xl font-semibold hover:bg-green-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-translate="chat-whatsapp">Chat on WhatsApp</span>
+                        </a>
+                        <button onclick="openBackendGuide()" class="w-full bg-purple-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-sm hover:shadow-md">
+                            <i class="fas fa-server"></i>
+                            <span>Backend Development Guide</span>
+                        </button>
+                        <a href="https://wa.me/918096660643?text=Hi!%20I'd%20like%20to%20book%20a%20free%20consultation%20to%20discuss%20my%20business%20needs." target="_blank" class="w-full bg-srm-blue text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 flex items-center justify-center space-x-2 shadow-sm hover:shadow-md">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span data-translate="book-consultation">Book Free Consultation</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-srm-light rounded-2xl p-8">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="d63c5f64-9167-4c51-8e49-32380ed88279">
+                        <input type="hidden" name="subject" value="New Contact Form Submission">
+                        <input type="hidden" name="from_name" value="SRMsolutions Website">
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2" data-translate="full-name">Full Name</label>
+                            <input type="text" name="name" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-srm-blue focus:border-transparent transition-all duration-200" placeholder="Your full name" required>
+                            <div class="text-red-500 text-sm mt-1 hidden" id="nameError">Please enter your full name</div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2" data-translate="email-address">Email Address</label>
+                            <input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-srm-blue focus:border-transparent transition-all duration-200" placeholder="your@email.com" required>
+                            <div class="text-red-500 text-sm mt-1 hidden" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2" data-translate="phone-number">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-srm-blue focus:border-transparent transition-all duration-200" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2" data-translate="service-interested">Service Interested In</label>
+                            <select name="service" id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-srm-blue focus:border-transparent transition-all duration-200">
+                                <option value="" data-translate="select-service">Select a service</option>
+                                <option value="software" data-translate="software-development">Software Development</option>
+                                <option value="marketing" data-translate="digital-marketing">Digital Marketing</option>
+                                <option value="content" data-translate="content-creation">Content Creation</option>
+                                <option value="ai" data-translate="ai-solutions">AI Solutions</option>
+                                <option value="multiple" data-translate="multiple-services">Multiple Services</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2" data-translate="project-details">Project Details</label>
+                            <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-srm-blue focus:border-transparent transition-all duration-200" placeholder="Tell us about your project requirements..." required></textarea>
+                            <div class="text-red-500 text-sm mt-1 hidden" id="messageError">Please describe your project requirements</div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-srm-blue text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5" data-translate="send-message">
+                            Send Message
+                        </button>
+                        
+                        <div id="contactSuccess" class="text-green-600 text-center font-medium hidden">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span data-translate="message-sent">Message sent successfully! We'll get back to you soon.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section class="py-20 bg-srm-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-srm-dark mb-6" data-translate="careers-title">Join Our Team</h2>
+            <p class="text-xl text-gray-600 mb-8" data-translate="careers-description">
+                We're always looking for talented individuals to join our growing team. Explore exciting career opportunities in technology and digital marketing.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <i class="fas fa-code text-srm-blue text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2" data-translate="developers">Developers</h3>
+                    <p class="text-gray-600" data-translate="developers-desc">Full-stack, mobile, and AI developers</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <i class="fas fa-bullhorn text-srm-blue text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2" data-translate="marketers">Marketers</h3>
+                    <p class="text-gray-600" data-translate="marketers-desc">Digital marketing and content specialists</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <i class="fas fa-users text-srm-blue text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2" data-translate="consultants">Consultants</h3>
+                    <p class="text-gray-600" data-translate="consultants-desc">Business and technology consultants</p>
+                </div>
+            </div>
+            
+            <button onclick="openCareers()" class="bg-srm-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-translate="view-openings">
+                View Open Positions
+            </button>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-srm-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-srm-blue to-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold">SRMsolutions</span>
+                    </div>
+                    <p class="text-gray-300 mb-6" data-translate="footer-description">Empowering businesses with innovative technology solutions and digital growth strategies.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-srm-blue transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-srm-blue transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/srmsolutions-global/" target="_blank" class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-srm-blue transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-srm-blue transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-6 text-lg" data-translate="services">Services</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#services" class="hover:text-white transition-colors" data-translate="software-development">Software Development</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-translate="digital-marketing">Digital Marketing</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-translate="content-creation">Content Creation</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-translate="ai-solutions">AI Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" data-translate="consulting">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-6 text-lg" data-translate="company">Company</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#about" class="hover:text-white transition-colors" data-translate="about-us">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors" data-translate="portfolio">Portfolio</a></li>
+                        <li><a href="#blog" class="hover:text-white transition-colors" data-translate="blog">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" data-translate="careers">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors" data-translate="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-6 text-lg" data-translate="connect">Connect</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>sairam0510@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3"></i>
+                            <span>+91 8096660643</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Miyapur, 500049</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-3" data-translate="quick-links">Quick Links</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><a href="javascript:void(0)" onclick="showPrivacyPolicy()" class="hover:text-white transition-colors" data-translate="privacy-policy">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)" onclick="showTermsOfService()" class="hover:text-white transition-colors" data-translate="terms-service">Terms of Service</a></li>
+                            <li><a href="javascript:void(0)" onclick="showSitemap()" class="hover:text-white transition-colors" data-translate="sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 SRMsolutions. <span data-translate="all-rights">All rights reserved.</span> | <span data-translate="transforming-ideas">Transforming Ideas into Digital Success</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top fixed bottom-20 right-6 w-12 h-12 bg-srm-blue text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hidden z-40">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Legal Pages Modal -->
+    <div id="legalModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-overlay absolute inset-0 bg-black/50" onclick="closeLegalModal()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative z-10 w-full max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-srm-light">
+                    <h2 id="legalModalTitle" class="text-2xl font-bold text-srm-dark">Legal Information</h2>
+                    <button onclick="closeLegalModal()" class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-gray-600"></i>
+                    </button>
+                </div>
+                <div class="p-6 overflow-y-auto max-h-[70vh]">
+                    <div id="legalModalContent" class="prose prose-blue max-w-none">
+                        <!-- Content will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-widget">
+        <a href="https://wa.me/918096660643?text=Hi%20SRMsolutions!%20I'm%20interested%20in%20your%20services.%20Can%20we%20discuss%20my%20project?" target="_blank" class="whatsapp-pulse w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Backend Integration Guide -->
+    <div id="backendGuide" class="fixed inset-0 z-50 hidden">
+        <div class="modal-overlay absolute inset-0 bg-black/50" onclick="closeBackendGuide()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative z-10 w-full max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-srm-light">
+                    <h2 class="text-2xl font-bold text-srm-dark">🚀 Backend Development Guide</h2>
+                    <button onclick="closeBackendGuide()" class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-gray-600"></i>
+                    </button>
+                </div>
+                <div class="p-6 overflow-y-auto max-h-[70vh]">
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-srm-blue">
+                            <h3 class="font-bold text-lg mb-2">📋 Current Status</h3>
+                            <p class="text-gray-700">Your website currently uses <strong>frontend-only</strong> solutions with third-party services for forms and data collection.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                <h3 class="font-bold text-lg mb-3 text-green-800">✅ What's Working</h3>
+                                <ul class="space-y-2 text-sm text-green-700">
+                                    <li>• Contact forms via Web3Forms</li>
+                                    <li>• Newsletter subscriptions</li>
+                                    <li>• Lead magnet downloads</li>
+                                    <li>• Employee portal demo</li>
+                                    <li>• Static content delivery</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                                <h3 class="font-bold text-lg mb-3 text-orange-800">🔧 Needs Backend</h3>
+                                <ul class="space-y-2 text-sm text-orange-700">
+                                    <li>• Real user authentication</li>
+                                    <li>• Database for projects/clients</li>
+                                    <li>• File upload functionality</li>
+                                    <li>• Payment processing</li>
+                                    <li>• Admin dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-srm-dark">🛠️ Recommended Backend Solutions</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-bold text-lg text-blue-600 mb-2">1. 🚀 Firebase (Recommended for Quick Start)</h4>
+                                    <p class="text-gray-700 mb-2">Google's Backend-as-a-Service platform</p>
+                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <strong>✅ Pros:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>Easy setup & integration</li>
+                                                <li>Real-time database</li>
+                                                <li>Built-in authentication</li>
+                                                <li>File storage included</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong>💰 Cost:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>Free tier: 50K reads/day</li>
+                                                <li>Paid: $25-100/month</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-bold text-lg text-green-600 mb-2">2. 💻 Node.js + Express (Full Control)</h4>
+                                    <p class="text-gray-700 mb-2">Custom backend with JavaScript</p>
+                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <strong>✅ Pros:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>Complete customization</li>
+                                                <li>Same language as frontend</li>
+                                                <li>Large ecosystem (npm)</li>
+                                                <li>Scalable architecture</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong>💰 Cost:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>VPS: $10-50/month</li>
+                                                <li>Cloud: $20-200/month</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-bold text-lg text-purple-600 mb-2">3. 🐍 Python Django (Enterprise)</h4>
+                                    <p class="text-gray-700 mb-2">Robust framework for complex applications</p>
+                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <strong>✅ Pros:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>Built-in admin panel</li>
+                                                <li>Strong security features</li>
+                                                <li>ORM for databases</li>
+                                                <li>Great for complex logic</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong>💰 Cost:</strong>
+                                            <ul class="list-disc pl-4 text-gray-600">
+                                                <li>Heroku: $7-25/month</li>
+                                                <li>DigitalOcean: $15-100/month</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                            <h3 class="font-bold text-lg mb-2">💡 My Recommendation for SRMsolutions</h3>
+                            <p class="text-gray-700 mb-2">Based on your business needs, I suggest:</p>
+                            <ol class="list-decimal pl-4 space-y-1 text-gray-700">
+                                <li><strong>Phase 1:</strong> Start with Firebase for quick deployment</li>
+                                <li><strong>Phase 2:</strong> Migrate to Node.js + MongoDB as you scale</li>
+                                <li><strong>Phase 3:</strong> Consider microservices architecture</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-srm-light p-4 rounded-lg">
+                            <h3 class="font-bold text-lg mb-2">🤝 How I Can Help You</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>✅ <strong>Frontend Integration:</strong> Connect your website to any backend API</li>
+                                <li>✅ <strong>API Documentation:</strong> Detailed specs for your backend developer</li>
+                                <li>✅ <strong>Database Schema:</strong> Design your data structure</li>
+                                <li>✅ <strong>Authentication Flow:</strong> Frontend login/signup interfaces</li>
+                                <li>✅ <strong>Admin Panels:</strong> Frontend dashboards for data management</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button onclick="contactForBackend()" class="bg-srm-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                💬 Discuss Backend Development
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Global variables
+        let currentLang = 'en';
+        
+        // Language functionality
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('open');
+        }
+        
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const langNames = {
+                'en': 'English',
+                'hi': 'हिंदी', 
+                'te': 'తెలుగు'
+            };
+            
+            document.getElementById('currentLanguage').textContent = langNames[lang];
+            document.getElementById('languageDropdown').classList.remove('open');
+            
+            // Update all translatable elements
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type !== 'submit') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+        
+        // Employee Portal functionality
+        function openEmployeeLogin() {
+            document.getElementById('employeeLoginModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeEmployeeLogin() {
+            document.getElementById('employeeLoginModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+        
+        function contactIT() {
+            window.open('https://wa.me/918096660643?text=Hi! I need help accessing the employee portal. Can you assist me?', '_blank');
+        }
+        
+
+        
+        // Lead Magnet Form Handler
+        document.getElementById('leadMagnetForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('leadEmail').value;
+            
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
+            // Submit to Web3Forms
+            const formData = new FormData();
+            formData.append('access_key', 'd63c5f64-9167-4c51-8e49-32380ed88279');
+            formData.append('subject', 'New Digital Transformation Guide Download');
+            formData.append('from_name', 'SRMsolutions Website');
+            formData.append('email', email);
+            formData.append('message', 'User requested Digital Transformation Guide 2025');
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Trigger PDF download
+                    const link = document.createElement('a');
+                    link.href = 'digital-guide-2025.pdf';
+                    link.download = 'Digital_Transformation_Guide_2025.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Show success message
+                    alert('Thank you! Your Digital Transformation Guide is downloading now. Check your email for additional resources.');
+                    
+                    // Reset form
+                    document.getElementById('leadEmail').value = '';
+                } else {
+                    alert('There was an error. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error. Please try again.');
+            }
+        });
+        
+        // Newsletter Form Handler
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('newsletterEmail').value;
+            
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
+            // Submit to Web3Forms
+            const formData = new FormData();
+            formData.append('access_key', 'd63c5f64-9167-4c51-8e49-32380ed88279');
+            formData.append('subject', 'New Newsletter Subscription');
+            formData.append('from_name', 'SRMsolutions Website');
+            formData.append('email', email);
+            formData.append('message', 'User subscribed to newsletter');
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    const successDiv = document.getElementById('newsletterSuccess');
+                    successDiv.classList.remove('hidden');
+                    successDiv.classList.add('show');
+                    
+                    // Reset form
+                    document.getElementById('newsletterEmail').value = '';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successDiv.classList.remove('show');
+                        setTimeout(() => {
+                            successDiv.classList.add('hidden');
+                        }, 300);
+                    }, 5000);
+                } else {
+                    alert('There was an error. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error. Please try again.');
+            }
+        });
+        
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Submit to Web3Forms
+            const formData = new FormData();
+            formData.append('access_key', 'd63c5f64-9167-4c51-8e49-32380ed88279');
+            formData.append('subject', 'New Contact Form Submission');
+            formData.append('from_name', 'SRMsolutions Website');
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone || 'Not provided');
+            formData.append('service', service || 'Not specified');
+            formData.append('message', message);
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    const successDiv = document.getElementById('contactSuccess');
+                    successDiv.classList.remove('hidden');
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Redirect to thank you page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'contact-thank-you.html';
+                    }, 2000);
+                } else {
+                    alert('There was an error. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error. Please try again.');
+            }
+        });
+        
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('open');
+        }
+        
+        // Smooth scrolling functions
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Portfolio filter functionality
+        function filterPortfolio(category) {
+            const items = document.querySelectorAll('.portfolio-item');
+            const filters = document.querySelectorAll('.portfolio-filter');
+            
+            // Update active filter
+            filters.forEach(filter => filter.classList.remove('active', 'bg-srm-blue', 'text-white'));
+            event.target.classList.add('active', 'bg-srm-blue', 'text-white');
+            
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // FAQ functionality
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            content.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Testimonial slider
+        let testimonialIndex = 0;
+        function slideTestimonial(direction) {
+            const slider = document.getElementById('testimonialSlider');
+            const items = slider.children;
+            const itemWidth = items[0].offsetWidth + 32; // width + gap
+            
+            testimonialIndex += direction;
+            if (testimonialIndex < 0) testimonialIndex = items.length - 1;
+            if (testimonialIndex >= items.length) testimonialIndex = 0;
+            
+            slider.scrollTo({
+                left: testimonialIndex * itemWidth,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Case study modal (placeholder)
+        function openCaseStudy(type) {
+            alert(`Case study for ${type} will open here. This would typically show detailed project information, results, and testimonials.`);
+        }
+        
+        // Careers modal (placeholder)
+        function openCareers() {
+            alert('Career opportunities page would open here. This would show current job openings and application forms.');
+        }
+        
+        // Backend Guide functions
+        function openBackendGuide() {
+            document.getElementById('backendGuide').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeBackendGuide() {
+            document.getElementById('backendGuide').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function contactForBackend() {
+            const message = `Hi SRMsolutions! 
+
+I'm interested in discussing backend development for my website. I'd like to explore:
+
+🔧 Backend Solutions:
+• Database integration
+• User authentication
+• API development
+• Admin dashboard
+• Payment processing
+
+💬 Let's discuss the best approach for my business needs and get a quote.
+
+Looking forward to hearing from you!`;
+            
+            window.open(`https://wa.me/918096660643?text=${encodeURIComponent(message)}`, '_blank');
+            closeBackendGuide();
+        }
+        
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageDropdown = document.getElementById('languageDropdown');
+            const languageButton = event.target.closest('[onclick*="toggleLanguageDropdown"]');
+            
+            if (!languageButton) {
+                languageDropdown.classList.remove('open');
+            }
+        });
+        
+        // Legal Pages functionality
+        function showPrivacyPolicy() {
+            const title = 'Privacy Policy - SRMsolutions';
+            const content = `
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-srm-blue">
+                        <p class="text-sm text-gray-600"><strong>Effective Date:</strong> January 19, 2025</p>
+                    </div>
+                    
+                    <p class="text-gray-700 leading-relaxed">At SRMsolutions, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information.</p>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">1. Information We Collect</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li><strong>Personal details</strong> (name, email, phone number) when you contact us or use our services.</li>
+                            <li><strong>Technical data</strong> such as IP address, browser type, and usage behavior via cookies.</li>
+                            <li><strong>Business-related data</strong> shared with us for projects.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">2. How We Use Information</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>To provide and improve our services.</li>
+                            <li>To communicate with you about updates, offers, and support.</li>
+                            <li>For analytics and service optimization.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">3. Data Sharing</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li><strong>We do not sell your data.</strong></li>
+                            <li>We may share information with trusted third-party service providers to deliver services.</li>
+                            <li>Legal disclosure if required by law.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">4. Data Protection</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>We use encryption, secure servers, and restricted access to protect your data.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">5. Your Rights</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Request access, correction, or deletion of your data.</li>
+                            <li>Opt-out of marketing emails anytime.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">For questions:</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-700">📧 sairam0510@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showLegalModal(title, content);
+        }
+        
+        function showTermsOfService() {
+            const title = 'Terms of Service - SRMsolutions';
+            const content = `
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-srm-blue">
+                        <p class="text-sm text-gray-600"><strong>Effective Date:</strong> January 19, 2025</p>
+                    </div>
+                    
+                    <p class="text-gray-700 leading-relaxed">By accessing or using our website/services, you agree to these Terms.</p>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">1. Use of Services</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>You must be at least 18 years old.</li>
+                            <li>You agree not to misuse our website or attempt unauthorized access.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">2. Intellectual Property</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>All content, trademarks, and materials on this site belong to SRMsolutions.</li>
+                            <li>You may not copy, modify, or distribute without permission.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">3. Payments & Subscriptions</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Payments for services/products must be made as agreed.</li>
+                            <li>No refunds once a project or service has been delivered, unless otherwise stated.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">4. Limitation of Liability</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>SRMsolutions is not responsible for indirect, incidental, or consequential damages arising from use of services.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-srm-dark">5. Changes to Terms</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>We may update these Terms at any time. Continued use = acceptance of new Terms.</li>
+                        </ul>
+                    </div>
+                    
+
+                </div>
+            `;
+            showLegalModal(title, content);
+        }
+        
+        function showSitemap() {
+            const title = 'Sitemap - SRMsolutions';
+            const content = `
+                <div class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-srm-dark">🌐 Main Pages</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#home" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Home (/)</a></li>
+                                <li><a href="#about" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">About Us (/about)</a></li>
+                                <li><a href="#services" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Services (/services)</a></li>
+                                <li><a href="#portfolio" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Portfolio (/portfolio)</a></li>
+                                <li><a href="#process" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Process (/process)</a></li>
+                                <li><a href="#blog" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Blog (/blog)</a></li>
+                                <li><a href="#contact" onclick="closeLegalModal()" class="text-srm-blue hover:text-blue-700 transition-colors">Contact Us (/contact)</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-srm-dark">⚙️ Services</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>- Software Development (/services/software)</li>
+                                <li>- AI & Automation (/services/ai-automation)</li>
+                                <li>- Digital Marketing (/services/digital-marketing)</li>
+                                <li>- Content & Storytelling (/services/content)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-srm-dark">📚 Resources</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>Case Studies (/case-studies)</li>
+                                <li>Resources (/resources)</li>
+                                <li>- Free Guide (/resources/guide)</li>
+                                <li>- Blog (/blog)</li>
+                                <li>Contact Us (/contact)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-srm-dark">📋 Legal</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>Privacy Policy (/privacy-policy)</li>
+                                <li>Terms of Service (/terms)</li>
+                                <li>Sitemap (/sitemap)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+            showLegalModal(title, content);
+        }
+        
+        function showLegalModal(title, content) {
+            document.getElementById('legalModalTitle').textContent = title;
+            document.getElementById('legalModalContent').innerHTML = content;
+            document.getElementById('legalModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLegalModal() {
+            document.getElementById('legalModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Dynamic greeting and time functions
+        function showGreeting() {
+            const greetingElement = document.querySelector('.greeting-text');
+            const now = new Date();
+            const hours = now.getHours();
+            
+            let greeting;
+            if (hours >= 0 && hours < 12) {
+                greeting = "Good Morning! ☀️";
+            } else if (hours >= 12 && hours < 16) {
+                greeting = "Good Afternoon! 🌤️";
+            } else if (hours >= 16 && hours < 20) {
+                greeting = "Good Evening! 🌅";
+            } else {
+                greeting = "Good Night! 🌙";
+            }
+            
+            // Add smooth transition effect when greeting changes
+            if (greetingElement && greetingElement.textContent !== greeting) {
+                greetingElement.style.opacity = '0';
+                setTimeout(() => {
+                    greetingElement.textContent = greeting;
+                    greetingElement.style.opacity = '1';
+                }, 250);
+            } else if (greetingElement) {
+                greetingElement.textContent = greeting;
+            }
+        }
+
+        function showTime() {
+            const timeElement = document.getElementById('currentTime');
+            if (timeElement) {
+                const now = new Date();
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZone: 'Asia/Kolkata'
+                };
+                timeElement.textContent = now.toLocaleDateString('en-US', options);
+            }
+            showGreeting();
+        }
+
+        // Employee Login Handler - Fixed Version
+        function initializeEmployeeLogin() {
+            const form = document.getElementById('employeeLoginForm');
+            if (!form) {
+                console.error('Employee login form not found');
+                return;
+            }
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const employeeId = document.getElementById('employeeId').value.trim();
+                const workEmail = document.getElementById('workEmail').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const department = document.getElementById('department').value;
+                
+                console.log('Login attempt:', { employeeId, workEmail, department });
+                
+                // Basic validation
+                if (!employeeId || !workEmail || !password || !department) {
+                    showEmployeeAlert('❌ Please fill in all required fields.');
+                    return false;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(workEmail)) {
+                    showEmployeeAlert('❌ Please enter a valid email address.');
+                    return false;
+                }
+                
+                // Demo credentials database
+                const validCredentials = {
+                    'EMP001': { 
+                        email: 'admin@srmsolutions.com', 
+                        password: 'admin123', 
+                        department: 'management', 
+                        name: 'Admin User',
+                        role: 'System Administrator'
+                    },
+                    'EMP002': { 
+                        email: 'dev@srmsolutions.com', 
+                        password: 'dev123', 
+                        department: 'development', 
+                        name: 'John Developer',
+                        role: 'Senior Developer'
+                    },
+                    'EMP003': { 
+                        email: 'marketing@srmsolutions.com', 
+                        password: 'marketing123', 
+                        department: 'marketing', 
+                        name: 'Sarah Marketing',
+                        role: 'Marketing Manager'
+                    },
+                    'EMP004': { 
+                        email: 'content@srmsolutions.com', 
+                        password: 'content123', 
+                        department: 'content', 
+                        name: 'Alex Content',
+                        role: 'Content Creator'
+                    },
+                    'EMP005': { 
+                        email: 'ai@srmsolutions.com', 
+                        password: 'ai123', 
+                        department: 'ai', 
+                        name: 'Maya AI',
+                        role: 'AI Specialist'
+                    },
+                    'EMP006': { 
+                        email: 'hr@srmsolutions.com', 
+                        password: 'hr123', 
+                        department: 'hr', 
+                        name: 'Lisa HR',
+                        role: 'HR Manager'
+                    }
+                };
+                
+                const employee = validCredentials[employeeId.toUpperCase()];
+                
+                if (employee && 
+                    employee.email.toLowerCase() === workEmail.toLowerCase() && 
+                    employee.password === password && 
+                    employee.department === department) {
+                    
+                    // Show loading state
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Logging in...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        showEmployeeAlert(`🎉 Welcome ${employee.name}!\n\n✅ Login Successful\n👤 Role: ${employee.role}\n🏢 Department: ${employee.department.charAt(0).toUpperCase() + employee.department.slice(1)}\n\n🚀 Redirecting to Employee Dashboard...`);
+                        
+                        // Close modal and reset form
+                        setTimeout(() => {
+                            closeEmployeeLogin();
+                            form.reset();
+                            showEmployeePortalDemo(employee);
+                        }, 2000);
+                        
+                    }, 1500);
+                    
+                } else {
+                    // Show detailed error message
+                    let errorMsg = '❌ Invalid Login Credentials\n\n';
+                    
+                    if (!employee) {
+                        errorMsg += '🆔 Employee ID not found\n';
+                    } else {
+                        if (employee.email.toLowerCase() !== workEmail.toLowerCase()) {
+                            errorMsg += '📧 Email address doesn\'t match\n';
+                        }
+                        if (employee.password !== password) {
+                            errorMsg += '🔒 Incorrect password\n';
+                        }
+                        if (employee.department !== department) {
+                            errorMsg += '🏢 Wrong department selected\n';
+                        }
+                    }
+                    
+                    errorMsg += '\n📋 Valid Demo Credentials:\n';
+                    errorMsg += '• EMP001 | admin@srmsolutions.com | admin123 | Management\n';
+                    errorMsg += '• EMP002 | dev@srmsolutions.com | dev123 | Development\n';
+                    errorMsg += '• EMP003 | marketing@srmsolutions.com | marketing123 | Marketing\n';
+                    errorMsg += '• EMP004 | content@srmsolutions.com | content123 | Content\n';
+                    errorMsg += '• EMP005 | ai@srmsolutions.com | ai123 | AI Solutions\n';
+                    errorMsg += '• EMP006 | hr@srmsolutions.com | hr123 | HR';
+                    
+                    showEmployeeAlert(errorMsg);
+                }
+                
+                return false;
+            });
+        }
+        
+        // Helper function for employee alerts
+        function showEmployeeAlert(message) {
+            alert(message);
+        }
+        
+        // Employee Portal Demo
+        function showEmployeePortalDemo(employee) {
+            const portalContent = `
+🏢 SRMsolutions Employee Portal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Welcome, ${employee.name}!
+🎯 Role: ${employee.role}
+🏢 Department: ${employee.department.charAt(0).toUpperCase() + employee.department.slice(1)}
+📅 Today: ${new Date().toLocaleDateString()}
+
+📊 DASHBOARD OVERVIEW:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Active Projects: 3
+📋 Pending Tasks: 7
+📈 This Month's Performance: 94%
+⏰ Hours Logged: 152/160
+
+🔧 QUICK ACTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• 📝 Submit Timesheet
+• 📊 View Project Status
+• 💬 Team Messages (2 new)
+• 📅 Schedule Meeting
+• 📋 Request Leave
+• 🎯 Performance Review
+
+📞 SUPPORT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• IT Help: ext. 101
+• HR Support: ext. 102
+• Manager: ext. 103
+
+Note: This is a demo portal. In production, 
+you would have full access to all features.`;
+
+            alert(portalContent);
+        }
+        
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Intersection Observer for counter animation
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default language
+            changeLanguage('en');
+            
+            // Initialize time and greeting
+            showTime();
+            setInterval(showTime, 1000);
+            
+            // Auto-slide testimonials every 5 seconds
+            setInterval(() => {
+                slideTestimonial(1);
+            }, 5000);
+            
+            // Initialize employee login functionality
+            initializeEmployeeLogin();
+            console.log('Employee form initialized');
+            
+            // Initialize counter animation observer
+            const counterSection = document.querySelector('.counter');
+            if (counterSection) {
+                observer.observe(counterSection.closest('section'));
+            }
+        });
+        
+        // Multi-language support with Telugu
+        const translations = {
+            en: {
+                'accessibility': '🌐 Accessible Website',
+                'support': '📞 24/7 Support',
+                'nav-home': 'Home',
+                'nav-about': 'About',
+                'nav-services': 'Services',
+                'nav-portfolio': 'Portfolio',
+                'nav-process': 'Process',
+                'nav-blog': 'Blog',
+                'nav-contact': 'Contact',
+                'employee': 'Employee',
+                'get-started': 'Get Started',
+                'hero-title-1': 'Empowering Businesses with',
+                'hero-title-2': '💻 Software, 🤖 AI & 📈 Digital Growth',
+                'hero-description': 'From innovative software solutions to AI-powered marketing strategies, SRMsolutions transforms your ideas into digital success stories.',
+                'get-started-today': 'Get Started Today',
+                'explore-services': 'Explore Services',
+                'tagline': '✅ Your Trusted Technology & Marketing Partner',
+                'chat-whatsapp': 'Chat on WhatsApp',
+                'about-title': 'About SRMsolutions',
+                'services-title': 'Our Services',
+                'custom-software': '💻 Custom Software Development',
+                'digital-marketing': '📈 Digital Marketing',
+                'ai-solutions': '🤖 AI Solutions',
+                'innovation-driven': '⚡ Innovation-Driven',
+                'contact-title': 'Get in Touch with Us Today',
+                'email': 'Email',
+                'office': 'Office',
+                'follow-us': 'Follow Us',
+                'full-name': 'Full Name',
+                'email-address': 'Email Address',
+                'phone-number': 'Phone Number',
+                'service-interested': 'Service Interested In',
+                'project-details': 'Project Details',
+                'send-message': 'Send Message',
+                'message-sent': 'Message sent successfully! We\'ll get back to you soon.',
+                'book-consultation': 'Book Free Consultation'
+            },
+            hi: {
+                'accessibility': '🌐 सुलभ वेबसाइट',
+                'support': '📞 24/7 सहायता',
+                'nav-home': 'होम',
+                'nav-about': 'हमारे बारे में',
+                'nav-services': 'सेवाएं',
+                'nav-portfolio': 'पोर्टफोलियो',
+                'nav-process': 'प्रक्रिया',
+                'nav-blog': 'ब्लॉग',
+                'nav-contact': 'संपर्क',
+                'employee': 'कर्मचारी',
+                'get-started': 'शुरू करें',
+                'hero-title-1': 'व्यवसायों को सशक्त बनाना',
+                'hero-title-2': '💻 सॉफ्टवेयर, 🤖 AI और 📈 डिजिटल ग्रोथ के साथ',
+                'hero-description': 'नवाचार सॉफ्टवेयर समाधान से लेकर AI-संचालित मार्केटिंग रणनीतियों तक, SRMsolutions आपके विचारों को डिजिटल सफलता की कहानियों में बदलता है।',
+                'get-started-today': 'आज ही शुरू करें',
+                'explore-services': 'सेवाएं देखें',
+                'tagline': '✅ आपका विश्वसनीय प्रौद्योगिकी और मार्केटिंग पार्टनर',
+                'chat-whatsapp': 'WhatsApp पर चैट करें',
+                'about-title': 'SRMsolutions के बारे में',
+                'services-title': 'हमारी सेवाएं',
+                'custom-software': '💻 कस्टम सॉफ्टवेयर डेवलपमेंट',
+                'digital-marketing': '📈 डिजिटल मार्केटिंग',
+                'ai-solutions': '🤖 AI समाधान',
+                'innovation-driven': '⚡ नवाचार-संचालित',
+                'contact-title': 'आज ही हमसे संपर्क करें',
+                'email': 'ईमेल',
+                'office': 'कार्यालय',
+                'follow-us': 'हमें फॉलो करें',
+                'full-name': 'पूरा नाम',
+                'email-address': 'ईमेल पता',
+                'phone-number': 'फोन नंबर',
+                'service-interested': 'रुचि की सेवा',
+                'project-details': 'प्रोजेक्ट विवरण',
+                'send-message': 'संदेश भेजें',
+                'message-sent': 'संदेश सफलतापूर्वक भेजा गया! हम जल्द ही आपसे संपर्क करेंगे।',
+                'book-consultation': 'मुफ्त परामर्श बुक करें'
+            },
+            te: {
+                'accessibility': '🌐 అందుబాటులో ఉన్న వెబ్‌సైట్',
+                'support': '📞 24/7 మద్దతు',
+                'nav-home': 'హోమ్',
+                'nav-about': 'మా గురించి',
+                'nav-services': 'సేవలు',
+                'nav-portfolio': 'పోర్ట్‌ఫోలియో',
+                'nav-process': 'ప్రక్రియ',
+                'nav-blog': 'బ్లాగ్',
+                'nav-contact': 'సంప్రదింపులు',
+                'employee': 'ఉద్యోగి',
+                'get-started': 'ప్రారంభించండి',
+                'hero-title-1': 'వ్యాపారాలను శక్తివంతం చేయడం',
+                'hero-title-2': '💻 సాఫ్ట్‌వేర్, 🤖 AI & 📈 డిజిటల్ గ్రోత్‌తో',
+                'hero-description': 'వినూత్న సాఫ్ట్‌వేర్ పరిష్కారాల నుండి AI-శక్తితో కూడిన మార్కెటింగ్ వ్యూహాల వరకు, SRMsolutions మీ ఆలోచనలను డిజిటల్ విజయ కథలుగా మారుస్తుంది.',
+                'get-started-today': 'ఈరోజే ప్రారంభించండి',
+                'explore-services': 'సేవలను అన్వేషించండి',
+                'tagline': '✅ మీ విశ్వసనీయ టెక్నాలజీ & మార్కెటింగ్ భాగస్వామి',
+                'chat-whatsapp': 'WhatsApp లో చాట్ చేయండి',
+                'about-title': 'SRMsolutions గురించి',
+                'services-title': 'మా సేవలు',
+                'custom-software': '💻 కస్టమ్ సాఫ్ట్‌వేర్ డెవలప్‌మెంట్',
+                'digital-marketing': '📈 డిజిటల్ మార్కెటింగ్',
+                'ai-solutions': '🤖 AI పరిష్కారాలు',
+                'innovation-driven': '⚡ ఆవిష్కరణ-చోదిత',
+                'contact-title': 'ఈరోజే మాతో సంప్రదించండి',
+                'email': 'ఇమెయిల్',
+                'office': 'కార్యాలయం',
+                'follow-us': 'మాను అనుసరించండి',
+                'full-name': 'పూర్తి పేరు',
+                'email-address': 'ఇమెయిల్ చిరునామా',
+                'phone-number': 'ఫోన్ నంబర్',
+                'service-interested': 'ఆసక్తి ఉన్న సేవ',
+                'project-details': 'ప్రాజెక్ట్ వివరాలు',
+                'send-message': 'సందేశం పంపండి',
+                'message-sent': 'సందేశం విజయవంత
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977ccf03106b85bf',t:'MTc1NjY0NjI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<!-- SRMsolutions Backend Connectivity Test -->
+<script src="./config.js"></script>
+<script>
+(function(){
+  if (!document.getElementById('srm-connectivity')) {
+    const bar = document.createElement('div');
+    bar.id = 'srm-connectivity';
+    bar.style.cssText = 'position:fixed;right:12px;bottom:12px;padding:10px 12px;border-radius:10px;background:#1e40af;color:#fff;font:14px/1.2 system-ui, -apple-system, Segoe UI, Roboto;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:9999';
+    bar.innerHTML = '<button id="srmPingBtn" style="all:unset;background:#fff;color:#1e40af;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700;margin-right:8px">Ping API</button><span id="srmPingMsg">Ready</span>';
+    document.body.appendChild(bar);
+    document.getElementById('srmPingBtn').addEventListener('click', async () => {
+      const api = (window.APP_CONFIG && window.APP_CONFIG.BACKEND_URL ? window.APP_CONFIG.BACKEND_URL : '') + '/api/ping';
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+        document.getElementById('srmPingMsg').textContent = '✅ ' + (data.message || 'OK');
+      } catch (e) {
+        document.getElementById('srmPingMsg').textContent = '❌ Failed: ' + e.message;
+      }
+    });
+  }
+})();
+</script>
