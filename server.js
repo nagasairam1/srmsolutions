@@ -1,19 +1,22 @@
+// routes/auth.js
 const express = require("express");
-const bodyParser = require("body-parser");
+const router = express.Router();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// Dummy login endpoint
+router.post("/login", (req, res) => {
+  const { username, password } = req.body;
 
-app.use(bodyParser.json());
+  if (username === "admin" && password === "password") {
+    return res.json({ message: "Login successful 🚀" });
+  }
 
-// Import routes
-const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
-
-app.get("/", (req, res) => {
-  res.send("SRMsolutions Backend Running ✅");
+  res.status(401).json({ message: "Invalid credentials ❌" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Dummy register endpoint
+router.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
+  res.json({ message: "User registered successfully ✅", user: { username, email } });
 });
+
+module.exports = router;
