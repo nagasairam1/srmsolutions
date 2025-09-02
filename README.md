@@ -31,6 +31,6 @@ This project includes:
 - **Database**: MongoDB (Local or Atlas)
 - **Tools**: Git, Netlify/Render (for deployment)
 
----
 
-## 📦 Project Structure
+
+
