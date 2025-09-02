@@ -1,63 +1,1337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SRMsolutions App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRMsolutions - Technology & Marketing Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .notification {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .input-focus:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
-<body>
-  <h1>SRMsolutions Website 🚀</h1>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold text-gray-800">SRMsolutions</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <button onclick="showEmployeeLogin()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-user-tie mr-2"></i>Employee Login
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <button onclick="showEmployeeLogin()" class="block w-full text-left px-3 py-2 text-blue-600 font-medium">
+                    <i class="fas fa-user-tie mr-2"></i>Employee Login
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <h2>Login</h2>
-  <form id="loginForm">
-    <input type="text" id="loginUsername" placeholder="Username" required>
-    <input type="password" id="loginPassword" placeholder="Password" required>
-    <button type="submit">Login</button>
-  </form>
-  <p id="loginResult"></p>
+    <!-- Main Website Content -->
+    <div id="mainWebsite">
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient text-white pt-20 pb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Transform Your Business with 
+                            <span class="text-yellow-300">Smart Solutions</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+                            We provide cutting-edge software development, AI-powered marketing strategies, and compelling content creation to accelerate your business growth.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#services" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg">
+                                <i class="fas fa-rocket mr-2"></i>Explore Services
+                            </a>
+                            <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-all">
+                                <i class="fas fa-phone mr-2"></i>Get Started
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center floating-animation">
+                        <div class="relative">
+                            <div class="w-96 h-96 mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-20 absolute top-0 left-1/2 transform -translate-x-1/2 pulse-animation"></div>
+                            <div class="relative z-10 text-8xl">
+                                🚀
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <h2>Register</h2>
-  <form id="registerForm">
-    <input type="text" id="regUsername" placeholder="Username" required>
-    <input type="email" id="regEmail" placeholder="Email" required>
-    <input type="password" id="regPassword" placeholder="Password" required>
-    <button type="submit">Register</button>
-  </form>
-  <p id="registerResult"></p>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive technology and marketing solutions designed to propel your business forward
+                    </p>
+                </div>
 
-  <script>
-    const baseUrl = "https://your-render-service-url"; // replace with your backend Render URL
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Software Development -->
+                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Software Development</h3>
+                        <p class="text-gray-600 mb-6">Custom web applications, mobile apps, and enterprise software solutions built with cutting-edge technologies.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li>• Web Applications</li>
+                            <li>• Mobile Apps (iOS/Android)</li>
+                            <li>• API Development</li>
+                            <li>• Database Design</li>
+                        </ul>
+                        <button onclick="openServiceModal('software')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
 
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const username = document.getElementById("loginUsername").value;
-      const password = document.getElementById("loginPassword").value;
+                    <!-- Digital Marketing -->
+                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Digital Marketing</h3>
+                        <p class="text-gray-600 mb-6">Data-driven marketing strategies to boost your online presence and drive conversions.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li>• SEO & SEM</li>
+                            <li>• Social Media Marketing</li>
+                            <li>• Email Campaigns</li>
+                            <li>• Analytics & Reporting</li>
+                        </ul>
+                        <button onclick="openServiceModal('marketing')" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
 
-      const res = await fetch(`${baseUrl}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
+                    <!-- Content Creation -->
+                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-pen-fancy text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Content Creation</h3>
+                        <p class="text-gray-600 mb-6">Engaging content that tells your brand story and connects with your audience.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li>• Blog Writing</li>
+                            <li>• Video Production</li>
+                            <li>• Graphic Design</li>
+                            <li>• Copywriting</li>
+                        </ul>
+                        <button onclick="openServiceModal('content')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
 
-      const data = await res.json();
-      document.getElementById("loginResult").innerText = JSON.stringify(data);
-    });
+                    <!-- AI Solutions -->
+                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">AI Solutions</h3>
+                        <p class="text-gray-600 mb-6">Harness the power of artificial intelligence to automate processes and gain insights.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li>• Chatbots & Virtual Assistants</li>
+                            <li>• Machine Learning Models</li>
+                            <li>• Data Analytics</li>
+                            <li>• Process Automation</li>
+                        </ul>
+                        <button onclick="openServiceModal('ai')" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    document.getElementById("registerForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const username = document.getElementById("regUsername").value;
-      const email = document.getElementById("regEmail").value;
-      const password = document.getElementById("regPassword").value;
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold text-gray-800 mb-6">About SRMsolutions</h2>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            We are a forward-thinking technology company dedicated to helping businesses thrive in the digital age. Our team of experts combines technical excellence with creative innovation to deliver solutions that drive real results.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                                <div class="text-gray-600">Projects Completed</div>
+                            </div>
+                            <div class="text-center p-4 bg-green-50 rounded-lg">
+                                <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
+                                <div class="text-gray-600">Client Satisfaction</div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+                            <i class="fas fa-handshake mr-2"></i>Work With Us
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-9xl mb-4">💼</div>
+                        <p class="text-gray-600 italic">"Innovation is our passion, excellence is our standard"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      const res = await fetch(`${baseUrl}/auth/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password })
-      });
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                    <p class="text-xl text-gray-600">Ready to transform your business? Let's discuss your project!</p>
+                </div>
 
-      const data = await res.json();
-      document.getElementById("registerResult").innerText = JSON.stringify(data);
-    });
-  </script>
-</body>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send us a message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                    <input type="text" id="contactName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                    <input type="email" id="contactEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                    <input type="tel" id="contactPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
+                                    <select id="contactService" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                        <option value="">Select a service</option>
+                                        <option value="software">Software Development</option>
+                                        <option value="marketing">Digital Marketing</option>
+                                        <option value="content">Content Creation</option>
+                                        <option value="ai">AI Solutions</option>
+                                        <option value="multiple">Multiple Services</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea id="contactMessage" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit" id="contactSubmitBtn" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all btn-hover font-semibold">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                <span id="contactSubmitText">Send Message</span>
+                            </button>
+                        </form>
+                        <div id="contactResult" class="mt-6"></div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div class="bg-white rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Email</div>
+                                        <div class="text-gray-600">sairam0510@gmail.com</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">WhatsApp</div>
+                                        <div class="text-gray-600">+91 8096660643</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-clock text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Business Hours</div>
+                                        <div class="text-gray-600">Mon - Fri: 9AM - 6PM IST</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Signup -->
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-4">Stay Updated</h3>
+                            <p class="mb-6">Subscribe to our newsletter for the latest tech insights and updates.</p>
+                            <form id="newsletterForm" class="space-y-4">
+                                <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                                <button type="submit" id="newsletterBtn" class="w-full bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+                                    <span id="newsletterBtnText">Subscribe Now</span>
+                                </button>
+                            </form>
+                            <div id="newsletterResult" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Employee Login Modal -->
+    <div id="employeeLoginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-screen overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Employee Login</h2>
+                    <button onclick="closeEmployeeLogin()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <form id="employeeLoginForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Employee ID</label>
+                        <input type="text" id="employeeId" placeholder="e.g., EMP001" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="employeeEmail" placeholder="your.email@srmsolutions.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <div class="relative">
+                            <input type="password" id="employeePassword" placeholder="Enter your password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus pr-12">
+                            <button type="button" onclick="togglePassword('employeePassword')" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Department</label>
+                        <select id="employeeDepartment" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                            <option value="">Select Department</option>
+                            <option value="development">Development</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="content">Content</option>
+                            <option value="ai">AI & Innovation</option>
+                            <option value="management">Management</option>
+                            <option value="hr">Human Resources</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="employeeLoginBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all btn-hover">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        <span id="employeeLoginBtnText">Login to Dashboard</span>
+                    </button>
+                </form>
+
+                <div id="employeeLoginResult" class="mt-6"></div>
+
+                <!-- Demo Credentials -->
+                <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-2">Demo Credentials:</h4>
+                    <div class="text-sm text-blue-700 space-y-1">
+                        <p><strong>Employee ID:</strong> ADMIN001</p>
+                        <p><strong>Email:</strong> admin@srmsolutions.com</p>
+                        <p><strong>Password:</strong> admin123456</p>
+                        <p><strong>Department:</strong> Management</p>
+                    </div>
+                    <button onclick="fillDemoCredentials()" class="mt-2 text-blue-600 hover:text-blue-800 text-sm font-medium">
+                        <i class="fas fa-magic mr-1"></i>Fill Demo Credentials
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employee Dashboard -->
+    <div id="employeeDashboard" class="hidden min-h-screen bg-gray-50">
+        <!-- Dashboard Header -->
+        <header class="bg-white shadow-sm border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <div class="ml-4">
+                            <h1 class="text-2xl font-bold text-gray-900">SRMsolutions Dashboard</h1>
+                            <p class="text-sm text-gray-600">Employee Portal</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span id="welcomeText" class="text-gray-700 font-medium"></span>
+                        <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Dashboard Stats -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <!-- Contact Management -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Contact Forms</h3>
+                            <p class="text-sm text-gray-600">Manage inquiries</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">New:</span>
+                            <span id="newContacts" class="font-semibold text-green-600">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total:</span>
+                            <span id="totalContacts" class="font-semibold">-</span>
+                        </div>
+                    </div>
+                    <button onclick="loadContacts()" class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition-colors">
+                        View Contacts
+                    </button>
+                </div>
+
+                <!-- Newsletter Management -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-newspaper text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Newsletter</h3>
+                            <p class="text-sm text-gray-600">Manage subscribers</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Active:</span>
+                            <span id="activeSubscribers" class="font-semibold text-purple-600">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total:</span>
+                            <span id="totalSubscribers" class="font-semibold">-</span>
+                        </div>
+                    </div>
+                    <button onclick="loadSubscribers()" class="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg transition-colors">
+                        View Subscribers
+                    </button>
+                </div>
+
+                <!-- System Status -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-server text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-800">System Status</h3>
+                            <p class="text-sm text-gray-600">Backend health</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">API:</span>
+                            <span id="apiStatus" class="font-semibold">Checking...</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Database:</span>
+                            <span id="dbStatus" class="font-semibold">Checking...</span>
+                        </div>
+                    </div>
+                    <button onclick="checkSystemHealth()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition-colors">
+                        Check Health
+                    </button>
+                </div>
+            </div>
+
+            <!-- Data Display Area -->
+            <div id="dataDisplay" class="bg-white rounded-xl p-6 shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Data Management</h3>
+                <div id="dataContent" class="text-gray-600">
+                    Select an option above to view data...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="serviceModalTitle" class="text-3xl font-bold text-gray-800"></h2>
+                    <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="serviceModalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="ml-3 text-xl font-bold">SRMsolutions</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Transforming businesses through innovative technology and marketing solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Software Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Content Creation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">AI Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-envelope mr-2"></i>sairam0510@gmail.com</p>
+                        <p><i class="fab fa-whatsapp mr-2"></i>+91 8096660643</p>
+                        <p><i class="fas fa-clock mr-2"></i>Mon - Fri: 9AM - 6PM IST</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SRMsolutions. All rights reserved. Built with ❤️ for innovation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <script>
+        // Configuration
+        const baseUrl = "https://your-render-service-url.com/api"; // Replace with your backend URL
+        let currentUser = null;
+        let authToken = null;
+
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('authToken');
+            const user = localStorage.getItem('currentUser');
+            
+            if (token && user) {
+                authToken = token;
+                currentUser = JSON.parse(user);
+                showEmployeeDashboard();
+            }
+            
+            checkSystemHealth();
+        });
+
+        // Navigation Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function showEmployeeLogin() {
+            document.getElementById('employeeLoginModal').classList.remove('hidden');
+        }
+
+        function closeEmployeeLogin() {
+            document.getElementById('employeeLoginModal').classList.add('hidden');
+        }
+
+        function showEmployeeDashboard() {
+            document.getElementById('mainWebsite').classList.add('hidden');
+            document.getElementById('employeeDashboard').classList.remove('hidden');
+            document.getElementById('employeeLoginModal').classList.add('hidden');
+            document.getElementById('welcomeText').textContent = `Welcome, ${currentUser.name}`;
+            loadDashboardStats();
+        }
+
+        // Contact Form Handler
+        document.getElementById("contactForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('contactSubmitBtn');
+            const submitText = document.getElementById('contactSubmitText');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + submitText.textContent;
+
+            const formData = {
+                name: document.getElementById("contactName").value.trim(),
+                email: document.getElementById("contactEmail").value.trim(),
+                phone: document.getElementById("contactPhone").value.trim(),
+                service: document.getElementById("contactService").value,
+                message: document.getElementById("contactMessage").value.trim()
+            };
+
+            try {
+                const response = await fetch(`${baseUrl}/contact`, {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                    document.getElementById('contactForm').reset();
+                    displayResult('contactResult', data, true);
+                } else {
+                    showNotification(data.message || 'Failed to send message. Please try again.', 'error');
+                    displayResult('contactResult', data, false);
+                }
+            } catch (error) {
+                console.error('Contact form error:', error);
+                showNotification('Connection error. Please check if the backend is running.', 'error');
+                displayResult('contactResult', { 
+                    success: false, 
+                    message: 'Connection error. Please try again or contact us directly.' 
+                }, false);
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>' + submitText.textContent;
+            }
+        });
+
+        // Newsletter Form Handler
+        document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const newsletterBtn = document.getElementById('newsletterBtn');
+            const newsletterBtnText = document.getElementById('newsletterBtnText');
+            
+            // Show loading state
+            newsletterBtn.disabled = true;
+            newsletterBtnText.textContent = 'Subscribing...';
+
+            const email = document.getElementById("newsletterEmail").value.trim();
+
+            try {
+                const response = await fetch(`${baseUrl}/newsletter/subscribe`, {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showNotification('Successfully subscribed to newsletter!', 'success');
+                    document.getElementById('newsletterForm').reset();
+                    displayResult('newsletterResult', data, true);
+                } else {
+                    showNotification(data.message || 'Subscription failed. Please try again.', 'error');
+                    displayResult('newsletterResult', data, false);
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNotification('Connection error. Please try again.', 'error');
+                displayResult('newsletterResult', { 
+                    success: false, 
+                    message: 'Connection error. Please try again.' 
+                }, false);
+            } finally {
+                // Reset button state
+                newsletterBtn.disabled = false;
+                newsletterBtnText.textContent = 'Subscribe Now';
+            }
+        });
+
+        // Employee Login Form Handler
+        document.getElementById("employeeLoginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const loginBtn = document.getElementById('employeeLoginBtn');
+            const loginBtnText = document.getElementById('employeeLoginBtnText');
+            
+            // Show loading state
+            loginBtn.disabled = true;
+            loginBtnText.textContent = 'Logging in...';
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + loginBtnText.textContent;
+
+            const employeeId = document.getElementById("employeeId").value.trim();
+            const email = document.getElementById("employeeEmail").value.trim();
+            const password = document.getElementById("employeePassword").value;
+            const department = document.getElementById("employeeDepartment").value;
+
+            try {
+                const response = await fetch(`${baseUrl}/auth/login`, {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({ 
+                        employeeId: employeeId.toUpperCase(), 
+                        email: email.toLowerCase(), 
+                        password, 
+                        department 
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Store authentication data
+                    authToken = data.token;
+                    currentUser = data.user;
+                    localStorage.setItem('authToken', authToken);
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    
+                    showNotification('Login successful! Welcome back.', 'success');
+                    showEmployeeDashboard();
+                } else {
+                    showNotification(data.message || 'Login failed. Please check your credentials.', 'error');
+                    displayResult('employeeLoginResult', data, false);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showNotification('Connection error. Please check if the backend is running.', 'error');
+                displayResult('employeeLoginResult', { 
+                    success: false, 
+                    message: 'Connection error. Please try again.' 
+                }, false);
+            } finally {
+                // Reset button state
+                loginBtn.disabled = false;
+                loginBtnText.textContent = 'Login to Dashboard';
+                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>' + loginBtnText.textContent;
+            }
+        });
+
+        // Dashboard Functions
+        async function loadDashboardStats() {
+            try {
+                // Load contacts count
+                const contactsResponse = await fetch(`${baseUrl}/contact?limit=1`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                if (contactsResponse.ok) {
+                    const contactsData = await contactsResponse.json();
+                    document.getElementById('totalContacts').textContent = contactsData.pagination?.total || 0;
+                    document.getElementById('newContacts').textContent = '0'; // You can filter by status
+                }
+
+                // Load subscribers count
+                const subscribersResponse = await fetch(`${baseUrl}/newsletter/subscribers?limit=1`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                if (subscribersResponse.ok) {
+                    const subscribersData = await subscribersResponse.json();
+                    document.getElementById('totalSubscribers').textContent = subscribersData.pagination?.total || 0;
+                    document.getElementById('activeSubscribers').textContent = subscribersData.pagination?.total || 0;
+                }
+            } catch (error) {
+                console.error('Error loading dashboard stats:', error);
+            }
+        }
+
+        async function loadContacts() {
+            try {
+                const response = await fetch(`${baseUrl}/contact`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    displayContacts(data.contacts);
+                } else {
+                    showNotification('Failed to load contacts', 'error');
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+                showNotification('Error loading contacts', 'error');
+            }
+        }
+
+        async function loadSubscribers() {
+            try {
+                const response = await fetch(`${baseUrl}/newsletter/subscribers`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    displaySubscribers(data.subscribers);
+                } else {
+                    showNotification('Failed to load subscribers', 'error');
+                }
+            } catch (error) {
+                console.error('Error loading subscribers:', error);
+                showNotification('Error loading subscribers', 'error');
+            }
+        }
+
+        function displayContacts(contacts) {
+            const content = document.getElementById('dataContent');
+            if (!contacts || contacts.length === 0) {
+                content.innerHTML = '<p class="text-gray-500">No contacts found.</p>';
+                return;
+            }
+
+            const html = `
+                <h4 class="text-lg font-semibold mb-4">Contact Form Submissions</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Service</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            ${contacts.map(contact => `
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-900">${contact.name}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-600">${contact.email}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-600">${contact.service || 'N/A'}</td>
+                                    <td class="px-4 py-3">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(contact.status)}">
+                                            ${contact.status}
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm text-gray-600">${new Date(contact.createdAt).toLocaleDateString()}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            content.innerHTML = html;
+        }
+
+        function displaySubscribers(subscribers) {
+            const content = document.getElementById('dataContent');
+            if (!subscribers || subscribers.length === 0) {
+                content.innerHTML = '<p class="text-gray-500">No subscribers found.</p>';
+                return;
+            }
+
+            const html = `
+                <h4 class="text-lg font-semibold mb-4">Newsletter Subscribers</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Subscribed</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Last Email</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            ${subscribers.map(subscriber => `
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-900">${subscriber.email}</td>
+                                    <td class="px-4 py-3">
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(subscriber.status)}">
+                                            ${subscriber.status}
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm text-gray-600">${new Date(subscriber.createdAt).toLocaleDateString()}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-600">${subscriber.lastEmailSent ? new Date(subscriber.lastEmailSent).toLocaleDateString() : 'Never'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            content.innerHTML = html;
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'new': 'bg-blue-100 text-blue-800',
+                'active': 'bg-green-100 text-green-800',
+                'contacted': 'bg-yellow-100 text-yellow-800',
+                'completed': 'bg-green-100 text-green-800',
+                'unsubscribed': 'bg-red-100 text-red-800'
+            };
+            return colors[status] || 'bg-gray-100 text-gray-800';
+        }
+
+        async function checkSystemHealth() {
+            try {
+                const response = await fetch(`${baseUrl}/health`);
+                if (response.ok) {
+                    document.getElementById('apiStatus').innerHTML = '<span class="text-green-600">✅ Online</span>';
+                    document.getElementById('dbStatus').innerHTML = '<span class="text-green-600">✅ Connected</span>';
+                } else {
+                    throw new Error('API not responding');
+                }
+            } catch (error) {
+                document.getElementById('apiStatus').innerHTML = '<span class="text-red-600">❌ Offline</span>';
+                document.getElementById('dbStatus').innerHTML = '<span class="text-red-600">❌ Error</span>';
+            }
+        }
+
+        // Service Modal Functions
+        function openServiceModal(service) {
+            const modal = document.getElementById('serviceModal');
+            const title = document.getElementById('serviceModalTitle');
+            const content = document.getElementById('serviceModalContent');
+            
+            const serviceData = {
+                software: {
+                    title: 'Software Development',
+                    content: `
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-600">We create custom software solutions that drive business growth and efficiency.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Web Development</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• React, Vue.js, Angular applications</li>
+                                        <li>• Node.js, Python, PHP backends</li>
+                                        <li>• Progressive Web Apps (PWA)</li>
+                                        <li>• E-commerce platforms</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Mobile Development</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Native iOS & Android apps</li>
+                                        <li>• React Native & Flutter</li>
+                                        <li>• Cross-platform solutions</li>
+                                        <li>• App Store optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">Why Choose Our Development Services?</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>✅ Agile development methodology</li>
+                                    <li>✅ Scalable and maintainable code</li>
+                                    <li>✅ 24/7 support and maintenance</li>
+                                    <li>✅ Competitive pricing</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="#contact" onclick="closeServiceModal()" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+                                    Start Your Project
+                                </a>
+                            </div>
+                        </div>
+                    `
+                },
+                marketing: {
+                    title: 'Digital Marketing',
+                    content: `
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-600">Boost your online presence with our data-driven marketing strategies.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">SEO & Content Marketing</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Keyword research & optimization</li>
+                                        <li>• Content strategy & creation</li>
+                                        <li>• Link building campaigns</li>
+                                        <li>• Local SEO optimization</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Paid Advertising</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Google Ads management</li>
+                                        <li>• Facebook & Instagram ads</li>
+                                        <li>• LinkedIn advertising</li>
+                                        <li>• Conversion optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">Marketing Results You Can Expect</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>📈 Increased website traffic</li>
+                                    <li>🎯 Higher conversion rates</li>
+                                    <li>💰 Better ROI on ad spend</li>
+                                    <li>📊 Detailed analytics & reporting</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="#contact" onclick="closeServiceModal()" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors inline-block">
+                                    Grow Your Business
+                                </a>
+                            </div>
+                        </div>
+                    `
+                },
+                content: {
+                    title: 'Content Creation',
+                    content: `
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-600">Engaging content that tells your story and connects with your audience.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Written Content</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Blog posts & articles</li>
+                                        <li>• Website copywriting</li>
+                                        <li>• Email newsletters</li>
+                                        <li>• Social media content</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Visual Content</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Graphic design</li>
+                                        <li>• Video production</li>
+                                        <li>• Infographics</li>
+                                        <li>• Brand identity design</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">Content That Converts</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>🎨 Professional design & branding</li>
+                                    <li>📝 SEO-optimized content</li>
+                                    <li>🎥 Engaging video content</li>
+                                    <li>📱 Social media ready formats</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="#contact" onclick="closeServiceModal()" class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors inline-block">
+                                    Create Amazing Content
+                                </a>
+                            </div>
+                        </div>
+                    `
+                },
+                ai: {
+                    title: 'AI Solutions',
+                    content: `
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-600">Harness the power of AI to automate processes and gain valuable insights.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">AI Automation</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Chatbots & virtual assistants</li>
+                                        <li>• Process automation</li>
+                                        <li>• Document processing</li>
+                                        <li>• Customer service automation</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Data Analytics</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Predictive analytics</li>
+                                        <li>• Machine learning models</li>
+                                        <li>• Business intelligence</li>
+                                        <li>• Data visualization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">AI Benefits for Your Business</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>🤖 24/7 automated customer support</li>
+                                    <li>📊 Data-driven decision making</li>
+                                    <li>⚡ Increased operational efficiency</li>
+                                    <li>💡 Predictive insights & trends</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="#contact" onclick="closeServiceModal()" class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors inline-block">
+                                    Implement AI Solutions
+                                </a>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            title.textContent = serviceData[service].title;
+            content.innerHTML = serviceData[service].content;
+            modal.classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+        }
+
+        // Utility Functions
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const icon = passwordInput.nextElementSibling.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        }
+
+        function fillDemoCredentials() {
+            document.getElementById('employeeId').value = 'ADMIN001';
+            document.getElementById('employeeEmail').value = 'admin@srmsolutions.com';
+            document.getElementById('employeePassword').value = 'admin123456';
+            document.getElementById('employeeDepartment').value = 'management';
+            showNotification('Demo credentials filled!', 'info');
+        }
+
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('currentUser');
+            authToken = null;
+            currentUser = null;
+            
+            document.getElementById('mainWebsite').classList.remove('hidden');
+            document.getElementById('employeeDashboard').classList.add('hidden');
+            
+            // Clear forms
+            document.getElementById('employeeLoginForm').reset();
+            document.getElementById('employeeLoginResult').innerHTML = '';
+            
+            showNotification('Logged out successfully', 'success');
+        }
+
+        function displayResult(elementId, data, isSuccess) {
+            const element = document.getElementById(elementId);
+            const bgColor = isSuccess ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800';
+            const icon = isSuccess ? 'fas fa-check-circle text-green-500' : 'fas fa-exclamation-circle text-red-500';
+            
+            element.innerHTML = `
+                <div class="p-4 border rounded-lg ${bgColor}">
+                    <div class="flex items-start">
+                        <i class="${icon} mt-0.5 mr-3"></i>
+                        <div>
+                            <p class="font-medium">${data.message || (isSuccess ? 'Success!' : 'Error occurred')}</p>
+                            ${data.errors ? `<ul class="mt-2 text-sm list-disc list-inside">${data.errors.map(err => `<li>${err.message}</li>`).join('')}</ul>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showNotification(message, type = 'info') {
+            const notifications = document.getElementById('notifications');
+            const id = Date.now();
+            
+            const colors = {
+                success: 'bg-green-500',
+                error: 'bg-red-500',
+                info: 'bg-blue-500',
+                warning: 'bg-yellow-500'
+            };
+            
+            const icons = {
+                success: 'fas fa-check',
+                error: 'fas fa-times',
+                info: 'fas fa-info',
+                warning: 'fas fa-exclamation'
+            };
+            
+            const notification = document.createElement('div');
+            notification.id = `notification-${id}`;
+            notification.className = `notification ${colors[type]} text-white px-6 py-4 rounded-lg shadow-lg max-w-sm`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="${icons[type]} mr-3"></i>
+                    <span class="flex-1">${message}</span>
+                    <button onclick="removeNotification(${id})" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            notifications.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => removeNotification(id), 5000);
+        }
+
+        function removeNotification(id) {
+            const notification = document.getElementById(`notification-${id}`);
+            if (notification) {
+                notification.style.animation = 'slideOut 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add slideOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c3ab9b5d885ba',t:'MTc1NjgwNzk1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
