@@ -4,107 +4,44 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
+const helmet = require('helmet');
+const compression = require('compression');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(compression());
+app.use(morgan('dev'));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true
+}));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: 'Too many requests'
+});
+app.use(limiter);
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.static('public'));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/srmsolutions", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Routes
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/newsletter', require('./routes/newsletter'));
+app.use('/api/services', require('./routes/services'));
+app.use('/api/portfolio', require('./routes/portfolio'));
+app.use('/api/admin', require('./routes/admin'));
 
-// Models
-const LeadSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  subscribedAt: { type: Date, default: Date.now }
-});
-const Lead = mongoose.model('Lead', LeadSchema);
-
-const ContactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  service: String,
-  message: String,
-  submittedAt: { type: Date, default: Date.now }
-});
-const Contact = mongoose.model('Contact', ContactSchema);
-
-const EmployeeSchema = new mongoose.Schema({
-  employeeId: String,
-  email: String,
-  password: String,
-  department: String,
-  name: String,
-  role: String
-});
-const Employee = mongoose.model('Employee', EmployeeSchema);
-
-// Seed employees (run once)
-async function seedEmployees() {
-  const count = await Employee.countDocuments();
-  if (count === 0) {
-    await Employee.insertMany([
-      { employeeId: 'EMP001', email: 'admin@srmsolutions.com', password: 'admin123', department: 'management', name: 'Admin User', role: 'System Administrator' },
-      { employeeId: 'EMP002', email: 'dev@srmsolutions.com', password: 'dev123', department: 'development', name: 'John Developer', role: 'Senior Developer' },
-      { employeeId: 'EMP003', email: 'marketing@srmsolutions.com', password: 'marketing123', department: 'marketing', name: 'Sarah Marketing', role: 'Marketing Manager' },
-      { employeeId: 'EMP004', email: 'content@srmsolutions.com', password: 'content123', department: 'content', name: 'Alex Content', role: 'Content Creator' },
-      { employeeId: 'EMP005', email: 'ai@srmsolutions.com', password: 'ai123', department: 'ai', name: 'Maya AI', role: 'AI Specialist' },
-      { employeeId: 'EMP006', email: 'hr@srmsolutions.com', password: 'hr123', department: 'hr', name: 'Lisa HR', role: 'HR Manager' }
-    ]);
-    console.log('✅ Default employees seeded');
-  }
-}
-seedEmployees();
-
-// API Routes
-
-// Save newsletter lead
-app.post('/api/leads', async (req, res) => {
-  try {
-    const { email } = req.body;
-    await Lead.findOneAndUpdate({ email }, { email }, { upsert: true });
-    return res.json({ success: true, message: "Thank you! Guide on the way." });
-  } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
-  }
-});
-
-// Save contact form
-app.post('/api/contact', async (req, res) => {
-  try {
-    const { name, email, phone, service, message } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ success: false, message: 'Missing required fields' });
-    }
-    const contact = new Contact({ name, email, phone, service, message });
-    await contact.save();
-    return res.json({ success: true, message: 'Message saved!' });
-  } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
-  }
-});
-
-// Employee Login
-app.post('/api/login', async (req, res) => {
-  const { employeeId, workEmail, password, department } = req.body;
-  const emp = await Employee.findOne({ employeeId, department });
-  if (!emp) return res.json({ success: false, message: 'Invalid credentials' });
-
-  if (emp.email === workEmail && emp.password === password) {
-    return res.json({
-      success: true,
-      user: { name: emp.name, role: emp.role, department: emp.department }
-    });
-  } else {
-    return res.json({ success: false, message: 'Invalid credentials' });
-  }
+// Health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'SRMsolutions API is running' });
 });
 
 // Serve HTML
@@ -112,8 +49,18 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start Server
-const PORT = process.env.PORT || 3000;
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: 'Something went wrong!' });
+});
+
+// 404
+app.use('*', (req, res) => {
+  res.status(404).json({ success: false, message: 'API endpoint not found' });
+});
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 SRMsolutions Backend running on http://localhost:${PORT}`);
 });
