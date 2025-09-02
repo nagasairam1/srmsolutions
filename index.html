@@ -425,20 +425,6 @@
                 </form>
 
                 <div id="employeeLoginResult" class="mt-6"></div>
-
-                <!-- Demo Credentials -->
-                <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h4 class="font-semibold text-blue-800 mb-2">Demo Credentials:</h4>
-                    <div class="text-sm text-blue-700 space-y-1">
-                        <p><strong>Employee ID:</strong> ADMIN001</p>
-                        <p><strong>Email:</strong> admin@srmsolutions.com</p>
-                        <p><strong>Password:</strong> admin123456</p>
-                        <p><strong>Department:</strong> Management</p>
-                    </div>
-                    <button onclick="fillDemoCredentials()" class="mt-2 text-blue-600 hover:text-blue-800 text-sm font-medium">
-                        <i class="fas fa-magic mr-1"></i>Fill Demo Credentials
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -1222,13 +1208,7 @@
             }
         }
 
-        function fillDemoCredentials() {
-            document.getElementById('employeeId').value = 'ADMIN001';
-            document.getElementById('employeeEmail').value = 'admin@srmsolutions.com';
-            document.getElementById('employeePassword').value = 'admin123456';
-            document.getElementById('employeeDepartment').value = 'management';
-            showNotification('Demo credentials filled!', 'info');
-        }
+
 
         function logout() {
             localStorage.removeItem('authToken');
@@ -1333,5 +1313,5 @@
         `;
         document.head.appendChild(style);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c3ab9b5d885ba',t:'MTc1NjgwNzk1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c42e4215c9a4a',t:'MTc1NjgwODI4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
