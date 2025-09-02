@@ -1,17 +1,34 @@
-# SRMsolutions Website
+# SRMsolutions Backend (Node.js + Express + MongoDB)
 
-This is the official website for SRMsolutions.
+Production-ready backend for SRMsolutions with authentication, contact form, and newsletter.
 
-## Technologies We Use
-At SRMsolutions, we combine cutting-edge technologies with business-first strategies to deliver real results. From AI-powered automation to scalable software and data-driven marketing, we use the right tools for your unique needs.
+## Quick Start
 
-Our stack includes:
-- **Frontend**: HTML, CSS, JavaScript, React
-- **Backend**: Node.js, Python, Firebase
-- **AI**: ChatGPT, NLP, Machine Learning
-- **Marketing**: SEO, Google Ads, GA4
-- **Design**: Figma, Canva, Adobe Suite
-- **Hosting**: Netlify, Vercel, AWS
-- **Forms & Security**: Web3Forms, SSL, GDPR-ready
+```bash
+git clone <your-repo> srmsolutions-backend
+cd srmsolutions-backend
+cp .env.example .env
+npm install
+npm run dev
+```
 
-We don’t just follow trends — we use proven, future-ready tech to build growth engines for your business.
+- Health Check: `GET http://localhost:5000/api/health`
+- Auth:
+  - `POST /api/auth/login`
+  - `POST /api/auth/register` (requires admin/management token)
+  - `GET /api/auth/profile` (auth)
+  - `PUT /api/auth/profile` (auth)
+- Contact:
+  - `POST /api/contact`
+  - `GET /api/contact` (auth)
+  - `PUT /api/contact/:id` (auth)
+- Newsletter:
+  - `POST /api/newsletter/subscribe`
+  - `POST /api/newsletter/unsubscribe`
+  - `GET /api/newsletter/subscribers` (auth)
+  - `POST /api/newsletter/send` (auth)
+
+## Notes
+- Use Gmail App Password or SMTP credentials.
+- Never commit the real `.env`.
+- Ensure `FRONTEND_URL` matches your site for CORS.
