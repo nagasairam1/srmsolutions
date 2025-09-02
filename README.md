@@ -1,34 +1,36 @@
-# SRMsolutions Backend (Node.js + Express + MongoDB)
+# SRMsolutions - Full Stack Website
 
-Production-ready backend for SRMsolutions with authentication, contact form, and newsletter.
+🚀 A professional, full-stack landing page for **SRMsolutions** — a tech company offering Software Development, AI Solutions, Digital Marketing & Content Creation.
 
-## Quick Start
+This project includes:
+- ✅ Beautiful **Tailwind CSS frontend**
+- ✅ **Node.js + Express backend**
+- ✅ **MongoDB** integration for leads, contacts, and employee login
+- ✅ Multi-language support
+- ✅ Ready to run locally or deploy online
 
-```bash
-git clone <your-repo> srmsolutions-backend
-cd srmsolutions-backend
-cp .env.example .env
-npm install
-npm run dev
-```
+---
 
-- Health Check: `GET http://localhost:5000/api/health`
-- Auth:
-  - `POST /api/auth/login`
-  - `POST /api/auth/register` (requires admin/management token)
-  - `GET /api/auth/profile` (auth)
-  - `PUT /api/auth/profile` (auth)
-- Contact:
-  - `POST /api/contact`
-  - `GET /api/contact` (auth)
-  - `PUT /api/contact/:id` (auth)
-- Newsletter:
-  - `POST /api/newsletter/subscribe`
-  - `POST /api/newsletter/unsubscribe`
-  - `GET /api/newsletter/subscribers` (auth)
-  - `POST /api/newsletter/send` (auth)
+## 🌐 Live Features
 
-## Notes
-- Use Gmail App Password or SMTP credentials.
-- Never commit the real `.env`.
-- Ensure `FRONTEND_URL` matches your site for CORS.
+| Feature | Status |
+|-------|--------|
+| 📄 HTML + Tailwind Design | ✅ Complete |
+| 📥 Lead Magnet (Free Guide) | ✅ Saves email to DB |
+| 💬 Contact Form | ✅ Stores messages |
+| 🔐 Employee Login | ✅ Authenticates from DB |
+| 🌍 Multi-language Toggle | ✅ Works with JS |
+| 📱 Fully Responsive | ✅ Mobile & Desktop |
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML5, Tailwind CSS, JavaScript
+- **Backend**: Node.js, Express
+- **Database**: MongoDB (Local or Atlas)
+- **Tools**: Git, Netlify/Render (for deployment)
+
+---
+
+## 📦 Project Structure
