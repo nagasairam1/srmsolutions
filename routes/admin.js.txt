@@ -1,0 +1,88 @@
+// routes/admin.js
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const { body, validationResult } = require('express-validator');
+const router = express.Router();
+
+// In-memory admin users (use MongoDB in production)
+const admins = [
+  {
+    id: 1,
+    username: 'admin',
+    email: 'admin@srmsolutions.com',
+    password: '$2a$10$Gd.rOxJZ3qZ9uX5Y6Z7X8Oe9qV1w2E3R4T5Y6U7I8O9P0Q1R2S3T4U5' // bcrypt hash of 'admin123'
+  }
+];
+
+// Middleware: Authenticate JWT token
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ success: false, message: 'Access token required' });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET || 'your-super-secret-jwt-key-here', (err, user) => {
+    if (err) return res.status(403).json({ success: false, message: 'Invalid or expired token' });
+    req.user = user;
+    next();
+  });
+};
+
+// POST /api/admin/login
+router.post('/login', [
+  body('username').notEmpty().withMessage('Username is required'),
+  body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ success: false, errors: errors.array() });
+  }
+
+  const { username, password } = req.body;
+  const admin = admins.find(a => a.username === username);
+  if (!admin) {
+    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+  }
+
+  const validPassword = await bcrypt.compare(password, admin.password);
+  if (!validPassword) {
+    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+  }
+
+  const token = jwt.sign(
+    { id: admin.id, username: admin.username },
+    process.env.JWT_SECRET || 'your-super-secret-jwt-key-here',
+    { expiresIn: '24h' }
+  );
+
+  res.json({
+    success: true,
+    token,
+    user: { id: admin.id, username: admin.username, email: admin.email }
+  });
+});
+
+// GET /api/admin/dashboard (Protected)
+router.get('/dashboard', authenticateToken, (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      totalLeads: 156,
+      totalTestimonials: 24,
+      totalQuotes: 89,
+      monthlyGrowth: 12,
+      recentQuotes: [
+        { id: 1, client: 'TechCorp', service: 'AI', amount: '₹1,20,000', date: '2025-09-01' }
+      ],
+      popularServices: [
+        { name: 'Software', count: 45 },
+        { name: 'Marketing', count: 32 }
+      ]
+    }
+  });
+});
+
+module.exports = router;

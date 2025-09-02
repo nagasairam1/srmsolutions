@@ -1,0 +1,86 @@
+// routes/testimonials.js
+const express = require('express');
+const { body, validationResult } = require('express-validator');
+const router = express.Router();
+
+// In-memory storage (replace with MongoDB later)
+let testimonials = [
+  {
+    id: 1,
+    name: 'Rahul Sharma',
+    company: 'Sharma Enterprises',
+    rating: 5,
+    content: 'SRMsolutions transformed our digital presence with their AI-driven marketing strategies.',
+    image: '/uploads/testimonial-1.jpg',
+    featured: true
+  }
+];
+
+// GET /api/testimonials - Get all
+router.get('/', (req, res) => {
+  res.json({ success: true, data: testimonials });
+});
+
+// GET /api/testimonials/featured
+router.get('/featured', (req, res) => {
+  res.json({ success: true, data: testimonials.filter(t => t.featured) });
+});
+
+// POST /api/testimonials - Add new (admin only)
+router.post('/', [
+  body('name').notEmpty().withMessage('Name is required'),
+  body('rating').isInt({ min: 1, max: 5 }).withMessage('Rating must be 1-5')
+], authenticateToken, (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ success: false, errors: errors.array() });
+  }
+
+  const { name, company, rating, content, image, featured } = req.body;
+  const newTestimonial = {
+    id: Date.now(),
+    name,
+    company,
+    rating,
+    content,
+    image: image || '/images/default-testimonial.jpg',
+    featured: featured || false,
+    createdAt: new Date().toISOString()
+  };
+
+  testimonials.push(newTestimonial);
+  res.status(201).json({ success: true, data: newTestimonial });
+});
+
+// PUT /api/testimonials/:id - Update
+router.put('/:id', authenticateToken, (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = testimonials.findIndex(t => t.id === id);
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: 'Testimonial not found' });
+  }
+
+  testimonials[index] = { ...testimonials[index], ...req.body };
+  res.json({ success: true, data: testimonials[index] });
+});
+
+// DELETE /api/testimonials/:id - Delete
+router.delete('/:id', authenticateToken, (req, res) => {
+  testimonials = testimonials.filter(t => t.id !== parseInt(req.params.id));
+  res.json({ success: true, message: 'Testimonial deleted' });
+});
+
+module.exports = router;
+
+// Add this at the bottom (after other routes)
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) return res.status(401).json({ success: false, message: 'Token required' });
+
+  jwt.verify(token, process.env.JWT_SECRET || 'your-super-secret-jwt-key-here', (err, user) => {
+    if (err) return res.status(403).json({ success: false, message: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+}

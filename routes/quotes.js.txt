@@ -1,0 +1,102 @@
+// routes/quotes.js
+const express = require('express');
+const { body, validationResult } = require('express-validator');
+const nodemailer = require('nodemailer');
+const router = express.Router();
+
+let quotes = [];
+
+// Email transporter
+const createTransporter = () => {
+  return nodemailer.createTransport({
+    service: process.env.EMAIL_SERVICE || 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  });
+};
+
+// POST /api/quotes - Submit quote request
+router.post('/', [
+  body('name').notEmpty().withMessage('Name is required'),
+  body('email').isEmail().withMessage('Valid email is required'),
+  body('service').notEmpty().withMessage('Service is required'),
+  body('budget').optional().isNumeric()
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ success: false, errors: errors.array() });
+  }
+
+  const { name, email, phone, service, budget, message } = req.body;
+  const newQuote = {
+    id: Date.now(),
+    name,
+    email,
+    phone,
+    service,
+    budget,
+    message,
+    status: 'pending',
+    submittedAt: new Date().toISOString()
+  };
+
+  quotes.push(newQuote);
+
+  try {
+    const transporter = createTransporter();
+
+    // Send to admin
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
+      subject: `💼 New Quote Request - ${service}`,
+      html: `
+        <h2>New Quote Request</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Service:</strong> ${service}</p>
+        <p><strong>Budget:</strong> ₹${budget || 'Not specified'}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `
+    });
+
+    // Send to user
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: `✅ Quote Request Received - SRMsolutions`,
+      html: `
+        <h2>Thank you, ${name}!</h2>
+        <p>We've received your quote request for ${service}. Our team will contact you within 24 hours.</p>
+        <p>Need immediate help? <a href="https://wa.me/918096660643">Chat on WhatsApp</a></p>
+      `
+    });
+
+    res.json({ success: true, message: 'Thank you! We will contact you shortly.' });
+  } catch (err) {
+    console.error('Email error:', err);
+    res.status(500).json({ success: false, message: 'Quote submitted, but email failed.' });
+  }
+});
+
+// GET /api/quotes (admin only)
+router.get('/', authenticateToken, (req, res) => {
+  res.json({ success: true, data: quotes });
+});
+
+module.exports = router;
+
+// Add authenticateToken function at bottom
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) return res.status(401).json({ success: false, message: 'Token required' });
+
+  jwt.verify(token, process.env.JWT_SECRET || 'your-super-secret-jwt-key-here', (err, user) => {
+    if (err) return res.status(403).json({ success: false, message: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+}
