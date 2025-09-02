@@ -3,146 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRMsolutions - Technology & Marketing Solutions</title>
+    <title>SRMsolutions - Empowering Businesses with Software, AI & Digital Growth</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .dancing-script { font-family: 'Dancing Script', cursive; }
+        .poppins { font-family: 'Poppins', sans-serif; }
+        
+        /* Intro Animation Styles */
+        .intro-screen {
+            background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        
+        .namaste-text {
+            font-size: 4rem;
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        
+        .hands-emoji {
+            font-size: 3rem;
+            animation: bounce 1.5s ease-in-out infinite;
+            margin-top: 1rem;
         }
-        .service-card {
-            transition: all 0.3s ease;
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        
+        .flag-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: linear-gradient(45deg, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
+            animation: wave 3s ease-in-out infinite;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+            to { text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6); }
         }
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
         }
-        .pulse-animation {
-            animation: pulse 2s infinite;
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        
+        .fade-out {
+            animation: fadeOut 1s ease-out forwards;
         }
-        .notification {
-            animation: slideIn 0.3s ease-out;
+        
+        /* Main Website Styles */
+        .main-website {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 4s;
         }
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
-        }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .input-focus:focus {
-            transform: translateY(-2px);
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #fbbf24;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #fbbf24; }
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 120px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, transparent);
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-content.active {
+            max-height: 200px;
+        }
+        
+        .language-dropdown {
+            position: relative;
+        }
+        
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">S</span>
+    <!-- Intro Animation -->
+    <div id="introScreen" class="intro-screen">
+        <div class="flag-wave"></div>
+        <div class="text-center z-10">
+            <h1 class="namaste-text dancing-script">नमस्ते</h1>
+            <div class="hands-emoji">🙏</div>
+            <p class="text-4xl font-bold mt-6 poppins" style="color: #ff9933; text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,153,51,0.6);">Welcome to SRMsolutions</p>
+            <p class="text-lg mt-2 font-semibold" style="color: #138808; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">🇮🇳 Proudly Indian • Globally Trusted</p>
+            <button onclick="proceedToMainSite()" class="mt-8 bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg poppins" style="box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                Continue to Website →
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Website -->
+    <div id="mainWebsite" class="main-website" style="display: none;">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg fixed w-full z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-xl">S</span>
+                            </div>
+                            <span class="ml-3 text-2xl font-bold text-gray-800 poppins">SRMsolutions</span>
                         </div>
-                        <span class="ml-3 text-2xl font-bold text-gray-800">SRMsolutions</span>
                     </div>
-                </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                        <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
-                        <button onclick="showEmployeeLogin()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            <i class="fas fa-user-tie mr-2"></i>Employee Login
+                    
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                            <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                            <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                            <a href="#portfolio" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Portfolio</a>
+                            <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                            
+                            <!-- Language Dropdown -->
+                            <div class="language-dropdown">
+                                <button onclick="toggleLanguageMenu()" class="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                                    <i class="fas fa-globe mr-2"></i>
+                                    <span id="currentLanguage">English</span>
+                                    <i class="fas fa-chevron-down ml-1"></i>
+                                </button>
+                                <div id="languageMenu" class="language-menu">
+                                    <a href="#" onclick="changeLanguage('en', 'English')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🇺🇸 English</a>
+                                    <a href="#" onclick="changeLanguage('hi', 'हिंदी')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🇮🇳 हिंदी</a>
+                                    <a href="#" onclick="changeLanguage('te', 'తెలుగు')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🇮🇳 తెలుగు</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:hidden">
+                        <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                            <i class="fas fa-bars text-xl"></i>
                         </button>
                     </div>
                 </div>
-                
-                <div class="md:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-blue-600 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Portfolio</a>
+                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
-                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
-                <button onclick="showEmployeeLogin()" class="block w-full text-left px-3 py-2 text-blue-600 font-medium">
-                    <i class="fas fa-user-tie mr-2"></i>Employee Login
-                </button>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Website Content -->
-    <div id="mainWebsite">
         <!-- Hero Section -->
         <section id="home" class="hero-gradient text-white pt-20 pb-16 relative overflow-hidden">
             <div class="absolute inset-0 bg-black opacity-10"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="text-center lg:text-left">
-                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Transform Your Business with 
-                            <span class="text-yellow-300">Smart Solutions</span>
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight poppins">
+                            <span data-en="Empowering Businesses with" data-hi="व्यापार को सशक्त बनाना" data-te="వ్యాపారాలను శక్తివంతం చేయడం">Empowering Businesses with</span>
+                            <br>
+                            <span class="text-yellow-300">💻 Software, 🤖 AI & 📈 Digital Growth</span>
                         </h1>
-                        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                            We provide cutting-edge software development, AI-powered marketing strategies, and compelling content creation to accelerate your business growth.
+                        <div class="text-xl mb-8 text-blue-100 leading-relaxed">
+                            <span id="typingText" class="typing-animation"></span>
+                        </div>
+                        <p class="text-lg mb-8 text-blue-100">
+                            <span data-en="✅ Trusted by businesses worldwide" data-hi="✅ दुनिया भर के व्यापारों द्वारा भरोसेमंद" data-te="✅ ప్రపంచవ్యాప్తంగా వ్యాపారాలచే నమ్మబడింది">✅ Trusted by businesses worldwide</span>
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#services" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg">
-                                <i class="fas fa-rocket mr-2"></i>Explore Services
+                            <a href="#contact" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg poppins">
+                                <i class="fas fa-rocket mr-2"></i><span data-en="Get Started Today" data-hi="आज ही शुरू करें" data-te="ఈరోజే ప్రారంభించండి">Get Started Today</span>
                             </a>
-                            <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-all">
-                                <i class="fas fa-phone mr-2"></i>Get Started
+                            <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-all poppins">
+                                <i class="fas fa-eye mr-2"></i><span data-en="Explore Services" data-hi="सेवाएं देखें" data-te="సేవలను అన్వేషించండి">Explore Services</span>
                             </a>
                         </div>
                     </div>
                     <div class="text-center floating-animation">
                         <div class="relative">
-                            <div class="w-96 h-96 mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-20 absolute top-0 left-1/2 transform -translate-x-1/2 pulse-animation"></div>
+                            <div class="w-96 h-96 mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-20 absolute top-0 left-1/2 transform -translate-x-1/2"></div>
                             <div class="relative z-10 text-8xl">
-                                🚀
+                                ⚡
                             </div>
                         </div>
                     </div>
@@ -150,51 +353,116 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-gray-50">
+        <!-- Stats Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="stats-counter" data-target="150">0</div>
+                        <p class="text-gray-600 mt-2" data-en="Projects Completed" data-hi="पूर्ण परियोजनाएं" data-te="పూర్తైన ప్రాజెక్టులు">Projects Completed</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="stats-counter" data-target="50">0</div>
+                        <p class="text-gray-600 mt-2" data-en="Happy Clients" data-hi="खुश ग्राहक" data-te="సంతోషకరమైన క్లయింట్లు">Happy Clients</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="stats-counter" data-target="5">0</div>
+                        <p class="text-gray-600 mt-2" data-en="Years Experience" data-hi="वर्षों का अनुभव" data-te="సంవత్సరాల అనుభవం">Years Experience</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="stats-counter" data-target="24">0</div>
+                        <p class="text-gray-600 mt-2" data-en="24/7 Support" data-hi="24/7 सहायता" data-te="24/7 మద్దతు">24/7 Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Comprehensive technology and marketing solutions designed to propel your business forward
-                    </p>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Your ✅ Trusted Technology & Marketing Partner" data-hi="आपका ✅ विश्वसनीय प्रौद्योगिकी और विपणन साझीदार" data-te="మీ ✅ నమ్మకమైన టెక్నాలజీ & మార్కెటింగ్ భాగస్వామి">Your ✅ Trusted Technology & Marketing Partner</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-en="From innovative software solutions to AI-powered marketing strategies, SRMsolutions transforms your ideas into digital success stories." data-hi="नवाचार सॉफ्टवेयर समाधान से लेकर AI-संचालित विपणन रणनीतियों तक, SRMsolutions आपके विचारों को डिजिटल सफलता की कहानियों में बदल देता है।" data-te="వినూత్న సాఫ్ట్‌వేర్ సొల్యూషన్స్ నుండి AI-శక్తితో కూడిన మార్కెటింగ్ వ్యూహాల వరకు, SRMsolutions మీ ఆలోచనలను డిజిటల్ విజయ కథలుగా మారుస్తుంది.">From innovative software solutions to AI-powered marketing strategies, SRMsolutions transforms your ideas into digital success stories.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6 poppins" data-en="Our Mission" data-hi="हमारा मिशन" data-te="మా లక్ష్యం">Our Mission</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-en="To empower businesses worldwide with cutting-edge technology solutions that drive growth, efficiency, and innovation. We believe in transforming challenges into opportunities through the power of digital transformation." data-hi="दुनिया भर के व्यापारों को अत्याधुनिक प्रौद्योगिकी समाधानों के साथ सशक्त बनाना जो विकास, दक्षता और नवाचार को बढ़ावा देते हैं।" data-te="వృద్ధి, సామర్థ్యం మరియు ఆవిష్కరణలను ప్రేరేపించే అత్యాధునిక టెక్నాలజీ సొల్యూషన్లతో ప్రపంచవ్యాప్తంగా వ్యాపారాలను శక్తివంతం చేయడం.">To empower businesses worldwide with cutting-edge technology solutions that drive growth, efficiency, and innovation. We believe in transforming challenges into opportunities through the power of digital transformation.</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                <div class="text-3xl font-bold text-blue-600 mb-2">⚡ Innovation</div>
+                                <div class="text-gray-600" data-en="Cutting-edge Solutions" data-hi="अत्याधुनिक समाधान" data-te="అత్యాధునిక పరిష్కారాలు">Cutting-edge Solutions</div>
+                            </div>
+                            <div class="text-center p-4 bg-green-50 rounded-lg">
+                                <div class="text-3xl font-bold text-green-600 mb-2">✅ Quality</div>
+                                <div class="text-gray-600" data-en="Excellence Guaranteed" data-hi="उत्कृष्टता की गारंटी" data-te="అత్యుత్తమత హామీ">Excellence Guaranteed</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-9xl mb-4">🚀</div>
+                        <p class="text-gray-600 italic poppins">"⚡ Innovation is our passion, excellence is our standard"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Our Services" data-hi="हमारी सेवाएं" data-te="మా సేవలు">Our Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-en="Comprehensive technology and marketing solutions designed to propel your business forward" data-hi="आपके व्यापार को आगे बढ़ाने के लिए डिज़ाइन किए गए व्यापक प्रौद्योगिकी और विपणन समाधान" data-te="మీ వ్యాపారాన్ని ముందుకు తీసుకెళ్లడానికి రూపొందించిన సమగ్ర టెక్నాలజీ మరియు మార్కెటింగ్ సొల్యూషన్స్">Comprehensive technology and marketing solutions designed to propel your business forward</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Software Development -->
                     <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
                         <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-code text-white text-2xl"></i>
+                            <span class="text-white text-2xl">💻</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Software Development</h3>
-                        <p class="text-gray-600 mb-6">Custom web applications, mobile apps, and enterprise software solutions built with cutting-edge technologies.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 poppins" data-en="💻 Software Development" data-hi="💻 सॉफ्टवेयर विकास" data-te="💻 సాఫ్ట్‌వేర్ డెవలప్‌మెంట్">💻 Software Development</h3>
+                        <p class="text-gray-600 mb-6" data-en="Custom web applications, mobile apps, and enterprise software solutions built with cutting-edge technologies." data-hi="अत्याधुनिक प्रौद्योगिकियों के साथ निर्मित कस्टम वेब एप्लिकेशन, मोबाइल ऐप्स और एंटरप्राइज़ सॉफ्टवेयर समाधान।" data-te="అత్యాధునిక టెక్నాలజీలతో నిర్మించిన కస్టమ్ వెబ్ అప్లికేషన్లు, మొబైల్ యాప్లు మరియు ఎంటర్‌ప్రైజ్ సాఫ్ట్‌వేర్ సొల్యూషన్లు.">Custom web applications, mobile apps, and enterprise software solutions built with cutting-edge technologies.</p>
                         <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li>• Web Applications</li>
-                            <li>• Mobile Apps (iOS/Android)</li>
-                            <li>• API Development</li>
-                            <li>• Database Design</li>
+                            <li data-en="• Web Applications" data-hi="• वेब एप्लिकेशन" data-te="• వెబ్ అప్లికేషన్లు">• Web Applications</li>
+                            <li data-en="• Mobile Apps (iOS/Android)" data-hi="• मोबाइल ऐप्स (iOS/Android)" data-te="• మొబైల్ యాప్లు (iOS/Android)">• Mobile Apps (iOS/Android)</li>
+                            <li data-en="• API Development" data-hi="• API विकास" data-te="• API డెవలప్‌మెంట్">• API Development</li>
+                            <li data-en="• Database Design" data-hi="• डेटाबेस डिज़ाइन" data-te="• డేటాబేస్ డిజైన్">• Database Design</li>
                         </ul>
-                        <button onclick="openServiceModal('software')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            Learn More
-                        </button>
+                        <button onclick="openServiceModal('software')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</button>
+                    </div>
+
+                    <!-- AI Solutions -->
+                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-white text-2xl">🤖</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 poppins" data-en="🤖 AI Solutions" data-hi="🤖 AI समाधान" data-te="🤖 AI సొల్యూషన్స్">🤖 AI Solutions</h3>
+                        <p class="text-gray-600 mb-6" data-en="Harness the power of artificial intelligence to automate processes and gain insights." data-hi="प्रक्रियाओं को स्वचालित करने और अंतर्दृष्टि प्राप्त करने के लिए कृत्रिम बुद्धिमत्ता की शक्ति का उपयोग करें।" data-te="ప్రక్రియలను ఆటోమేట్ చేయడానికి మరియు అంతర్దృష్టులను పొందడానికి కృత్రిమ మేధస్సు యొక్క శక్తిని ఉపయోగించండి.">Harness the power of artificial intelligence to automate processes and gain insights.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li data-en="• Chatbots & Virtual Assistants" data-hi="• चैटबॉट्स और वर्चुअल असिस्टेंट" data-te="• చాట్‌బాట్లు & వర్చువల్ అసిస్టెంట్లు">• Chatbots & Virtual Assistants</li>
+                            <li data-en="• Machine Learning Models" data-hi="• मशीन लर्निंग मॉडल" data-te="• మెషిన్ లెర్నింగ్ మోడల్స్">• Machine Learning Models</li>
+                            <li data-en="• Data Analytics" data-hi="• डेटा एनालिटिक्स" data-te="• డేటా అనలిటిక్స్">• Data Analytics</li>
+                            <li data-en="• Process Automation" data-hi="• प्रक्रिया स्वचालन" data-te="• ప్రాసెస్ ఆటోమేషన్">• Process Automation</li>
+                        </ul>
+                        <button onclick="openServiceModal('ai')" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors" data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</button>
                     </div>
 
                     <!-- Digital Marketing -->
                     <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
                         <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                            <span class="text-white text-2xl">📈</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Digital Marketing</h3>
-                        <p class="text-gray-600 mb-6">Data-driven marketing strategies to boost your online presence and drive conversions.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 poppins" data-en="📈 Digital Growth" data-hi="📈 डिजिटल विकास" data-te="📈 డిజిటల్ గ్రోత్">📈 Digital Growth</h3>
+                        <p class="text-gray-600 mb-6" data-en="Data-driven marketing strategies to boost your online presence and drive conversions." data-hi="आपकी ऑनलाइन उपस्थिति बढ़ाने और रूपांतरण बढ़ाने के लिए डेटा-संचालित विपणन रणनीतियां।" data-te="మీ ఆన్‌లైన్ ఉనికిని పెంచడానికి మరియు మార్పిడులను పెంచడానికి డేటా-ఆధారిత మార్కెటింగ్ వ్యూహాలు.">Data-driven marketing strategies to boost your online presence and drive conversions.</p>
                         <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li>• SEO & SEM</li>
-                            <li>• Social Media Marketing</li>
-                            <li>• Email Campaigns</li>
-                            <li>• Analytics & Reporting</li>
+                            <li data-en="• SEO & SEM" data-hi="• SEO और SEM" data-te="• SEO & SEM">• SEO & SEM</li>
+                            <li data-en="• Social Media Marketing" data-hi="• सोशल मीडिया मार्केटिंग" data-te="• సోషల్ మీడియా మార్కెటింగ్">• Social Media Marketing</li>
+                            <li data-en="• Email Campaigns" data-hi="• ईमेल अभियान" data-te="• ఇమెయిల్ క్యాంపెయిన్లు">• Email Campaigns</li>
+                            <li data-en="• Analytics & Reporting" data-hi="• एनालिटिक्स और रिपोर्टिंग" data-te="• అనలిటిక్స్ & రిపోర్టింగ్">• Analytics & Reporting</li>
                         </ul>
-                        <button onclick="openServiceModal('marketing')" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                            Learn More
-                        </button>
+                        <button onclick="openServiceModal('marketing')" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors" data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</button>
                     </div>
 
                     <!-- Content Creation -->
@@ -202,119 +470,297 @@
                         <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-pen-fancy text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Content Creation</h3>
-                        <p class="text-gray-600 mb-6">Engaging content that tells your brand story and connects with your audience.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 poppins" data-en="Content Creation" data-hi="सामग्री निर्माण" data-te="కంటెంట్ క్రియేషన్">Content Creation</h3>
+                        <p class="text-gray-600 mb-6" data-en="Engaging content that tells your brand story and connects with your audience." data-hi="आकर्षक सामग्री जो आपकी ब्रांड कहानी बताती है और आपके दर्शकों से जुड़ती है।" data-te="మీ బ్రాండ్ కథను చెప్పే మరియు మీ ప్రేక్షకులతో కనెక్ట్ అయ్యే ఆకర్షణీయ కంటెంట్.">Engaging content that tells your brand story and connects with your audience.</p>
                         <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li>• Blog Writing</li>
-                            <li>• Video Production</li>
-                            <li>• Graphic Design</li>
-                            <li>• Copywriting</li>
+                            <li data-en="• Blog Writing" data-hi="• ब्लॉग लेखन" data-te="• బ్లాగ్ రైటింగ్">• Blog Writing</li>
+                            <li data-en="• Video Production" data-hi="• वीडियो उत्पादन" data-te="• వీడియో ప్రొడక్షన్">• Video Production</li>
+                            <li data-en="• Graphic Design" data-hi="• ग्राफिक डिज़ाइन" data-te="• గ్రాఫిక్ డిజైన్">• Graphic Design</li>
+                            <li data-en="• Copywriting" data-hi="• कॉपी राइटिंग" data-te="• కాపీరైటింగ్">• Copywriting</li>
                         </ul>
-                        <button onclick="openServiceModal('content')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
-                            Learn More
-                        </button>
-                    </div>
-
-                    <!-- AI Solutions -->
-                    <div class="service-card rounded-2xl p-8 text-center shadow-lg border border-gray-100">
-                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-robot text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">AI Solutions</h3>
-                        <p class="text-gray-600 mb-6">Harness the power of artificial intelligence to automate processes and gain insights.</p>
-                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li>• Chatbots & Virtual Assistants</li>
-                            <li>• Machine Learning Models</li>
-                            <li>• Data Analytics</li>
-                            <li>• Process Automation</li>
-                        </ul>
-                        <button onclick="openServiceModal('ai')" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
-                            Learn More
-                        </button>
+                        <button onclick="openServiceModal('content')" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors" data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-white">
+        <!-- How We Work Section -->
+        <section class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-4xl font-bold text-gray-800 mb-6">About SRMsolutions</h2>
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                            We are a forward-thinking technology company dedicated to helping businesses thrive in the digital age. Our team of experts combines technical excellence with creative innovation to deliver solutions that drive real results.
-                        </p>
-                        <div class="grid grid-cols-2 gap-6 mb-8">
-                            <div class="text-center p-4 bg-blue-50 rounded-lg">
-                                <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                                <div class="text-gray-600">Projects Completed</div>
-                            </div>
-                            <div class="text-center p-4 bg-green-50 rounded-lg">
-                                <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
-                                <div class="text-gray-600">Client Satisfaction</div>
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="How We Work" data-hi="हम कैसे काम करते हैं" data-te="మేము ఎలా పని చేస్తాము">How We Work</h2>
+                    <p class="text-xl text-gray-600" data-en="Our proven process ensures successful project delivery" data-hi="हमारी सिद्ध प्रक्रिया सफल परियोजना वितरण सुनिश्चित करती है" data-te="మా నిరూపితమైన ప్రక్రియ విజయవంతమైన ప్రాజెక్ట్ డెలివరీని నిర్ధారిస్తుంది">Our proven process ensures successful project delivery</p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="process-step text-center p-6">
+                        <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="Discovery" data-hi="खोज" data-te="కనుగొనడం">Discovery</h3>
+                        <p class="text-gray-600" data-en="Understanding your business needs and goals" data-hi="आपकी व्यापारिक आवश्यकताओं और लक्ष्यों को समझना" data-te="మీ వ్యాపార అవసరాలు మరియు లక్ష్యాలను అర్థం చేసుకోవడం">Understanding your business needs and goals</p>
+                    </div>
+                    <div class="process-step text-center p-6">
+                        <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="Strategy" data-hi="रणनीति" data-te="వ్యూహం">Strategy</h3>
+                        <p class="text-gray-600" data-en="Creating a customized plan for your success" data-hi="आपकी सफलता के लिए एक अनुकूलित योजना बनाना" data-te="మీ విజయం కోసం అనుకూలీకృత ప్రణాళికను రూపొందించడం">Creating a customized plan for your success</p>
+                    </div>
+                    <div class="process-step text-center p-6">
+                        <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="Development" data-hi="विकास" data-te="అభివృద్ధి">Development</h3>
+                        <p class="text-gray-600" data-en="Building and implementing your solution" data-hi="आपके समाधान का निर्माण और कार्यान्वयन" data-te="మీ పరిష్కారాన్ని నిర్మించడం మరియు అమలు చేయడం">Building and implementing your solution</p>
+                    </div>
+                    <div class="process-step text-center p-6">
+                        <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">4</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="Launch & Support" data-hi="लॉन्च और सहायता" data-te="లాంచ్ & మద్దతు">Launch & Support</h3>
+                        <p class="text-gray-600" data-en="Deploying your solution and ongoing support" data-hi="आपके समाधान को तैनात करना और निरंतर सहायता" data-te="మీ పరిష్కారాన్ని అమలు చేయడం మరియు కొనసాగుతున్న మద్దతు">Deploying your solution and ongoing support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Our Portfolio" data-hi="हमारा पोर्टफोलियो" data-te="మా పోర్ట్‌ఫోలియో">Our Portfolio</h2>
+                    <p class="text-xl text-gray-600" data-en="Showcasing our successful projects and client achievements" data-hi="हमारी सफल परियोजनाओं और ग्राहक उपलब्धियों का प्रदर्शन" data-te="మా విజయవంతమైన ప్రాజెక్టులు మరియు క్లయింట్ విజయాలను ప్రదర్శించడం">Showcasing our successful projects and client achievements</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white text-6xl">🏪</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="E-commerce Platform" data-hi="ई-कॉमर्स प्लेटफॉर्म" data-te="ఇ-కామర్స్ ప్లాట్‌ఫారమ్">E-commerce Platform</h3>
+                            <p class="text-gray-600 mb-4" data-en="Complete online store with payment integration and inventory management" data-hi="भुगतान एकीकरण और इन्वेंटरी प्रबंधन के साथ पूर्ण ऑनलाइन स्टोर" data-te="చెల్లింపు ఏకీకరణ మరియు ఇన్వెంటరీ నిర్వహణతో పూర్తి ఆన్‌లైన్ స్టోర్">Complete online store with payment integration and inventory management</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500" data-en="Web Development" data-hi="वेब विकास" data-te="వెబ్ డెవలప్‌మెంట్">Web Development</span>
+                                <button class="text-blue-600 hover:text-blue-800" data-en="View Details" data-hi="विवरण देखें" data-te="వివరాలను చూడండి">View Details →</button>
                             </div>
                         </div>
-                        <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
-                            <i class="fas fa-handshake mr-2"></i>Work With Us
-                        </a>
                     </div>
-                    <div class="text-center">
-                        <div class="text-9xl mb-4">💼</div>
-                        <p class="text-gray-600 italic">"Innovation is our passion, excellence is our standard"</p>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
+                            <span class="text-white text-6xl">🤖</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="AI Chatbot Solution" data-hi="AI चैटबॉट समाधान" data-te="AI చాట్‌బాట్ సొల్యూషన్">AI Chatbot Solution</h3>
+                            <p class="text-gray-600 mb-4" data-en="Intelligent customer service bot with natural language processing" data-hi="प्राकृतिक भाषा प्रसंस्करण के साथ बुद्धिमान ग्राहक सेवा बॉट" data-te="సహజ భాషా ప్రాసెసింగ్‌తో తెలివైన కస్టమర్ సర్వీస్ బాట్">Intelligent customer service bot with natural language processing</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500" data-en="AI Development" data-hi="AI विकास" data-te="AI డెవలప్‌మెంట్">AI Development</span>
+                                <button class="text-blue-600 hover:text-blue-800" data-en="View Details" data-hi="विवरण देखें" data-te="వివరాలను చూడండి">View Details →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                            <span class="text-white text-6xl">📱</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="Mobile App Development" data-hi="मोबाइल ऐप विकास" data-te="మొబైల్ యాప్ డెవలప్‌మెంట్">Mobile App Development</h3>
+                            <p class="text-gray-600 mb-4" data-en="Cross-platform mobile application with real-time features" data-hi="रियल-टाइम सुविधाओं के साथ क्रॉस-प्लेटफॉर्म मोबाइल एप्लिकेशन" data-te="రియల్-టైమ్ ఫీచర్లతో క్రాస్-ప్లాట్‌ఫారమ్ మొబైల్ అప్లికేషన్">Cross-platform mobile application with real-time features</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500" data-en="Mobile Development" data-hi="मोबाइल विकास" data-te="మొబైల్ డెవలప్‌మెంట్">Mobile Development</span>
+                                <button class="text-blue-600 hover:text-blue-800" data-en="View Details" data-hi="विवरण देखें" data-te="వివరాలను చూడండి">View Details →</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="What Our Clients Say" data-hi="हमारे ग्राहक क्या कहते हैं" data-te="మా క్లయింట్లు ఏమి చెబుతున్నారు">What Our Clients Say</h2>
+                    <p class="text-xl text-gray-600" data-en="Real feedback from satisfied customers" data-hi="संतुष्ट ग्राहकों से वास्तविक प्रतिक्रिया" data-te="సంతృప్త కస్టమర్ల నుండి నిజమైన ఫీడ్‌బ్యాక్">Real feedback from satisfied customers</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="testimonial-card rounded-xl p-8 text-center">
+                        <div class="text-5xl mb-4">👨‍💼</div>
+                        <p class="text-gray-600 mb-6 italic" data-en="SRMsolutions transformed our business with their innovative software solution. The team was professional and delivered beyond our expectations." data-hi="SRMsolutions ने अपने नवाचार सॉफ्टवेयर समाधान के साथ हमारे व्यापार को बदल दिया। टीम पेशेवर थी और हमारी अपेक्षाओं से अधिक प्रदान की।" data-te="SRMsolutions వారి వినూత్న సాఫ్ట్‌వేర్ సొల్యూషన్‌తో మా వ్యాపారాన్ని మార్చింది. టీమ్ వృత్తిపరమైనది మరియు మా అంచనలకు మించి అందించింది.">"SRMsolutions transformed our business with their innovative software solution. The team was professional and delivered beyond our expectations."</p>
+                        <h4 class="font-bold text-gray-800" data-en="Rajesh Kumar" data-hi="राजेश कुमार" data-te="రాజేష్ కుమార్">Rajesh Kumar</h4>
+                        <p class="text-sm text-gray-500" data-en="CEO, TechStart India" data-hi="सीईओ, टेकस्टार्ट इंडिया" data-te="CEO, టెక్‌స్టార్ట్ ఇండియా">CEO, TechStart India</p>
+                    </div>
+
+                    <div class="testimonial-card rounded-xl p-8 text-center">
+                        <div class="text-5xl mb-4">👩‍💼</div>
+                        <p class="text-gray-600 mb-6 italic" data-en="The AI chatbot they developed for us increased our customer satisfaction by 40%. Highly recommended for AI solutions!" data-hi="उन्होंने हमारे लिए जो AI चैटबॉट विकसित किया, उससे हमारी ग्राहक संतुष्टि 40% बढ़ गई। AI समाधानों के लिए अत्यधिक अनुशंसित!" data-te="వారు మా కోసం అభివృద్ధి చేసిన AI చాట్‌బాట్ మా కస్టమర్ సంతృప్తిని 40% పెంచింది. AI సొల్యూషన్స్ కోసం అత్యంత సిఫార్సు చేయబడింది!">"The AI chatbot they developed for us increased our customer satisfaction by 40%. Highly recommended for AI solutions!"</p>
+                        <h4 class="font-bold text-gray-800" data-en="Priya Sharma" data-hi="प्रिया शर्मा" data-te="ప్రియా శర్మ">Priya Sharma</h4>
+                        <p class="text-sm text-gray-500" data-en="Marketing Director, Digital Plus" data-hi="मार्केटिंग निदेशक, डिजिटल प्लस" data-te="మార్కెటింగ్ డైరెక్టర్, డిజిటల్ ప్లస్">Marketing Director, Digital Plus</p>
+                    </div>
+
+                    <div class="testimonial-card rounded-xl p-8 text-center">
+                        <div class="text-5xl mb-4">👨‍💻</div>
+                        <p class="text-gray-600 mb-6 italic" data-en="Outstanding mobile app development! The app they created for us has over 10,000 downloads in just 3 months." data-hi="उत्कृष्ट मोबाइल ऐप विकास! उन्होंने हमारे लिए जो ऐप बनाया है, उसे केवल 3 महीनों में 10,000 से अधिक डाउनलोड मिले हैं।" data-te="అద్భుతమైన మొబైల్ యాప్ డెవలప్‌మెంట్! వారు మా కోసం సృష్టించిన యాప్‌కు కేవలం 3 నెలల్లో 10,000 కంటే ఎక్కువ డౌన్‌లోడ్‌లు వచ్చాయి.">"Outstanding mobile app development! The app they created for us has over 10,000 downloads in just 3 months."</p>
+                        <h4 class="font-bold text-gray-800" data-en="Amit Patel" data-hi="अमित पटेल" data-te="అమిత్ పటేల్">Amit Patel</h4>
+                        <p class="text-sm text-gray-500" data-en="Founder, StartupHub" data-hi="संस्थापक, स्टार्टअपहब" data-te="వ్యవస్థాపకుడు, స్టార్టప్‌హబ్">Founder, StartupHub</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Why Choose SRMsolutions?" data-hi="SRMsolutions क्यों चुनें?" data-te="SRMsolutions ఎందుకు ఎంచుకోవాలి?">Why Choose SRMsolutions?</h2>
+                    <p class="text-xl text-gray-600" data-en="What makes us different from the competition" data-hi="हमें प्रतिस्पर्धा से अलग क्या बनाता है" data-te="పోటీ నుండి మాకు ఏది భిన్నంగా చేస్తుంది">What makes us different from the competition</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 text-2xl">⚡</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="⚡ Innovation First" data-hi="⚡ नवाचार पहले" data-te="⚡ ఇన్నోవేషన్ ఫస్ట్">⚡ Innovation First</h3>
+                        <p class="text-gray-600" data-en="We use cutting-edge technologies to solve complex problems" data-hi="हम जटिल समस्याओं को हल करने के लिए अत्याधुनिक प्रौद्योगिकियों का उपयोग करते हैं" data-te="సంక్లిష్ట సమస్యలను పరిష్కరించడానికి మేము అత్యాధునిక టెక్నాలజీలను ఉపయోగిస్తాము">We use cutting-edge technologies to solve complex problems</p>
+                    </div>
+
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-green-600 text-2xl">✅</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="✅ Quality Assured" data-hi="✅ गुणवत्ता आश्वासित" data-te="✅ నాణ్యత హామీ">✅ Quality Assured</h3>
+                        <p class="text-gray-600" data-en="Rigorous testing and quality control in every project" data-hi="हर परियोजना में कठोर परीक्षण और गुणवत्ता नियंत्रण" data-te="ప్రతి ప్రాజెక్ట్‌లో కఠినమైన పరీక్ష మరియు నాణ్యత నియంత్రణ">Rigorous testing and quality control in every project</p>
+                    </div>
+
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="24/7 Support" data-hi="24/7 सहायता" data-te="24/7 మద్దతు">24/7 Support</h3>
+                        <p class="text-gray-600" data-en="Round-the-clock support for all our clients" data-hi="हमारे सभी ग्राहकों के लिए चौबीसों घंटे सहायता" data-te="మా క్లయింట్లందరికీ గడియారం చుట్టూ మద్దతు">Round-the-clock support for all our clients</p>
+                    </div>
+
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dollar-sign text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 poppins" data-en="Cost Effective" data-hi="लागत प्रभावी" data-te="ఖర్చు ప్రభావవంతమైన">Cost Effective</h3>
+                        <p class="text-gray-600" data-en="Competitive pricing without compromising on quality" data-hi="गुणवत्ता से समझौता किए बिना प्रतिस्पर्धी मूल्य निर्धारण" data-te="నాణ్యతను రాజీ పడకుండా పోటీ ధర">Competitive pricing without compromising on quality</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Resource Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4 poppins" data-en="Free Digital Marketing Guide" data-hi="मुफ्त डिजिटल मार्केटिंग गाइड" data-te="ఉచిత డిజిటల్ మార్కెటింగ్ గైడ్">Free Digital Marketing Guide</h2>
+                <p class="text-xl mb-8" data-en="Download our comprehensive guide to boost your online presence" data-hi="अपनी ऑनलाइन उपस्थिति बढ़ाने के लिए हमारी व्यापक गाइड डाउनलोड करें" data-te="మీ ఆన్‌లైన్ ఉనికిని పెంచడానికి మా సమగ్ర గైడ్‌ను డౌన్‌లోడ్ చేయండి">Download our comprehensive guide to boost your online presence</p>
+                <div class="max-w-md mx-auto">
+                    <form id="leadMagnetForm" class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" id="leadEmail" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                        <button type="submit" class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors" data-en="Download Free" data-hi="मुफ्त डाउनलोड करें" data-te="ఉచితంగా డౌన్‌లోడ్ చేయండి">Download Free</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Frequently Asked Questions" data-hi="अक्सर पूछे जाने वाले प्रश्न" data-te="తరచుగా అడిగే ప్రశ్నలు">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600" data-en="Get answers to common questions about our services" data-hi="हमारी सेवाओं के बारे में सामान्य प्रश्नों के उत्तर प्राप्त करें" data-te="మా సేవల గురించి సాధారణ ప్రశ్నలకు సమాధానాలు పొందండి">Get answers to common questions about our services</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg">
+                        <button onclick="toggleFAQ(0)" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold text-gray-800" data-en="How long does it take to develop a custom software solution?" data-hi="एक कस्टम सॉफ्टवेयर समाधान विकसित करने में कितना समय लगता है?" data-te="కస్టమ్ సాఫ్ట్‌వేర్ సొల్యూషన్‌ను అభివృద్ధి చేయడానికి ఎంత సమయం పడుతుంది?">How long does it take to develop a custom software solution?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-4">
+                            <p class="text-gray-600" data-en="The timeline varies based on project complexity, but typically ranges from 2-6 months for most custom software solutions. We provide detailed timelines during the initial consultation." data-hi="समयसीमा परियोजना की जटिलता के आधार पर भिन्न होती है, लेकिन आमतौर पर अधिकांश कस्टम सॉफ्टवेयर समाधानों के लिए 2-6 महीने तक होती है।" data-te="టైమ్‌లైన్ ప్రాజెక్ట్ సంక్లిష్టత ఆధారంగా మారుతుంది, కానీ సాధారణంగా చాలా కస్టమ్ సాఫ్ట్‌వేర్ సొల్యూషన్స్ కోసం 2-6 నెలల వరకు ఉంటుంది.">The timeline varies based on project complexity, but typically ranges from 2-6 months for most custom software solutions. We provide detailed timelines during the initial consultation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg">
+                        <button onclick="toggleFAQ(1)" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold text-gray-800" data-en="Do you provide ongoing support after project completion?" data-hi="क्या आप परियोजना पूर्ण होने के बाद निरंतर सहायता प्रदान करते हैं?" data-te="ప్రాజెక్ట్ పూర్తయిన తర్వాత మీరు కొనసాగుతున్న మద్దతును అందిస్తారా?">Do you provide ongoing support after project completion?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-4">
+                            <p class="text-gray-600" data-en="Yes, we offer comprehensive post-launch support including maintenance, updates, bug fixes, and technical assistance. We have various support packages to suit different needs." data-hi="हां, हम रखरखाव, अपडेट, बग फिक्स और तकनीकी सहायता सहित व्यापक पोस्ट-लॉन्च सहायता प्रदान करते हैं।" data-te="అవును, మేము నిర్వహణ, అప్‌డేట్‌లు, బగ్ ఫిక్సెస్ మరియు సాంకేతిక సహాయంతో సహా సమగ్ర పోస్ట్-లాంచ్ మద్దతును అందిస్తాము.">Yes, we offer comprehensive post-launch support including maintenance, updates, bug fixes, and technical assistance. We have various support packages to suit different needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg">
+                        <button onclick="toggleFAQ(2)" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold text-gray-800" data-en="What technologies do you specialize in?" data-hi="आप किन प्रौद्योगिकियों में विशेषज्ञ हैं?" data-te="మీరు ఏ టెక్నాలజీలలో ప్రత్యేకత కలిగి ఉన్నారు?">What technologies do you specialize in?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-4">
+                            <p class="text-gray-600" data-en="We work with modern technologies including React, Node.js, Python, AI/ML frameworks, cloud platforms (AWS, Azure), mobile development (React Native, Flutter), and more." data-hi="हम React, Node.js, Python, AI/ML फ्रेमवर्क, क्लाउड प्लेटफॉर्म (AWS, Azure), मोबाइल विकास (React Native, Flutter) और अधिक सहित आधुनिक प्रौद्योगिकियों के साथ काम करते हैं।" data-te="మేము React, Node.js, Python, AI/ML ఫ్రేమ్‌వర్క్‌లు, క్లౌడ్ ప్లాట్‌ఫారమ్‌లు (AWS, Azure), మొబైల్ డెవలప్‌మెంట్ (React Native, Flutter) మరియు మరిన్నింటితో సహా ఆధునిక టెక్నాలజీలతో పని చేస్తాము.">We work with modern technologies including React, Node.js, Python, AI/ML frameworks, cloud platforms (AWS, Azure), mobile development (React Native, Flutter), and more.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg">
+                        <button onclick="toggleFAQ(3)" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold text-gray-800" data-en="How do you ensure project quality and timely delivery?" data-hi="आप परियोजना की गुणवत्ता और समय पर डिलीवरी कैसे सुनिश्चित करते हैं?" data-te="మీరు ప్రాజెక్ట్ నాణ్యత మరియు సకాలంలో డెలివరీని ఎలా నిర్ధారిస్తారు?">How do you ensure project quality and timely delivery?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-4">
+                            <p class="text-gray-600" data-en="We follow agile development methodologies, conduct regular testing, maintain clear communication, and use project management tools to track progress and ensure quality delivery." data-hi="हम चुस्त विकास पद्धतियों का पालन करते हैं, नियमित परीक्षण करते हैं, स्पष्ट संचार बनाए रखते हैं, और प्रगति को ट्रैक करने और गुणवत्ता वितरण सुनिश्चित करने के लिए परियोजना प्रबंधन उपकरणों का उपयोग करते हैं।" data-te="మేము చురుకైన అభివృద్ధి పద్ధతులను అనుసరిస్తాము, క్రమం తప్పకుండా పరీక్షలు నిర్వహిస్తాము, స్పష్టమైన కమ్యూనికేషన్‌ను నిర్వహిస్తాము మరియు పురోగతిని ట్రాక్ చేయడానికి మరియు నాణ్యమైన డెలివరీని నిర్ధారించడానికి ప్రాజెక్ట్ మేనేజ్‌మెంట్ టూల్స్‌ను ఉపయోగిస్తాము.">We follow agile development methodologies, conduct regular testing, maintain clear communication, and use project management tools to track progress and ensure quality delivery.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50">
+        <section id="contact" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-                    <p class="text-xl text-gray-600">Ready to transform your business? Let's discuss your project!</p>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 poppins" data-en="Get In Touch" data-hi="संपर्क में रहें" data-te="సంప్రదించండి">Get In Touch</h2>
+                    <p class="text-xl text-gray-600" data-en="Ready to transform your business? Let's discuss your project!" data-hi="अपने व्यापार को बदलने के लिए तैयार हैं? आइए अपनी परियोजना पर चर्चा करें!" data-te="మీ వ్యాపారాన్ని మార్చడానికి సిద్ధంగా ఉన్నారా? మీ ప్రాజెక్ట్ గురించి చర్చిద్దాం!">Ready to transform your business? Let's discuss your project!</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12">
                     <!-- Contact Form -->
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send us a message</h3>
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 poppins" data-en="Send us a message" data-hi="हमें एक संदेश भेजें" data-te="మాకు సందేశం పంపండి">Send us a message</h3>
                         <form id="contactForm" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                    <input type="text" id="contactName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Full Name" data-hi="पूरा नाम" data-te="పూర్తి పేరు">Full Name</label>
+                                    <input type="text" id="contactName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                    <input type="email" id="contactEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Email Address" data-hi="ईमेल पता" data-te="ఇమెయిల్ చిరునామా">Email Address</label>
+                                    <input type="email" id="contactEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                    <input type="tel" id="contactPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Phone Number" data-hi="फोन नंबर" data-te="ఫోన్ నంబర్">Phone Number</label>
+                                    <input type="tel" id="contactPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
-                                    <select id="contactService" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
-                                        <option value="">Select a service</option>
-                                        <option value="software">Software Development</option>
-                                        <option value="marketing">Digital Marketing</option>
-                                        <option value="content">Content Creation</option>
-                                        <option value="ai">AI Solutions</option>
-                                        <option value="multiple">Multiple Services</option>
-                                        <option value="other">Other</option>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Service Interested In" data-hi="रुचि रखने वाली सेवा" data-te="ఆసక్తి ఉన్న సేవ">Service Interested In</label>
+                                    <select id="contactService" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                        <option value="" data-en="Select a service" data-hi="एक सेवा चुनें" data-te="సేవను ఎంచుకోండి">Select a service</option>
+                                        <option value="software" data-en="💻 Software Development" data-hi="💻 सॉफ्टवेयर विकास" data-te="💻 సాఫ్ట్‌వేర్ డెవలప్‌మెంట్">💻 Software Development</option>
+                                        <option value="ai" data-en="🤖 AI Solutions" data-hi="🤖 AI समाधान" data-te="🤖 AI సొల్యూషన్స్">🤖 AI Solutions</option>
+                                        <option value="marketing" data-en="📈 Digital Growth" data-hi="📈 डिजिटल विकास" data-te="📈 డిజిటల్ గ్రోత్">📈 Digital Growth</option>
+                                        <option value="content" data-en="Content Creation" data-hi="सामग्री निर्माण" data-te="కంటెంట్ క్రియేషన్">Content Creation</option>
+                                        <option value="multiple" data-en="Multiple Services" data-hi="कई सेवाएं" data-te="బహుళ సేవలు">Multiple Services</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea id="contactMessage" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus" placeholder="Tell us about your project..."></textarea>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Message" data-hi="संदेश" data-te="సందేశం">Message</label>
+                                <textarea id="contactMessage" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" data-en="Tell us about your project..." data-hi="हमें अपनी परियोजना के बारे में बताएं..." data-te="మీ ప్రాజెక్ట్ గురించి మాకు చెప్పండి..." placeholder="Tell us about your project..."></textarea>
                             </div>
-                            <button type="submit" id="contactSubmitBtn" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all btn-hover font-semibold">
+                            <button type="submit" id="contactSubmitBtn" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all font-semibold poppins">
                                 <i class="fas fa-paper-plane mr-2"></i>
-                                <span id="contactSubmitText">Send Message</span>
+                                <span id="contactSubmitText" data-en="Send Message" data-hi="संदेश भेजें" data-te="సందేశం పంపండి">Send Message</span>
                             </button>
                         </form>
                         <div id="contactResult" class="mt-6"></div>
@@ -322,15 +768,15 @@
 
                     <!-- Contact Info -->
                     <div class="space-y-8">
-                        <div class="bg-white rounded-2xl shadow-lg p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="bg-gray-50 rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 poppins" data-en="Contact Information" data-hi="संपर्क जानकारी" data-te="సంప్రదింపు సమాచారం">Contact Information</h3>
                             <div class="space-y-6">
                                 <div class="flex items-center">
                                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
                                         <i class="fas fa-envelope text-blue-600"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-gray-800">Email</div>
+                                        <div class="font-semibold text-gray-800" data-en="Email" data-hi="ईमेल" data-te="ఇమెయిల్">Email</div>
                                         <div class="text-gray-600">sairam0510@gmail.com</div>
                                     </div>
                                 </div>
@@ -348,8 +794,8 @@
                                         <i class="fas fa-clock text-purple-600"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-gray-800">Business Hours</div>
-                                        <div class="text-gray-600">Mon - Fri: 9AM - 6PM IST</div>
+                                        <div class="font-semibold text-gray-800" data-en="Business Hours" data-hi="व्यापारिक घंटे" data-te="వ్యాపార గంటలు">Business Hours</div>
+                                        <div class="text-gray-600" data-en="Mon - Fri: 9AM - 6PM IST" data-hi="सोम - शुक्र: सुबह 9 बजे - शाम 6 बजे IST" data-te="సోమ - శుక్ర: ఉదయం 9 గంటలు - సాయంత్రం 6 గంటలు IST">Mon - Fri: 9AM - 6PM IST</div>
                                     </div>
                                 </div>
                             </div>
@@ -357,643 +803,314 @@
 
                         <!-- Newsletter Signup -->
                         <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 text-white">
-                            <h3 class="text-2xl font-bold mb-4">Stay Updated</h3>
-                            <p class="mb-6">Subscribe to our newsletter for the latest tech insights and updates.</p>
+                            <h3 class="text-2xl font-bold mb-4 poppins" data-en="Stay Updated" data-hi="अपडेट रहें" data-te="అప్‌డేట్‌గా ఉండండి">Stay Updated</h3>
+                            <p class="mb-6" data-en="Subscribe to our newsletter for the latest tech insights and updates." data-hi="नवीनतम तकनीकी अंतर्दृष्टि और अपडेट के लिए हमारे न्यूज़लेटर की सदस्यता लें।" data-te="తాజా టెక్ అంతర్దృష్టులు మరియు అప్‌డేట్‌ల కోసం మా న్యూస్‌లెటర్‌కు సబ్‌స్క్రైబ్ చేయండి.">Subscribe to our newsletter for the latest tech insights and updates.</p>
                             <form id="newsletterForm" class="space-y-4">
-                                <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
-                                <button type="submit" id="newsletterBtn" class="w-full bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
-                                    <span id="newsletterBtnText">Subscribe Now</span>
+                                <input type="email" id="newsletterEmail" data-en="Enter your email" data-hi="अपना ईमेल दर्ज करें" data-te="మీ ఇమెయిల్‌ను నమోదు చేయండి" placeholder="Enter your email" required class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                                <button type="submit" id="newsletterBtn" class="w-full bg-white text-blue-600 py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors font-semibold poppins">
+                                    <span id="newsletterBtnText" data-en="Subscribe Now" data-hi="अभी सदस्यता लें" data-te="ఇప్పుడే సబ్‌స్క్రైబ్ చేయండి">Subscribe Now</span>
                                 </button>
                             </form>
                             <div id="newsletterResult" class="mt-4"></div>
+                        </div>
+
+                        <!-- Social Media & Career -->
+                        <div class="bg-gray-50 rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 poppins" data-en="Connect With Us" data-hi="हमसे जुड़ें" data-te="మాతో కనెక్ట్ అవ్వండి">Connect With Us</h3>
+                            <div class="flex space-x-4 mb-6">
+                                <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-blue-800 text-white rounded-lg flex items-center justify-center hover:bg-blue-900 transition-colors">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                            <div class="border-t pt-6">
+                                <h4 class="font-bold text-gray-800 mb-3" data-en="Join Our Team" data-hi="हमारी टीम में शामिल हों" data-te="మా టీమ్‌లో చేరండి">Join Our Team</h4>
+                                <p class="text-gray-600 mb-4" data-en="We're always looking for talented individuals to join our growing team." data-hi="हम हमेशा अपनी बढ़ती टीम में शामिल होने के लिए प्रतिभाशाली व्यक्तियों की तलाश में रहते हैं।" data-te="మేము ఎల్లప్పుడూ మా పెరుగుతున్న టీమ్‌లో చేరడానికి ప్రతిభావంతులైన వ్యక్తుల కోసం వెతుకుతున్నాము.">We're always looking for talented individuals to join our growing team.</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold" data-en="View Open Positions →" data-hi="खुली पदों को देखें →" data-te="ఓపెన్ పొజిషన్లను చూడండి →">View Open Positions →</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Employee Login Modal -->
-    <div id="employeeLoginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-screen overflow-y-auto">
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">Employee Login</h2>
-                    <button onclick="closeEmployeeLogin()" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-xl">S</span>
+                            </div>
+                            <span class="ml-3 text-xl font-bold poppins">SRMsolutions</span>
+                        </div>
+                        <p class="text-gray-400 mb-4" data-en="Transforming businesses through innovative technology and marketing solutions." data-hi="नवाचार प्रौद्योगिकी और विपणन समाधानों के माध्यम से व्यापारों को बदलना।" data-te="వినూత్న టెక్నాలజీ మరియు మార్కెటింగ్ సొల్యూషన్ల ద్వారా వ్యాపారాలను మార్చడం.">Transforming businesses through innovative technology and marketing solutions.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 poppins" data-en="Services" data-hi="सेवाएं" data-te="సేవలు">Services</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors" data-en="💻 Software Development" data-hi="💻 सॉफ्टवेयर विकास" data-te="💻 సాఫ్ట్‌వేర్ డెవలప్‌మెంట్">💻 Software Development</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-en="🤖 AI Solutions" data-hi="🤖 AI समाधान" data-te="🤖 AI సొల్యూషన్స్">🤖 AI Solutions</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-en="📈 Digital Growth" data-hi="📈 डिजिटल विकास" data-te="📈 డిజిటల్ గ్రోత్">📈 Digital Growth</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-en="Content Creation" data-hi="सामग्री निर्माण" data-te="కంటెంట్ క్రియేషన్">Content Creation</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 poppins" data-en="Company" data-hi="कंपनी" data-te="కంపెనీ">Company</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#about" class="hover:text-white transition-colors" data-en="About Us" data-hi="हमारे बारे में" data-te="మా గురించి">About Us</a></li>
+                            <li><a href="#portfolio" class="hover:text-white transition-colors" data-en="Portfolio" data-hi="पोर्टफोलियो" data-te="పోర్ట్‌ఫోలియో">Portfolio</a></li>
+                            <li><a href="#contact" class="hover:text-white transition-colors" data-en="Contact" data-hi="संपर्क" data-te="సంప్రదించండి">Contact</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-en="Careers" data-hi="करियर" data-te="కెరీర్లు">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 poppins" data-en="Contact Info" data-hi="संपर्क जानकारी" data-te="సంప్రదింపు సమాచారం">Contact Info</h3>
+                        <div class="space-y-2 text-gray-400">
+                            <p><i class="fas fa-envelope mr-2"></i>sairam0510@gmail.com</p>
+                            <p><i class="fab fa-whatsapp mr-2"></i>+91 8096660643</p>
+                            <p><i class="fas fa-clock mr-2"></i><span data-en="Mon - Fri: 9AM - 6PM IST" data-hi="सोम - शुक्र: सुबह 9 बजे - शाम 6 बजे IST" data-te="సోమ - శుక్ర: ఉదయం 9 గంటలు - సాయంత్రం 6 గంటలు IST">Mon - Fri: 9AM - 6PM IST</span></p>
+                        </div>
+                    </div>
                 </div>
-
-                <form id="employeeLoginForm" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Employee ID</label>
-                        <input type="text" id="employeeId" placeholder="e.g., EMP001" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                        <input type="email" id="employeeEmail" placeholder="your.email@srmsolutions.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                        <div class="relative">
-                            <input type="password" id="employeePassword" placeholder="Enter your password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus pr-12">
-                            <button type="button" onclick="togglePassword('employeePassword')" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Department</label>
-                        <select id="employeeDepartment" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all input-focus">
-                            <option value="">Select Department</option>
-                            <option value="development">Development</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="content">Content</option>
-                            <option value="ai">AI & Innovation</option>
-                            <option value="management">Management</option>
-                            <option value="hr">Human Resources</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" id="employeeLoginBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all btn-hover">
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        <span id="employeeLoginBtnText">Login to Dashboard</span>
-                    </button>
-                </form>
-
-                <div id="employeeLoginResult" class="mt-6"></div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p data-en="© 2025 SRMsolutions. All rights reserved. Built with ❤️ for innovation." data-hi="© 2025 SRMsolutions। सभी अधिकार सुरक्षित। नवाचार के लिए ❤️ के साथ निर्मित।" data-te="© 2025 SRMsolutions. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి. ఆవిష్కరణ కోసం ❤️తో నిర్మించబడింది.">&copy; 2025 SRMsolutions. All rights reserved. Built with ❤️ for innovation.</p>
+                </div>
             </div>
-        </div>
-    </div>
+        </footer>
 
-    <!-- Employee Dashboard -->
-    <div id="employeeDashboard" class="hidden min-h-screen bg-gray-50">
-        <!-- Dashboard Header -->
-        <header class="bg-white shadow-sm border-b">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">S</span>
-                        </div>
-                        <div class="ml-4">
-                            <h1 class="text-2xl font-bold text-gray-900">SRMsolutions Dashboard</h1>
-                            <p class="text-sm text-gray-600">Employee Portal</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <span id="welcomeText" class="text-gray-700 font-medium"></span>
-                        <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors">
-                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+        <!-- Service Modal -->
+        <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="serviceModalTitle" class="text-3xl font-bold text-gray-800 poppins"></h2>
+                        <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
                         </button>
                     </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <!-- Dashboard Stats -->
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <!-- Contact Management -->
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-envelope text-white text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-800">Contact Forms</h3>
-                            <p class="text-sm text-gray-600">Manage inquiries</p>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">New:</span>
-                            <span id="newContacts" class="font-semibold text-green-600">-</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Total:</span>
-                            <span id="totalContacts" class="font-semibold">-</span>
-                        </div>
-                    </div>
-                    <button onclick="loadContacts()" class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition-colors">
-                        View Contacts
-                    </button>
-                </div>
-
-                <!-- Newsletter Management -->
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-newspaper text-white text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-800">Newsletter</h3>
-                            <p class="text-sm text-gray-600">Manage subscribers</p>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Active:</span>
-                            <span id="activeSubscribers" class="font-semibold text-purple-600">-</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Total:</span>
-                            <span id="totalSubscribers" class="font-semibold">-</span>
-                        </div>
-                    </div>
-                    <button onclick="loadSubscribers()" class="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg transition-colors">
-                        View Subscribers
-                    </button>
-                </div>
-
-                <!-- System Status -->
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-server text-white text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-800">System Status</h3>
-                            <p class="text-sm text-gray-600">Backend health</p>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">API:</span>
-                            <span id="apiStatus" class="font-semibold">Checking...</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Database:</span>
-                            <span id="dbStatus" class="font-semibold">Checking...</span>
-                        </div>
-                    </div>
-                    <button onclick="checkSystemHealth()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition-colors">
-                        Check Health
-                    </button>
-                </div>
-            </div>
-
-            <!-- Data Display Area -->
-            <div id="dataDisplay" class="bg-white rounded-xl p-6 shadow-lg">
-                <h3 class="text-xl font-semibold text-gray-800 mb-4">Data Management</h3>
-                <div id="dataContent" class="text-gray-600">
-                    Select an option above to view data...
+                    <div id="serviceModalContent"></div>
                 </div>
             </div>
         </div>
+
+        <!-- WhatsApp Float Button -->
+        <a href="https://wa.me/918096660643?text=Hello%20SRMsolutions!%20I'm%20interested%20in%20your%20services." target="_blank" class="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Notification Container -->
+        <div id="notifications" class="fixed top-4 right-4 z-50 space-y-2"></div>
     </div>
-
-    <!-- Service Modal -->
-    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-screen overflow-y-auto">
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 id="serviceModalTitle" class="text-3xl font-bold text-gray-800"></h2>
-                    <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div id="serviceModalContent"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">S</span>
-                        </div>
-                        <span class="ml-3 text-xl font-bold">SRMsolutions</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Transforming businesses through innovative technology and marketing solutions.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-facebook text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Software Development</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Digital Marketing</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Content Creation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">AI Solutions</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <div class="space-y-2 text-gray-400">
-                        <p><i class="fas fa-envelope mr-2"></i>sairam0510@gmail.com</p>
-                        <p><i class="fab fa-whatsapp mr-2"></i>+91 8096660643</p>
-                        <p><i class="fas fa-clock mr-2"></i>Mon - Fri: 9AM - 6PM IST</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 SRMsolutions. All rights reserved. Built with ❤️ for innovation.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Notification Container -->
-    <div id="notifications" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
     <script>
-        // Configuration
-        const baseUrl = "https://your-render-service-url.com/api"; // Replace with your backend URL
-        let currentUser = null;
-        let authToken = null;
-
-        // Check if user is already logged in
-        document.addEventListener('DOMContentLoaded', function() {
-            const token = localStorage.getItem('authToken');
-            const user = localStorage.getItem('currentUser');
-            
-            if (token && user) {
-                authToken = token;
-                currentUser = JSON.parse(user);
-                showEmployeeDashboard();
+        // Language translations
+        const translations = {
+            en: {
+                typingTexts: [
+                    "From innovative software solutions to AI-powered marketing strategies...",
+                    "We transform your ideas into digital success stories...",
+                    "Your trusted technology and marketing partner..."
+                ]
+            },
+            hi: {
+                typingTexts: [
+                    "नवाचार सॉफ्टवेयर समाधान से लेकर AI-संचालित विपणन रणनीतियों तक...",
+                    "हम आपके विचारों को डिजिटल सफलता की कहानियों में बदल देते हैं...",
+                    "आपका विश्वसनीय प्रौद्योगिकी और विपणन साझीदार..."
+                ]
+            },
+            te: {
+                typingTexts: [
+                    "వినూత్న సాఫ్ట్‌వేర్ సొల్యూషన్స్ నుండి AI-శక్తితో కూడిన మార్కెటింగ్ వ్యూహాల వరకు...",
+                    "మేము మీ ఆలోచనలను డిజిటల్ విజయ కథలుగా మారుస్తాము...",
+                    "మీ నమ్మకమైన టెక్నాలజీ మరియు మార్కెటింగ్ భాగస్వామి..."
+                ]
             }
+        };
+
+        let currentLanguage = 'en';
+        let typingIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        // Intro Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show main website initially hidden
+            const mainWebsite = document.getElementById('mainWebsite');
+            const introScreen = document.getElementById('introScreen');
             
-            checkSystemHealth();
+            // Auto-redirect after 10 seconds if user doesn't click continue
+            setTimeout(() => {
+                if (introScreen.style.display !== 'none') {
+                    proceedToMainSite();
+                }
+            }, 10000);
         });
+
+        // Function to proceed to main site
+        function proceedToMainSite() {
+            const mainWebsite = document.getElementById('mainWebsite');
+            const introScreen = document.getElementById('introScreen');
+            
+            // Add smooth fade transition
+            introScreen.classList.add('fade-out');
+            
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+                mainWebsite.style.display = 'block';
+                mainWebsite.style.opacity = '1';
+                
+                // Initialize main website features
+                startTypingAnimation();
+                startStatsCounter();
+                initScrollEffects();
+                
+                // Smooth scroll to top of main content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update URL hash to indicate main page
+                window.location.hash = '#home';
+            }, 1000);
+        }
+
+        // Initialize scroll effects
+        function initScrollEffects() {
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Typing Animation
+        function startTypingAnimation() {
+            const typingElement = document.getElementById('typingText');
+            const currentTexts = translations[currentLanguage].typingTexts;
+            const currentText = currentTexts[typingIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                typingIndex = (typingIndex + 1) % currentTexts.length;
+            }
+
+            setTimeout(startTypingAnimation, typeSpeed);
+        }
+
+        // Stats Counter Animation
+        function startStatsCounter() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Language Functions
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        function changeLanguage(lang, displayName) {
+            currentLanguage = lang;
+            document.getElementById('currentLanguage').textContent = displayName;
+            document.getElementById('languageMenu').classList.remove('active');
+            
+            // Update all text elements
+            const elements = document.querySelectorAll(`[data-${lang}]`);
+            elements.forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = element.getAttribute(`data-${lang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Restart typing animation with new language
+            typingIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+        }
 
         // Navigation Functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
-        }
-
-        function showEmployeeLogin() {
-            document.getElementById('employeeLoginModal').classList.remove('hidden');
-        }
-
-        function closeEmployeeLogin() {
-            document.getElementById('employeeLoginModal').classList.add('hidden');
-        }
-
-        function showEmployeeDashboard() {
-            document.getElementById('mainWebsite').classList.add('hidden');
-            document.getElementById('employeeDashboard').classList.remove('hidden');
-            document.getElementById('employeeLoginModal').classList.add('hidden');
-            document.getElementById('welcomeText').textContent = `Welcome, ${currentUser.name}`;
-            loadDashboardStats();
-        }
-
-        // Contact Form Handler
-        document.getElementById("contactForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('contactSubmitBtn');
-            const submitText = document.getElementById('contactSubmitText');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitText.textContent = 'Sending...';
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + submitText.textContent;
-
-            const formData = {
-                name: document.getElementById("contactName").value.trim(),
-                email: document.getElementById("contactEmail").value.trim(),
-                phone: document.getElementById("contactPhone").value.trim(),
-                service: document.getElementById("contactService").value,
-                message: document.getElementById("contactMessage").value.trim()
-            };
-
-            try {
-                const response = await fetch(`${baseUrl}/contact`, {
-                    method: "POST",
-                    headers: { 
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const data = await response.json();
-                
-                if (data.success) {
-                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-                    document.getElementById('contactForm').reset();
-                    displayResult('contactResult', data, true);
-                } else {
-                    showNotification(data.message || 'Failed to send message. Please try again.', 'error');
-                    displayResult('contactResult', data, false);
-                }
-            } catch (error) {
-                console.error('Contact form error:', error);
-                showNotification('Connection error. Please check if the backend is running.', 'error');
-                displayResult('contactResult', { 
-                    success: false, 
-                    message: 'Connection error. Please try again or contact us directly.' 
-                }, false);
-            } finally {
-                // Reset button state
-                submitBtn.disabled = false;
-                submitText.textContent = 'Send Message';
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>' + submitText.textContent;
-            }
-        });
-
-        // Newsletter Form Handler
-        document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            const newsletterBtn = document.getElementById('newsletterBtn');
-            const newsletterBtnText = document.getElementById('newsletterBtnText');
-            
-            // Show loading state
-            newsletterBtn.disabled = true;
-            newsletterBtnText.textContent = 'Subscribing...';
-
-            const email = document.getElementById("newsletterEmail").value.trim();
-
-            try {
-                const response = await fetch(`${baseUrl}/newsletter/subscribe`, {
-                    method: "POST",
-                    headers: { 
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify({ email })
-                });
-
-                const data = await response.json();
-                
-                if (data.success) {
-                    showNotification('Successfully subscribed to newsletter!', 'success');
-                    document.getElementById('newsletterForm').reset();
-                    displayResult('newsletterResult', data, true);
-                } else {
-                    showNotification(data.message || 'Subscription failed. Please try again.', 'error');
-                    displayResult('newsletterResult', data, false);
-                }
-            } catch (error) {
-                console.error('Newsletter subscription error:', error);
-                showNotification('Connection error. Please try again.', 'error');
-                displayResult('newsletterResult', { 
-                    success: false, 
-                    message: 'Connection error. Please try again.' 
-                }, false);
-            } finally {
-                // Reset button state
-                newsletterBtn.disabled = false;
-                newsletterBtnText.textContent = 'Subscribe Now';
-            }
-        });
-
-        // Employee Login Form Handler
-        document.getElementById("employeeLoginForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            const loginBtn = document.getElementById('employeeLoginBtn');
-            const loginBtnText = document.getElementById('employeeLoginBtnText');
-            
-            // Show loading state
-            loginBtn.disabled = true;
-            loginBtnText.textContent = 'Logging in...';
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + loginBtnText.textContent;
-
-            const employeeId = document.getElementById("employeeId").value.trim();
-            const email = document.getElementById("employeeEmail").value.trim();
-            const password = document.getElementById("employeePassword").value;
-            const department = document.getElementById("employeeDepartment").value;
-
-            try {
-                const response = await fetch(`${baseUrl}/auth/login`, {
-                    method: "POST",
-                    headers: { 
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify({ 
-                        employeeId: employeeId.toUpperCase(), 
-                        email: email.toLowerCase(), 
-                        password, 
-                        department 
-                    })
-                });
-
-                const data = await response.json();
-                
-                if (data.success) {
-                    // Store authentication data
-                    authToken = data.token;
-                    currentUser = data.user;
-                    localStorage.setItem('authToken', authToken);
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                    
-                    showNotification('Login successful! Welcome back.', 'success');
-                    showEmployeeDashboard();
-                } else {
-                    showNotification(data.message || 'Login failed. Please check your credentials.', 'error');
-                    displayResult('employeeLoginResult', data, false);
-                }
-            } catch (error) {
-                console.error('Login error:', error);
-                showNotification('Connection error. Please check if the backend is running.', 'error');
-                displayResult('employeeLoginResult', { 
-                    success: false, 
-                    message: 'Connection error. Please try again.' 
-                }, false);
-            } finally {
-                // Reset button state
-                loginBtn.disabled = false;
-                loginBtnText.textContent = 'Login to Dashboard';
-                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>' + loginBtnText.textContent;
-            }
-        });
-
-        // Dashboard Functions
-        async function loadDashboardStats() {
-            try {
-                // Load contacts count
-                const contactsResponse = await fetch(`${baseUrl}/contact?limit=1`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-                if (contactsResponse.ok) {
-                    const contactsData = await contactsResponse.json();
-                    document.getElementById('totalContacts').textContent = contactsData.pagination?.total || 0;
-                    document.getElementById('newContacts').textContent = '0'; // You can filter by status
-                }
-
-                // Load subscribers count
-                const subscribersResponse = await fetch(`${baseUrl}/newsletter/subscribers?limit=1`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-                if (subscribersResponse.ok) {
-                    const subscribersData = await subscribersResponse.json();
-                    document.getElementById('totalSubscribers').textContent = subscribersData.pagination?.total || 0;
-                    document.getElementById('activeSubscribers').textContent = subscribersData.pagination?.total || 0;
-                }
-            } catch (error) {
-                console.error('Error loading dashboard stats:', error);
-            }
-        }
-
-        async function loadContacts() {
-            try {
-                const response = await fetch(`${baseUrl}/contact`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    displayContacts(data.contacts);
-                } else {
-                    showNotification('Failed to load contacts', 'error');
-                }
-            } catch (error) {
-                console.error('Error loading contacts:', error);
-                showNotification('Error loading contacts', 'error');
-            }
-        }
-
-        async function loadSubscribers() {
-            try {
-                const response = await fetch(`${baseUrl}/newsletter/subscribers`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    displaySubscribers(data.subscribers);
-                } else {
-                    showNotification('Failed to load subscribers', 'error');
-                }
-            } catch (error) {
-                console.error('Error loading subscribers:', error);
-                showNotification('Error loading subscribers', 'error');
-            }
-        }
-
-        function displayContacts(contacts) {
-            const content = document.getElementById('dataContent');
-            if (!contacts || contacts.length === 0) {
-                content.innerHTML = '<p class="text-gray-500">No contacts found.</p>';
-                return;
-            }
-
-            const html = `
-                <h4 class="text-lg font-semibold mb-4">Contact Form Submissions</h4>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Service</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            ${contacts.map(contact => `
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-900">${contact.name}</td>
-                                    <td class="px-4 py-3 text-sm text-gray-600">${contact.email}</td>
-                                    <td class="px-4 py-3 text-sm text-gray-600">${contact.service || 'N/A'}</td>
-                                    <td class="px-4 py-3">
-                                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(contact.status)}">
-                                            ${contact.status}
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-3 text-sm text-gray-600">${new Date(contact.createdAt).toLocaleDateString()}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>
-            `;
-            content.innerHTML = html;
-        }
-
-        function displaySubscribers(subscribers) {
-            const content = document.getElementById('dataContent');
-            if (!subscribers || subscribers.length === 0) {
-                content.innerHTML = '<p class="text-gray-500">No subscribers found.</p>';
-                return;
-            }
-
-            const html = `
-                <h4 class="text-lg font-semibold mb-4">Newsletter Subscribers</h4>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Subscribed</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Last Email</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            ${subscribers.map(subscriber => `
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-900">${subscriber.email}</td>
-                                    <td class="px-4 py-3">
-                                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(subscriber.status)}">
-                                            ${subscriber.status}
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-3 text-sm text-gray-600">${new Date(subscriber.createdAt).toLocaleDateString()}</td>
-                                    <td class="px-4 py-3 text-sm text-gray-600">${subscriber.lastEmailSent ? new Date(subscriber.lastEmailSent).toLocaleDateString() : 'Never'}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>
-            `;
-            content.innerHTML = html;
-        }
-
-        function getStatusColor(status) {
-            const colors = {
-                'new': 'bg-blue-100 text-blue-800',
-                'active': 'bg-green-100 text-green-800',
-                'contacted': 'bg-yellow-100 text-yellow-800',
-                'completed': 'bg-green-100 text-green-800',
-                'unsubscribed': 'bg-red-100 text-red-800'
-            };
-            return colors[status] || 'bg-gray-100 text-gray-800';
-        }
-
-        async function checkSystemHealth() {
-            try {
-                const response = await fetch(`${baseUrl}/health`);
-                if (response.ok) {
-                    document.getElementById('apiStatus').innerHTML = '<span class="text-green-600">✅ Online</span>';
-                    document.getElementById('dbStatus').innerHTML = '<span class="text-green-600">✅ Connected</span>';
-                } else {
-                    throw new Error('API not responding');
-                }
-            } catch (error) {
-                document.getElementById('apiStatus').innerHTML = '<span class="text-red-600">❌ Offline</span>';
-                document.getElementById('dbStatus').innerHTML = '<span class="text-red-600">❌ Error</span>';
-            }
         }
 
         // Service Modal Functions
@@ -1004,7 +1121,7 @@
             
             const serviceData = {
                 software: {
-                    title: 'Software Development',
+                    title: '💻 Software Development',
                     content: `
                         <div class="space-y-6">
                             <p class="text-lg text-gray-600">We create custom software solutions that drive business growth and efficiency.</p>
@@ -1048,8 +1165,53 @@
                         </div>
                     `
                 },
+                ai: {
+                    title: '🤖 AI Solutions',
+                    content: `
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-600">Harness the power of artificial intelligence to automate processes and gain valuable insights.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">AI Automation</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Chatbots & virtual assistants</li>
+                                        <li>• Process automation</li>
+                                        <li>• Document processing</li>
+                                        <li>• Customer service automation</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-3">Data Analytics</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Predictive analytics</li>
+                                        <li>• Machine learning models</li>
+                                        <li>• Business intelligence</li>
+                                        <li>• Data visualization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">AI Benefits for Your Business</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>🤖 24/7 automated customer support</li>
+                                    <li>📊 Data-driven decision making</li>
+                                    <li>⚡ Increased operational efficiency</li>
+                                    <li>💡 Predictive insights & trends</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="#contact" onclick="closeServiceModal()" class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors inline-block">
+                                    Implement AI Solutions
+                                </a>
+                            </div>
+                        </div>
+                    `
+                },
                 marketing: {
-                    title: 'Digital Marketing',
+                    title: '📈 Digital Growth',
                     content: `
                         <div class="space-y-6">
                             <p class="text-lg text-gray-600">Boost your online presence with our data-driven marketing strategies.</p>
@@ -1098,220 +1260,4 @@
                     content: `
                         <div class="space-y-6">
                             <p class="text-lg text-gray-600">Engaging content that tells your story and connects with your audience.</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3">Written Content</h4>
-                                    <ul class="space-y-2 text-gray-600">
-                                        <li>• Blog posts & articles</li>
-                                        <li>• Website copywriting</li>
-                                        <li>• Email newsletters</li>
-                                        <li>• Social media content</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3">Visual Content</h4>
-                                    <ul class="space-y-2 text-gray-600">
-                                        <li>• Graphic design</li>
-                                        <li>• Video production</li>
-                                        <li>• Infographics</li>
-                                        <li>• Brand identity design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-purple-50 p-6 rounded-lg">
-                                <h4 class="font-bold text-lg mb-3">Content That Converts</h4>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li>🎨 Professional design & branding</li>
-                                    <li>📝 SEO-optimized content</li>
-                                    <li>🎥 Engaging video content</li>
-                                    <li>📱 Social media ready formats</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="text-center">
-                                <a href="#contact" onclick="closeServiceModal()" class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors inline-block">
-                                    Create Amazing Content
-                                </a>
-                            </div>
-                        </div>
-                    `
-                },
-                ai: {
-                    title: 'AI Solutions',
-                    content: `
-                        <div class="space-y-6">
-                            <p class="text-lg text-gray-600">Harness the power of AI to automate processes and gain valuable insights.</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3">AI Automation</h4>
-                                    <ul class="space-y-2 text-gray-600">
-                                        <li>• Chatbots & virtual assistants</li>
-                                        <li>• Process automation</li>
-                                        <li>• Document processing</li>
-                                        <li>• Customer service automation</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3">Data Analytics</h4>
-                                    <ul class="space-y-2 text-gray-600">
-                                        <li>• Predictive analytics</li>
-                                        <li>• Machine learning models</li>
-                                        <li>• Business intelligence</li>
-                                        <li>• Data visualization</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-orange-50 p-6 rounded-lg">
-                                <h4 class="font-bold text-lg mb-3">AI Benefits for Your Business</h4>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li>🤖 24/7 automated customer support</li>
-                                    <li>📊 Data-driven decision making</li>
-                                    <li>⚡ Increased operational efficiency</li>
-                                    <li>💡 Predictive insights & trends</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="text-center">
-                                <a href="#contact" onclick="closeServiceModal()" class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors inline-block">
-                                    Implement AI Solutions
-                                </a>
-                            </div>
-                        </div>
-                    `
-                }
-            };
-            
-            title.textContent = serviceData[service].title;
-            content.innerHTML = serviceData[service].content;
-            modal.classList.remove('hidden');
-        }
-
-        function closeServiceModal() {
-            document.getElementById('serviceModal').classList.add('hidden');
-        }
-
-        // Utility Functions
-        function togglePassword(inputId) {
-            const passwordInput = document.getElementById(inputId);
-            const icon = passwordInput.nextElementSibling.querySelector('i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.className = 'fas fa-eye-slash';
-            } else {
-                passwordInput.type = 'password';
-                icon.className = 'fas fa-eye';
-            }
-        }
-
-
-
-        function logout() {
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('currentUser');
-            authToken = null;
-            currentUser = null;
-            
-            document.getElementById('mainWebsite').classList.remove('hidden');
-            document.getElementById('employeeDashboard').classList.add('hidden');
-            
-            // Clear forms
-            document.getElementById('employeeLoginForm').reset();
-            document.getElementById('employeeLoginResult').innerHTML = '';
-            
-            showNotification('Logged out successfully', 'success');
-        }
-
-        function displayResult(elementId, data, isSuccess) {
-            const element = document.getElementById(elementId);
-            const bgColor = isSuccess ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800';
-            const icon = isSuccess ? 'fas fa-check-circle text-green-500' : 'fas fa-exclamation-circle text-red-500';
-            
-            element.innerHTML = `
-                <div class="p-4 border rounded-lg ${bgColor}">
-                    <div class="flex items-start">
-                        <i class="${icon} mt-0.5 mr-3"></i>
-                        <div>
-                            <p class="font-medium">${data.message || (isSuccess ? 'Success!' : 'Error occurred')}</p>
-                            ${data.errors ? `<ul class="mt-2 text-sm list-disc list-inside">${data.errors.map(err => `<li>${err.message}</li>`).join('')}</ul>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function showNotification(message, type = 'info') {
-            const notifications = document.getElementById('notifications');
-            const id = Date.now();
-            
-            const colors = {
-                success: 'bg-green-500',
-                error: 'bg-red-500',
-                info: 'bg-blue-500',
-                warning: 'bg-yellow-500'
-            };
-            
-            const icons = {
-                success: 'fas fa-check',
-                error: 'fas fa-times',
-                info: 'fas fa-info',
-                warning: 'fas fa-exclamation'
-            };
-            
-            const notification = document.createElement('div');
-            notification.id = `notification-${id}`;
-            notification.className = `notification ${colors[type]} text-white px-6 py-4 rounded-lg shadow-lg max-w-sm`;
-            notification.innerHTML = `
-                <div class="flex items-center">
-                    <i class="${icons[type]} mr-3"></i>
-                    <span class="flex-1">${message}</span>
-                    <button onclick="removeNotification(${id})" class="ml-4 text-white hover:text-gray-200">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            `;
-            
-            notifications.appendChild(notification);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => removeNotification(id), 5000);
-        }
-
-        function removeNotification(id) {
-            const notification = document.getElementById(`notification-${id}`);
-            if (notification) {
-                notification.style.animation = 'slideOut 0.3s ease-out forwards';
-                setTimeout(() => notification.remove(), 300);
-            }
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add slideOut animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c42e4215c9a4a',t:'MTc1NjgwODI4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c6b3fd54916dc',t:'MTc1NjgwOTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
