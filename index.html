@@ -981,23 +981,20 @@
             const mainWebsite = document.getElementById('mainWebsite');
             const introScreen = document.getElementById('introScreen');
             
-            // Add smooth fade transition
             introScreen.classList.add('fade-out');
             
             setTimeout(() => {
                 introScreen.style.display = 'none';
                 mainWebsite.style.display = 'block';
                 mainWebsite.style.opacity = '1';
-                
+
                 // Initialize main website features
                 startTypingAnimation();
                 startStatsCounter();
                 initScrollEffects();
-                
-                // Smooth scroll to top of main content
+
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Update URL hash to indicate main page
+
                 window.location.hash = '#home';
             }, 1000);
         }
@@ -1260,4 +1257,4 @@
                     content: `
                         <div class="space-y-6">
                             <p class="text-lg text-gray-600">Engaging content that tells your story and connects with your audience.</p>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c6b3fd54916dc',t:'MTc1NjgwOTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978c7c62b7a43f03',t:'MTc1NjgxMDY0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
