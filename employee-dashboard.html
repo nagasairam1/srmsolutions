@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - SRMsolutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dashboard {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .card {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .logout {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h2 class="logo">S<span>R</span>M<span>solutions</span></h2>
+    </div>
+  </header>
+
+  <div class="dashboard">
+    <div class="card">
+      <h2>Welcome, <span id="empName"></span>!</h2>
+      <p>You are logged in as: <strong id="empId"></strong></p>
+      <p>This is your secure employee dashboard. Access internal tools, projects, and resources.</p>
+      <a href="#" class="btn">View Tasks</a>
+      <a href="guides/Humanised_Digital_Transformation_Guide_2024.pdf" class="btn secondary" target="_blank">Download Guide</a>
+      <br>
+      <button class="logout" onclick="logout()">Log Out</button>
+    </div>
+  </div>
+
+  <script>
+    const empNames = {
+      "EMP001": "Sairam (Admin)",
+      "EMP002": "Ravi (Development)",
+      "EMP003": "Priya (Marketing)",
+      "EMP004": "Arjun (Content)",
+      "EMP005": "Neha (AI)",
+      "EMP006": "Anjali (HR)"
+    };
+
+    const empId = localStorage.getItem("loggedInEmp");
+    if (!empId) {
+      window.location.href = "employee-login.html";
+    } else {
+      document.getElementById("empId").textContent = empId;
+      document.getElementById("empName").textContent = empNames[empId] || "Team Member";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInEmp");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
